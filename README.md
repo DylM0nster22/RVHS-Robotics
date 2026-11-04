@@ -14,12 +14,12 @@ build step required to host it.
 
 | Page | Purpose |
 | --- | --- |
-| `index.html` | Home, mission, what we do, season, robot, sponsor CTA, gallery preview |
-| `about.html` | Story, values, subteams, mentors, school information, FAQ |
-| `robots.html` | Build process, subsystems, match day, safety, season archive |
-| `sponsors.html` | Why sponsor, levels, benefits table, partner wall, inquiry form, FAQ |
-| `gallery.html` | Team photos/flyers from Instagram with a keyboard-friendly lightbox |
-| `join.html` | Student, parent, and mentor paths, meeting info, interest form, FAQ |
+| `index.html` | Home, what students do, shop photos, sponsor CTA, meeting CTA |
+| `about.html` | Club story, student work, meeting details, FAQ |
+| `robots.html` | Current build, CAD and shop photos, build process, shop rules, next steps |
+| `sponsors.html` | Why sponsor, parts costs, levels, benefits table, inquiry form, FAQ |
+| `gallery.html` | All team photos and flyers from Instagram, with a keyboard-friendly lightbox |
+| `join.html` | Student and parent/mentor info, meeting details, interest form, FAQ |
 | `contact.html` | Contact methods, general inquiry form, map |
 | `credits.html` | Photo, font, and illustration credits |
 | `accessibility.html` | Accessibility statement and how to request help |
@@ -87,19 +87,19 @@ before the site goes live.
 4. **Second season / combat robotics.** The copy is based on the November 2026 post
    ("2nd year of club robotics", `#combatrobotics`). Adjust the story and FAQ if the
    program changes.
-5. **Sponsorship levels and prices.** The four levels ($250 / $500 / $1,000 / $2,500+)
-   and benefits are recommendations. Adjust them in `tools/pages/sponsors.py`, the
-   packet, and the PDF before soliciting sponsors.
-6. **Budget percentages.** The "typical season allocation" chart is illustrative
-   (35/30/20/10/5). Replace it with the team's actual budget when available.
-7. **Sponsor logos.** The partner wall currently says "Your logo here." Add real
-   logos only after commitments are confirmed and the school/district approves their
-   use.
+5. **Sponsorship levels and prices.** The four levels ($100 / $250 / $500 / $1,000)
+   and benefits are realistic starting points, not confirmed numbers. Adjust them in
+   `tools/pages/sponsors.py`, the packet, and the PDF before soliciting sponsors.
+6. **Parts costs.** The "What your money buys" list is a ballpark range for common
+   parts and fees. Replace it with the team's actual quotes or budget when available.
+7. **Sponsor logos.** There is no partner wall until sponsors are confirmed. Add one
+   only after commitments are confirmed and the school/district approves the logos.
 8. **Instagram link.** The site links to <https://www.instagram.com/rv.robotics/>.
    Change `INSTAGRAM` in `tools/rvsite.py` if the handle changes.
-9. **Photos.** All photos and flyers are from the team's Instagram. Add new photos to
-   `source/instagram/` and run the image script (below), then update the gallery and
-   captions.
+9. **Photos.** All photos and flyers are from the team's Instagram, including the full
+   second-post carousel (shop, CAD, electronics, soldering, and the assembled robot).
+   Add new photos to `source/instagram/` and run the image script (below), then update
+   the gallery and captions.
 10. **Logo.** The official team logo is in `source/logo.jpg`. Re-run the logo script
     if a higher-resolution or updated version arrives.
 11. **District approval.** School-hosted sites usually need approval for the logo,
@@ -109,8 +109,8 @@ before the site goes live.
 
 The site intentionally does **not** invent student counts, mentor counts, awards, or
 competition results. The team facts shown (second season, Room 408, grades 9–12,
-zero experience required) come from the team's Instagram. Sponsor prices and budget
-percentages are editable planning figures, not confirmed numbers.
+no experience required) come from the team's Instagram. Sponsor prices and parts
+costs are editable planning figures, not confirmed numbers.
 
 ---
 
@@ -143,15 +143,17 @@ If you choose this route, stop using the generator.
   `join.py`, `contact.py`, `credits.py`, `accessibility.py`, `notfound.py`,
   `packet.py`.
 - `css/site.css` — all site styles and responsive breakpoints.
-- `js/site.js` — mobile navigation, reveal animations, counters, lightbox,
-  tier prefill, and mailto forms.
+- `js/site.js` — mobile navigation, reveal animations, lightbox, tier prefill,
+  and mailto forms.
 
 ---
 
 ## Images and logo
 
-The team's Instagram source images are in `source/instagram/`. The site uses optimized
-`.webp` versions in `assets/img/`.
+The team's Instagram source images are in `source/instagram/`. The folder now includes
+the full second-post carousel: the shop bench, CAD screenshots, two student photos,
+electronics, soldering, the assembled robot, the printed armor, and both flyers. The
+site uses optimized `.webp` versions in `assets/img/`.
 
 To re-crop and re-compress after adding new source photos:
 
@@ -185,15 +187,16 @@ The packet is designed as two US Letter pages. To regenerate the PDF from
 `sponsor-packet.html` with Chrome or Edge:
 
 ```powershell
+$pdf = (Resolve-Path 'assets').Path + '\RVRobotics-Sponsorship-Packet.pdf'
+$html = (Resolve-Path 'sponsor-packet.html').Path -replace '\\','/'
 & "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --headless=new --disable-gpu --no-pdf-header-footer `
-  --print-to-pdf="assets\RVRobotics-Sponsorship-Packet.pdf" `
-  "file:///$((Resolve-Path 'sponsor-packet.html').Path -replace '\\','/')"
+  --print-to-pdf="$pdf" "file:///$html"
 ```
 
 Or open `sponsor-packet.html` in a browser and choose **Print / Save as PDF** (the
 page has a button for it). Keep the **Letter** paper size and **Background graphics**
-enabled so the green/gold sections print.
+enabled so the green/silver sections print.
 
 After changing prices, benefits, or contact details in `tools/pages/packet.py`, run
 `python tools/build.py` and then regenerate the PDF.
@@ -224,7 +227,10 @@ the relevant component. The statement page invites visitors to report barriers.
 - **Meetings:** Thursdays and Fridays, Room 408 (source: team Instagram).
 - **Instagram:** [@rv.robotics](https://www.instagram.com/rv.robotics/).
 - **Google Classroom:** `gftqhxdh` (source: team Instagram bio).
-- **Photos:** team workbench, first-meeting flyer, and club update flyer from Instagram.
+- **Photos:** all photos and flyers come from the team's Instagram, including the full
+  second-post carousel (shop, CAD, electronics, soldering, and the assembled robot).
+- **Colors:** school green, black, white, and silver, taken from the River Valley
+  High School Falcons mark. No gold.
 
 The site references combat robotics in general terms. It does not claim a specific
 competition league, team number, awards, or match record.
@@ -238,6 +244,6 @@ competition league, team number, awards, or match record.
   School District.
 - Official team logo: River Valley Robotics (provided by the team).
 - Typefaces: Barlow Condensed and Inter, SIL Open Font License 1.1, self-hosted.
-- Icons and the robot concept drawing: original SVG work made for this site.
+- Icons and page graphics: original work made for this site.
 
 See `credits.html` for the public-facing version.

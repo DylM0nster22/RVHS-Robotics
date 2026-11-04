@@ -18,7 +18,7 @@ BODY = f"""
       </div>
       <div class="page-hero-aside">
         <strong>Team archive</strong>
-        <p>Send new photos to <a href="mailto:rvrobotics@ycusd.org" style="color:var(--gold)">rvrobotics@ycusd.org</a> or tag us on Instagram.</p>
+        <p>Send new photos to <a href="mailto:rvrobotics@ycusd.org" style="color:var(--accent)">rvrobotics@ycusd.org</a> or tag us on Instagram.</p>
       </div>
     </div>
   </div>
@@ -37,8 +37,8 @@ BODY = f"""
     </div>
     <div class="info-list">
       <div class="info-row">
-        <dt>The shop</dt>
-        <dd>Workbench, tools, and current build in Room 408. <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a>.</dd>
+        <dt>The shop and build</dt>
+        <dd>Workbench, CAD, electronics, soldering, and the assembled robot in Room 408. <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a>.</dd>
       </div>
       <div class="info-row">
         <dt>First meeting</dt>
@@ -58,15 +58,15 @@ BODY = f"""
       </div>
     </div>
 
-    <h3 style="margin-top:3rem">Fonts &amp; illustration</h3>
+    <h3 style="margin-top:3rem">Fonts &amp; graphics</h3>
     <div class="info-list" style="margin-top:1rem">
       <div class="info-row">
         <dt>Typefaces</dt>
         <dd><strong>Barlow Condensed</strong> and <strong>Inter</strong>, licensed under the <a href="https://openfontlicense.org/" target="_blank" rel="noopener">SIL Open Font License 1.1</a>. Self-hosted for performance and privacy.</dd>
       </div>
       <div class="info-row">
-        <dt>Illustrations</dt>
-        <dd>Brand mark, icons, the robot concept drawing, and page graphics are original SVG work created for this site.</dd>
+        <dt>Graphics</dt>
+        <dd>Brand mark, icons, and page graphics are original work created for this site.</dd>
       </div>
       <div class="info-row">
         <dt>Questions</dt>

@@ -105,53 +105,6 @@
     }
   }
 
-  /* ---------- Animated stat counters ---------- */
-  var counters = document.querySelectorAll("[data-count]");
-  var animateCounter = function (element) {
-    var target = parseInt(element.getAttribute("data-count"), 10);
-    if (isNaN(target)) return;
-    var suffix = element.querySelector(".suffix");
-    var suffixHTML = suffix ? suffix.outerHTML : "";
-    var duration = 1300;
-    var startTime = null;
-
-    var step = function (timestamp) {
-      if (!startTime) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var value = Math.round(target * eased);
-      element.innerHTML = value.toLocaleString("en-US") + suffixHTML;
-      if (progress < 1) window.requestAnimationFrame(step);
-    };
-
-    window.requestAnimationFrame(step);
-  };
-
-  if (counters.length) {
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      counters.forEach(function (counter) {
-        counter.innerHTML =
-          parseInt(counter.getAttribute("data-count"), 10).toLocaleString("en-US") +
-          (counter.querySelector(".suffix") ? counter.querySelector(".suffix").outerHTML : "");
-      });
-    } else {
-      var counterObserver = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              animateCounter(entry.target);
-              counterObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-      counters.forEach(function (counter) {
-        counterObserver.observe(counter);
-      });
-    }
-  }
-
   /* ---------- Lightbox ---------- */
   var lightbox = document.getElementById("lightbox");
   var galleryItems = Array.prototype.slice.call(document.querySelectorAll(".gallery-item"));
@@ -275,25 +228,6 @@
       Array.prototype.forEach.call(select.options, function (option) {
         if (option.value.indexOf(tier) === 0) select.value = option.value;
       });
-    });
-  });
-
-  /* ---------- Copy buttons ---------- */
-  document.querySelectorAll("[data-copy]").forEach(function (button) {
-    button.addEventListener("click", function () {
-      var value = button.getAttribute("data-copy");
-      var original = button.textContent;
-      var done = function () {
-        button.textContent = "Copied";
-        window.setTimeout(function () {
-          button.textContent = original;
-        }, 1800);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(value).then(done).catch(done);
-      } else {
-        done();
-      }
     });
   });
 

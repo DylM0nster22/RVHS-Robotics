@@ -1,5 +1,5 @@
 ﻿"""Contact page."""
-from rvsite import icon, page_hero, EMAIL, PHONE, INSTAGRAM, INSTAGRAM_HANDLE, ADDRESS_1, ADDRESS_2, ROOM, MEETINGS
+from rvsite import icon, page_hero, EMAIL, PHONE, INSTAGRAM, INSTAGRAM_HANDLE, ADDRESS_1, ADDRESS_2, ROOM, MEETINGS, CLASSROOM
 
 TITLE = "Contact | River Valley Robotics"
 DESCRIPTION = "Contact River Valley Robotics at River Valley High School in Yuba City, California. Reach the team about sponsorship, joining, mentoring, or media."
@@ -10,19 +10,19 @@ BODY = f"""
 {page_hero(
     "Contact",
     "Say hello.",
-    "Questions about sponsoring, joining, mentoring, or bringing the robot to your event? We'd love to hear from you.",
+    "Questions about joining, sponsoring, or visiting the shop? Email is the best way to reach us.",
     "Response time",
-    "We're students, so please allow a couple of school days for a reply. For urgent school matters, call the RVHS front office.",
+    "We're students, so please allow a couple of school days for a reply. For school questions, call the RVHS front office.",
     "Contact",
 )}
 
-<section class="section section--paper" aria-labelledby="ways">
+<section class="section section--paper" aria-label="Contact methods">
   <div class="container">
     <div class="grid-3">
       <article class="card reveal">
         <div class="card-icon">{icon("mail")}</div>
         <h3>Email</h3>
-        <p>The best way to reach the team. Tell us what you need and we'll route it to the right student or mentor.</p>
+        <p>The best way to reach the team. Tell us what you need and we'll route it to the right person.</p>
         <p><a class="text-link" href="mailto:{EMAIL}">{EMAIL} {icon("arrow")}</a></p>
       </article>
       <article class="card reveal" style="--d:70ms">
@@ -30,6 +30,7 @@ BODY = f"""
         <h3>Call or visit</h3>
         <p>River Valley High School front office:<br><a href="tel:+15308222500">{PHONE}</a></p>
         <p>{ADDRESS_1}<br>{ADDRESS_2}</p>
+        <p class="small muted">We meet {MEETINGS} in {ROOM}.</p>
       </article>
       <article class="card reveal" style="--d:140ms">
         <div class="card-icon">{icon("instagram")}</div>
@@ -46,11 +47,11 @@ BODY = f"""
     <div class="feature-split feature-split--top">
       <div class="reveal">
         <p class="kicker">Send a message</p>
-        <h2 id="message">What's on<br>your mind?</h2>
+        <h2 id="message">Tell us<br>what you need.</h2>
         <p class="lead" style="margin-top:1.4rem">Use the form and we'll get back to you. If you're a business interested in sponsorship, the <a href="sponsors.html#sponsor-form">sponsor inquiry form</a> has a few extra fields that help us respond faster.</p>
         <div class="info-list" style="margin-top:1.75rem">
           <div class="info-row"><dt>Sponsors</dt><dd><a href="sponsors.html">Levels, benefits, and the packet</a></dd></div>
-          <div class="info-row"><dt>Students</dt><dd><a href="join.html#students">How to join the team</a></dd></div>
+          <div class="info-row"><dt>Students</dt><dd><a href="join.html#students">How to join the club</a></dd></div>
           <div class="info-row"><dt>Mentors</dt><dd><a href="join.html#mentors">Ways to help</a></dd></div>
           <div class="info-row"><dt>Media</dt><dd>Photos, logos, and interview requests &mdash; email us</dd></div>
         </div>
@@ -110,23 +111,7 @@ BODY = f"""
         width="100%" height="420" style="border:0;display:block" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
-    <p class="photo-credit">Meetings are {MEETINGS} in {ROOM}. Check Google Classroom (code <strong>gftqhxdh</strong>) or <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a> for changes.</p>
-  </div>
-</section>
-
-<section class="section section--forest">
-  <div class="container">
-    <div class="feature-split" style="align-items:center">
-      <div>
-        <p class="kicker">For local businesses</p>
-        <h2>Put your name<br>on the build.</h2>
-        <p class="lead" style="margin-top:1.2rem">Sponsorship is the most direct way to support hands-on STEM at River Valley. Levels start at $250, and in-kind help is welcome.</p>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:flex-end">
-        <a class="btn btn--primary" href="sponsors.html#tiers">Sponsorship levels {icon("arrow", "btn-arrow")}</a>
-        <a class="btn btn--ghost" href="assets/RVRobotics-Sponsorship-Packet.pdf">Download packet</a>
-      </div>
-    </div>
+    <p class="photo-credit">Meetings are {MEETINGS} in {ROOM}. Check Google Classroom (code <strong>{CLASSROOM}</strong>) or <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a> for changes.</p>
   </div>
 </section>
 """

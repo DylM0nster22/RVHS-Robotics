@@ -9,6 +9,7 @@ INSTAGRAM_HANDLE = "@rv.robotics"
 PHONE = "(530) 822-2500"
 ROOM = "Room 408"
 MEETINGS = "Thursdays &amp; Fridays"
+CLASSROOM = "gftqhxdh"
 ADDRESS_1 = "801 El Margarita Rd."
 ADDRESS_2 = "Yuba City, CA 95993"
 
@@ -46,7 +47,7 @@ BRAND_MARK = """<img class="brand-logo" src="assets/img/logo-mark.webp" width="3
 
 NAV = [
     ("about.html", "About", "about"),
-    ("robots.html", "Robots", "robots"),
+    ("robots.html", "Build", "robots"),
     ("sponsors.html", "Sponsors", "sponsors"),
     ("gallery.html", "Gallery", "gallery"),
     ("join.html", "Join", "join"),
@@ -78,7 +79,7 @@ def header(active):
       {links}
     </nav>
     <div class="header-actions">
-      <a class="btn btn--primary" href="sponsors.html#tiers">Sponsor us {icon("arrow", "btn-arrow")}</a>
+      <a class="btn btn--primary" href="sponsors.html#tiers">Sponsor the team {icon("arrow", "btn-arrow")}</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
         <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
@@ -106,7 +107,7 @@ def footer():
         <a class="brand brand--footer" href="index.html" aria-label="River Valley Robotics — home">
           <img class="brand-logo brand-logo--footer" src="assets/img/logo-footer.webp" width="360" height="339" alt="River Valley Robotics">
         </a>
-        <p>Student-built. Community-backed. The combat robotics club at River Valley High School in Yuba City, California.</p>
+        <p>A student club at River Valley High School. We design, build, and drive combat robots in Room 408.</p>
         <p class="footer-meetings">Meets {MEETINGS} &middot; {ROOM}</p>
         <div class="footer-socials">
           <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="River Valley Robotics on Instagram">{icon("instagram")}</a>
@@ -117,8 +118,8 @@ def footer():
       <div class="footer-col">
         <h4>Explore</h4>
         <ul>
-          <li><a href="about.html">About the team</a></li>
-          <li><a href="robots.html">Our robots</a></li>
+          <li><a href="about.html">About the club</a></li>
+          <li><a href="robots.html">The build</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="sponsors.html">Sponsorship</a></li>
         </ul>
@@ -126,8 +127,8 @@ def footer():
       <div class="footer-col">
         <h4>Get involved</h4>
         <ul>
-          <li><a href="join.html">Join as a student</a></li>
-          <li><a href="join.html#mentors">Become a mentor</a></li>
+          <li><a href="join.html">Join the club</a></li>
+          <li><a href="join.html#mentors">Parents &amp; mentors</a></li>
           <li><a href="sponsors.html#tiers">Sponsor the team</a></li>
           <li><a href="assets/RVRobotics-Sponsorship-Packet.pdf">Sponsorship packet</a></li>
         </ul>
@@ -167,7 +168,7 @@ def layout(title, description, active, body, filename="index.html", body_class="
   <title>{title}</title>
   <meta name="description" content="{description}">
   <link rel="canonical" href="{canonical}">
-  <meta name="theme-color" content="#0b3a23">
+  <meta name="theme-color" content="#173d20">
   <meta name="robots" content="{robots}">
   <script>document.documentElement.classList.add("js");</script>
 
@@ -198,7 +199,7 @@ def layout(title, description, active, body, filename="index.html", body_class="
     "alternateName": "RVHS Robotics",
     "url": "{SITE_URL}/",
     "logo": "{SITE_URL}/assets/img/icon-512.png",
-    "description": "Student combat robotics club at River Valley High School in Yuba City, California.",
+    "description": "Student-run combat robotics club at River Valley High School in Yuba City, California.",
     "parentOrganization": {{
       "@type": "HighSchool",
       "name": "River Valley High School",
@@ -253,11 +254,11 @@ def page_hero(kicker, heading, lead, aside_title="", aside_body="", breadcrumb="
 </section>"""
 
 
-def cta_band(heading, text, primary_href="join.html", primary_label="Join the team", secondary_href="sponsors.html#tiers", secondary_label="Sponsor the team"):
+def cta_band(heading, text, primary_href="join.html", primary_label="Join the club", secondary_href="sponsors.html#tiers", secondary_label="Sponsor the team"):
     return f"""<section class="cta-band">
   <div class="container cta-band-inner">
     <div>
-      <p class="kicker">Get in the shop</p>
+      <p class="kicker">Get involved</p>
       <h2>{heading}</h2>
       <p>{text}</p>
     </div>
@@ -274,127 +275,20 @@ def sponsor_cta():
   <div class="container">
     <div class="sponsor-cta reveal">
       <div>
-        <p class="kicker">Partner with the team</p>
-        <h2>Your business can launch the next engineer.</h2>
-        <p>Sponsorship pays for parts, tools, event fees, and travel. It also puts your name in front of students, families, and a community that shows up for its schools.</p>
+        <p class="kicker">Sponsorship</p>
+        <h2>Help us buy parts.</h2>
+        <p>Motors, batteries, filament, entry fees, and tools add up. Local sponsors cover the difference and can get their name on the robot, the shirts, and the site.</p>
         <div class="tag-row" style="margin-top:1.2rem">
-          <span class="tag">$250 Supporter</span>
-          <span class="tag">$500 Partner</span>
-          <span class="tag">$1,000 Builder</span>
-          <span class="tag">$2,500+ Champion</span>
+          <span class="tag tag--dark">$100 Supporter</span>
+          <span class="tag tag--dark">$250 Partner</span>
+          <span class="tag tag--dark">$500 Builder</span>
+          <span class="tag tag--dark">$1,000 Champion</span>
         </div>
       </div>
       <div class="sponsor-cta-actions">
         <a class="btn btn--dark" href="sponsors.html#tiers">See the levels {icon("arrow", "btn-arrow")}</a>
-        <a class="btn btn--outline" href="assets/RVRobotics-Sponsorship-Packet.pdf">Sponsor packet</a>
+        <a class="btn btn--ghost" href="assets/RVRobotics-Sponsorship-Packet.pdf">Sponsor packet</a>
       </div>
     </div>
   </div>
 </section>"""
-
-
-def stat_block(value, suffix, label):
-    return f"""<div class="stat reveal">
-  <div class="stat-value" data-count="{value}">{value}<span class="suffix">{suffix}</span></div>
-  <div class="stat-label">{label}</div>
-</div>"""
-
-
-def blueprint():
-    """Technical top-view concept drawing used on the home and robots pages."""
-    wheels = []
-    for y in (150, 234, 318):
-        for x in (112, 576):
-            wheels.append(
-                f'<g stroke="#e2ab35" stroke-width="1.6" fill="none">'
-                f'<circle cx="{x}" cy="{y}" r="25"/>'
-                f'<circle cx="{x}" cy="{y}" r="9"/>'
-                f'<path d="M{x} {y-25}V{y-9}M{x} {y+9}v16M{x-25} {y}h16M{x+9} {y}h16" stroke-opacity=".55"/>'
-                f"</g>"
-            )
-
-    return f"""<div class="blueprint reveal">
-  <div class="blueprint-title"><span>RV-2026 / <strong>Concept study</strong></span><span>Sheet 01 &middot; NTS</span></div>
-  <svg viewBox="0 0 680 460" role="img" aria-labelledby="bp-title bp-desc">
-    <title id="bp-title">Concept drawing of the team's combat robot</title>
-    <desc id="bp-desc">A technical top view of a six-wheel robot chassis with an intake, control board, and battery, drawn in gold line work on a dark green grid.</desc>
-
-    <!-- registration marks -->
-    <g stroke="#ffffff" stroke-opacity=".22" stroke-width="1">
-      <path d="M70 66h14M77 59v14M596 66h14M603 59v14M70 402h14M77 395v14M596 402h14M603 395v14"/>
-    </g>
-    <text x="70" y="46" fill="#ffffff" fill-opacity=".42" font-size="8" letter-spacing="2.2">TOP VIEW</text>
-    <text x="610" y="46" text-anchor="end" fill="#ffffff" fill-opacity=".42" font-size="8" letter-spacing="2.2">REV A</text>
-
-    <!-- chassis -->
-    <rect x="120" y="110" width="448" height="230" rx="10" fill="#e2ab35" fill-opacity=".04" stroke="#e2ab35" stroke-width="2"/>
-    <rect x="138" y="128" width="412" height="194" rx="4" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="1" stroke-dasharray="5 5"/>
-    <path d="M120 225h448M250 110v230M438 110v230" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
-
-    {''.join(wheels)}
-
-    <!-- intake -->
-    <g>
-      <rect x="218" y="62" width="252" height="38" rx="6" fill="#e2ab35" fill-opacity=".07" stroke="#e2ab35" stroke-width="1.8"/>
-      <circle cx="242" cy="81" r="14" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.2"/>
-      <circle cx="446" cy="81" r="14" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.2"/>
-      <path d="M256 70h174M256 92h174" stroke="#ffffff" stroke-opacity=".35" stroke-width="1"/>
-      <path d="M256 81h174" stroke="#e2ab35" stroke-width="1" stroke-dasharray="4 4"/>
-      <path d="M344 100v10" stroke="#ffffff" stroke-opacity=".3" stroke-width="1"/>
-    </g>
-
-    <!-- electronics board -->
-    <g>
-      <rect x="272" y="158" width="144" height="96" rx="3" fill="#ffffff" fill-opacity=".03" stroke="#ffffff" stroke-opacity=".5" stroke-width="1.3"/>
-      <rect x="312" y="186" width="62" height="38" rx="2" fill="#e2ab35" fill-opacity=".14" stroke="#e2ab35" stroke-width="1.2"/>
-      <path d="M318 186v-8M328 186v-8M338 186v-8M348 186v-8M358 186v-8M368 186v-8M318 224v8M328 224v8M338 224v8M348 224v8M358 224v8M368 224v8" stroke="#ffffff" stroke-opacity=".4" stroke-width="1"/>
-      <circle cx="292" cy="178" r="4" fill="none" stroke="#ffffff" stroke-opacity=".5"/>
-      <circle cx="292" cy="234" r="4" fill="none" stroke="#ffffff" stroke-opacity=".5"/>
-      <path d="M300 178h12M300 234h12" stroke="#ffffff" stroke-opacity=".35"/>
-    </g>
-
-    <!-- battery -->
-    <g>
-      <rect x="278" y="276" width="128" height="34" rx="3" fill="#ffffff" fill-opacity=".03" stroke="#ffffff" stroke-opacity=".45" stroke-width="1.2"/>
-      <path d="M296 276v34M314 276v34M332 276v34M350 276v34M368 276v34" stroke="#ffffff" stroke-opacity=".22" stroke-width="1"/>
-      <path d="M350 293h26" stroke="#e2ab35" stroke-width="1.4"/>
-    </g>
-
-    <!-- labels + leaders -->
-    <g fill="#e2ab35" font-size="8.5" letter-spacing="1.8" font-weight="600">
-      <text x="344" y="42" text-anchor="middle">INTAKE</text>
-      <text x="96" y="96" text-anchor="end">DRIVE BASE</text>
-      <text x="584" y="194">CONTROL</text>
-      <text x="584" y="294">BATTERY</text>
-    </g>
-    <g stroke="#ffffff" stroke-opacity=".34" stroke-width="1">
-      <path d="M344 50v10"/>
-      <path d="M100 102l14 22"/>
-      <path d="M422 190h154"/>
-      <path d="M410 292h166"/>
-    </g>
-    <g fill="#ffffff" fill-opacity=".35" font-size="7" letter-spacing="1.4">
-      <text x="426" y="185">MAIN CONTROLLER / I-O</text>
-      <text x="414" y="287">24V POWER</text>
-    </g>
-
-    <!-- dimension line -->
-    <g stroke="#e2ab35" stroke-width="1">
-      <path d="M120 372v16M568 372v16M120 380h448"/>
-      <path d="m120 380 8-4v8zM568 380l-8-4v8z" fill="#e2ab35"/>
-    </g>
-    <text x="344" y="368" text-anchor="middle" fill="#e2ab35" fill-opacity=".75" font-size="8" letter-spacing="1.6">APPROX. FRAME LENGTH</text>
-
-    <!-- title block -->
-    <g>
-      <rect x="390" y="410" width="230" height="34" fill="none" stroke="#ffffff" stroke-opacity=".25"/>
-      <path d="M390 427h230M470 410v34M530 410v34" stroke="#ffffff" stroke-opacity=".18"/>
-      <text x="398" y="422" fill="#ffffff" fill-opacity=".55" font-size="6.5" letter-spacing="1.2">RIVER VALLEY ROBOTICS</text>
-      <text x="398" y="438" fill="#e2ab35" font-size="6.5" letter-spacing="1.2">2026 CONCEPT</text>
-      <text x="478" y="422" fill="#ffffff" fill-opacity=".45" font-size="6.5" letter-spacing="1.2">SCALE</text>
-      <text x="478" y="438" fill="#ffffff" fill-opacity=".7" font-size="6.5" letter-spacing="1.2">NTS</text>
-      <text x="538" y="422" fill="#ffffff" fill-opacity=".45" font-size="6.5" letter-spacing="1.2">SHEET</text>
-      <text x="538" y="438" fill="#ffffff" fill-opacity=".7" font-size="6.5" letter-spacing="1.2">01 / 01</text>
-    </g>
-  </svg>
-</div>"""

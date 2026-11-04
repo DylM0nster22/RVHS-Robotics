@@ -2,21 +2,32 @@
 from rvsite import icon, page_hero, cta_band, INSTAGRAM, INSTAGRAM_HANDLE
 
 TITLE = "Gallery | River Valley Robotics"
-DESCRIPTION = "Photos and flyers from River Valley Robotics: the shop, the build, meeting announcements, and combat robotics at River Valley High School in Yuba City."
+DESCRIPTION = "Photos from River Valley Robotics: the shop, the CAD model, the build, and the first assembled combat robot at River Valley High School in Yuba City."
 ACTIVE = "gallery"
 FILENAME = "gallery.html"
 
 ITEMS = [
-    ("team-shop-portrait", 1000, 1250, "The shop", "Tools, 3D-printed parts, and the current build in Room 408."),
-    ("meeting-flyer", 1000, 1331, "First meeting", "The flyer that started the 2025&ndash;26 season."),
-    ("club-update", 1000, 1333, "Club update", "Meetings Thursday and Friday in Room 408."),
+    ("team-shop-portrait", 1000, 1250, "The shop", "Tools, 3D-printed parts, and the current build in Room 408.", "The team's workbench in Room 408 with drills, tools, and robot parts"),
+    ("robot-floor", 1000, 1250, "The robot", "The assembled combat robot on the shop floor.", "The assembled combat robot with white armor, blue wheels, and a black drum on a shop floor"),
+    ("cad-chassis-top", 1000, 1250, "CAD", "The chassis model with the top plate on.", "CAD model of the robot chassis with the top plate on"),
+    ("cad-chassis", 1000, 1250, "CAD, first revision", "The same chassis without the top plate.", "CAD model of the robot chassis without the top plate"),
+    ("chassis-electronics", 1000, 1250, "Test fit", "A printed chassis with the electronics inside.", "A printed robot chassis held in a hand with the electronics test-fit inside"),
+    ("electronics-bench", 1000, 1250, "Electronics", "Wiring and a printed chassis on the bench.", "A printed robot chassis with wiring and a screwdriver on a workbench"),
+    ("soldering-arm", 1000, 1250, "Soldering", "A student soldering a wire on a printed arm.", "A student soldering a wire on a printed robot arm at a workbench"),
+    ("soldering-closeup", 1000, 1250, "Power", "A speed controller and battery connector, mid-wire.", "A speed controller and battery connector with wires on a workbench"),
+    ("parts-homework", 1000, 1250, "After school", "Robot parts on top of a math assignment.", "Printed robot parts and motors sitting on top of a math assignment"),
+    ("student-desk", 1000, 1250, "Desk work", "A student checking the build at a classroom desk.", "A student at a classroom desk with a computer and robot parts"),
+    ("students-workshop", 1000, 1250, "Two builders", "A quick photo between build steps.", "Two River Valley Robotics students at a workbench with a soldering iron"),
+    ("armor-part", 1000, 1250, "Armor", "A printed armor piece for the robot.", "A white 3D-printed armor piece for the combat robot"),
+    ("meeting-flyer", 1000, 1331, "First meeting", "The flyer for the first meeting, September 2025.", "Flyer for the first robotics meeting on September 22, 2025"),
+    ("club-update", 1000, 1333, "Club update", "The 2026&ndash;27 meeting announcement.", "Flyer announcing Thursday and Friday meetings in Room 408"),
 ]
 
 items_html = ""
-for idx, (name, width, height, title, caption) in enumerate(ITEMS):
+for idx, (name, width, height, title, caption, alt) in enumerate(ITEMS):
     items_html += f"""
     <button class="gallery-item gallery-item--tall" type="button" data-full="assets/img/{name}.webp" data-caption="{title} — {caption}" aria-label="View larger: {title}">
-      <img src="assets/img/{name}.webp" width="{width}" height="{height}" alt="{caption}" loading="lazy">
+      <img src="assets/img/{name}.webp" width="{width}" height="{height}" alt="{alt}" loading="lazy">
       <span class="gallery-caption">{title}</span>
       <span class="gallery-zoom" aria-hidden="true">{icon("zoom")}</span>
     </button>
@@ -26,9 +37,9 @@ BODY = f"""
 {page_hero(
     "Gallery",
     "From the shop.",
-    "Tools on the bench, flyers on the wall, and the first time a build actually works. This is what the club looks like.",
+    "Tools on the bench, CAD on the screen, and the first assembled robot. Most of these photos are from the team's Instagram.",
     "The feed",
-    f"Follow <a href=\"{INSTAGRAM}\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--gold)\">{INSTAGRAM_HANDLE}</a> for build updates and match news.",
+    f"Follow <a href=\"{INSTAGRAM}\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent)\">{INSTAGRAM_HANDLE}</a> for build updates and match news.",
     "Gallery",
 )}
 
@@ -44,23 +55,7 @@ BODY = f"""
     <div class="gallery-grid">
       {items_html}
     </div>
-    <p class="photo-credit">All photos and flyers from <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a>. More coming as the season progresses.</p>
-  </div>
-</section>
-
-<section class="section section--paper-2" aria-labelledby="instagram">
-  <div class="container">
-    <div class="sponsor-cta" style="background:var(--forest);color:var(--white)">
-      <div>
-        <p class="kicker" style="color:var(--gold)">Follow the build</p>
-        <h2 style="color:var(--white)">The latest is on Instagram.</h2>
-        <p style="color:rgba(255,255,255,.72)">Build progress, meeting changes, and match-day photos go up first on the team account. Give us a follow and share the build with someone who should be on the team.</p>
-        <p class="mono-label" style="color:var(--gold);margin-top:1rem">{INSTAGRAM_HANDLE}</p>
-      </div>
-      <div class="sponsor-cta-actions">
-        <a class="btn btn--primary" href="{INSTAGRAM}" target="_blank" rel="noopener">Open Instagram {icon("external", "btn-arrow")}</a>
-      </div>
-    </div>
+    <p class="photo-credit">All photos and flyers from <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a>. More will be added as the season goes.</p>
   </div>
 </section>
 
@@ -80,8 +75,8 @@ BODY = f"""
 </dialog>
 
 {cta_band(
-    "Want to see it in person?",
-    "Stop by the shop, come to a competition, or invite us to your business for a demo. We love showing people what students can build.",
+    "Come see it in person.",
+    "Stop by the shop, come to a meeting, or invite us to your business for a demo.",
     "contact.html",
     "Get in touch",
     "sponsors.html#tiers",

@@ -12,7 +12,7 @@ BODY = f"""
     "Built for everyone.",
     "We want every student, family member, and community member to be able to use this site and take part in the team.",
     "Questions?",
-    f"Email <a href=\"mailto:{EMAIL}\" style=\"color:var(--gold)\">{EMAIL}</a> or call the RVHS front office at (530) 822-2500.",
+    f"Email <a href=\"mailto:{EMAIL}\" style=\"color:var(--accent)\">{EMAIL}</a> or call the RVHS front office at (530) 822-2500.",
     "Accessibility",
 )}
 
