@@ -6,13 +6,15 @@ DESCRIPTION = "River Valley Robotics is committed to making this website usable 
 ACTIVE = ""
 FILENAME = "accessibility.html"
 
+ACCESS_LINK = f'Email <a href="mailto:{EMAIL}" style="color:var(--accent)">{EMAIL}</a> or call the RVHS front office at (530) 822-2500.'
+
 BODY = f"""
 {page_hero(
     "Accessibility",
     "Built for everyone.",
     "We want every student, family member, and community member to be able to use this site and take part in the team.",
     "Questions?",
-    f"Email <a href=\"mailto:{EMAIL}\" style=\"color:var(--accent)\">{EMAIL}</a> or call the RVHS front office at (530) 822-2500.",
+    ACCESS_LINK,
     "Accessibility",
 )}
 
@@ -27,10 +29,11 @@ BODY = f"""
       </div>
       <div>
         <div class="info-list">
-          <div class="info-row"><dt>Keyboard</dt><dd>All navigation, forms, and the photo viewer can be used without a mouse.</dd></div>
+          <div class="info-row"><dt>Keyboard</dt><dd>All navigation, forms, the photo viewer, and the match player can be used without a mouse.</dd></div>
           <div class="info-row"><dt>Motion</dt><dd>Animations are reduced or turned off when your device requests reduced motion.</dd></div>
           <div class="info-row"><dt>Contrast</dt><dd>Text and controls are designed for strong contrast in the default theme.</dd></div>
           <div class="info-row"><dt>Images</dt><dd>Decorative images are hidden from assistive tech; meaningful images have descriptions.</dd></div>
+          <div class="info-row"><dt>Video</dt><dd>Match videos never autoplay. They open in a player with native controls, and YouTube picks load only after you choose one. If you need a more detailed description of a match, email us.</dd></div>
           <div class="info-row"><dt>Forms</dt><dd>Every field has a visible label and a clear error path.</dd></div>
         </div>
       </div>

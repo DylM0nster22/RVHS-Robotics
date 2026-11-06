@@ -47,8 +47,8 @@ BODY = f"""
         <a class="text-link" href="about.html">About the club {icon("arrow")}</a>
       </div>
       <figure class="feature-media reveal" style="--d:100ms; margin:0">
-        <img src="assets/img/students-workshop-wide.webp" width="1200" height="900" alt="Two River Valley Robotics students at a workbench with a soldering iron and robot parts" loading="lazy">
-        <figcaption class="media-tag">Room 408</figcaption>
+        <img src="assets/img/chassis-electronics.webp" width="1000" height="1250" alt="A printed robot chassis with the electronics test-fit inside" loading="lazy">
+        <figcaption class="media-tag">Test fit</figcaption>
       </figure>
     </div>
     <div class="grid-3" style="margin-top:clamp(2rem,4vw,3rem)">
@@ -87,6 +87,24 @@ BODY = f"""
       <a href="gallery.html"><img src="assets/img/team-shop.webp" width="1100" height="1100" alt="The team's workbench in Room 408 with tools and robot parts" loading="lazy"><span>The shop</span></a>
     </div>
     <p class="photo-credit">Photos from the team's Instagram, <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a>.</p>
+  </div>
+</section>
+
+<section class="section section--dark section--grid" aria-labelledby="watch">
+  <div class="container">
+    <div class="feature-split">
+      <a class="video-hero reveal" href="watch.html" aria-label="Watch match videos from the 2026 season">
+        <img src="assets/img/video/edgehog-commander.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
+        <span class="video-play video-play--lg" aria-hidden="true">{icon("play")}</span>
+        <span class="video-duration">1:55</span>
+      </a>
+      <div class="reveal" style="--d:100ms">
+        <p class="kicker">Watch</p>
+        <h2 id="watch">See it<br>in the arena.</h2>
+        <p class="lead" style="margin-top:1.4rem">Full matches from Impact Robotics League #1 2026, plus newer fights from the Bad Plants channel. No autoplay, no highlight reel.</p>
+        <a class="btn btn--primary" href="watch.html" style="margin-top:1.5rem">Watch the matches {icon("arrow", "btn-arrow")}</a>
+      </div>
+    </div>
   </div>
 </section>
 

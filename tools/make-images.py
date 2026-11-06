@@ -51,15 +51,10 @@ def main():
     save_webp(cover_crop(shop, 1100, 1100, 0.5, 0.5), "team-shop.webp", 83)
     save_webp(cover_crop(shop, 1000, 1250, 0.5, 0.5), "team-shop-portrait.webp", 82)
 
-    students = load(SRC / "students-workshop.jpg")
-    save_webp(cover_crop(students, 1000, 1250, 0.5, 0.45), "students-workshop.webp", 83)
-    save_webp(cover_crop(students, 1200, 900, 0.5, 0.32), "students-workshop-wide.webp", 83)
-
     robot = load(SRC / "robot-floor.jpg")
     save_webp(cover_crop(robot, 1000, 1250, 0.5, 0.55), "robot-floor.webp", 83)
 
     photos = [
-        ("student-desk.jpg", "student-desk.webp", 0.5, 0.5),
         ("electronics-bench.jpg", "electronics-bench.webp", 0.5, 0.5),
         ("parts-homework.jpg", "parts-homework.webp", 0.5, 0.5),
         ("soldering-arm.jpg", "soldering-arm.webp", 0.5, 0.5),

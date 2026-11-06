@@ -19,6 +19,7 @@ build step required to host it.
 | `robots.html` | Current build, CAD and shop photos, build process, shop rules, next steps |
 | `sponsors.html` | Why sponsor, parts costs, levels, benefits table, inquiry form, FAQ |
 | `gallery.html` | All team photos and flyers from Instagram, with a keyboard-friendly lightbox |
+| `watch.html` | Match video archive: 11 fights from Impact Robotics League #1 2026, plus newer YouTube picks |
 | `join.html` | Student and parent/mentor info, meeting details, interest form, FAQ |
 | `contact.html` | Contact methods, general inquiry form, map |
 | `credits.html` | Photo, font, and illustration credits |
@@ -28,7 +29,8 @@ build step required to host it.
 | `assets/RVRobotics-Sponsorship-Packet.pdf` | Ready-to-send PDF version of the packet |
 
 Supporting files: `css/site.css`, `js/site.js`, self-hosted fonts, optimized images,
-`site.webmanifest`, `robots.txt`, and `sitemap.xml`.
+web-optimized match video in `assets/video/`, `site.webmanifest`, `robots.txt`, and
+`sitemap.xml`.
 
 ---
 
@@ -62,7 +64,9 @@ sitemap.xml
 ```
 
 `tools/` and `source/` are working files. They do not need to be uploaded. Nothing
-here needs Node, PHP, a database, or a build command on the server.
+here needs Node, PHP, a database, or a build command on the server. The files in
+`assets/video/` are already compressed for the web; ffmpeg is only needed when you
+replace them.
 
 Forms are `mailto:` forms: they open the visitor's email app with the message
 pre-filled. If the district prefers a hosted form service (Google Forms, Microsoft
@@ -96,16 +100,21 @@ before the site goes live.
    only after commitments are confirmed and the school/district approves the logos.
 8. **Instagram link.** The site links to <https://www.instagram.com/rv.robotics/>.
    Change `INSTAGRAM` in `tools/rvsite.py` if the handle changes.
-9. **Photos.** All photos and flyers are from the team's Instagram, including the full
+9. **Photos.** All photos and flyers are from the team's Instagram, including the
    second-post carousel (shop, CAD, electronics, soldering, and the assembled robot).
    Add new photos to `source/instagram/` and run the image script (below), then update
    the gallery and captions.
-10. **Logo.** The official team logo is in `source/logo.jpg`. Re-run the logo script
+10. **Match video.** The Watch page hosts 11 fights from Impact Robotics League #1
+    2026. Confirm the team and the event organizer approve publishing the footage,
+    and check with the school before uploading identifiable students. The newer
+    YouTube picks are embedded, not copied. Follow the video workflow below to add
+    or replace footage.
+11. **Logo.** The official team logo is in `source/logo.jpg`. Re-run the logo script
     if a higher-resolution or updated version arrives.
-11. **District approval.** School-hosted sites usually need approval for the logo,
+12. **District approval.** School-hosted sites usually need approval for the logo,
     sponsor names, the PDF, and any external links. Check with the site administrator
     before launch.
-12. **PDF.** Regenerate the PDF after any sponsor/packet edit (instructions below).
+13. **PDF.** Regenerate the PDF after any sponsor/packet edit (instructions below).
 
 The site intentionally does **not** invent student counts, mentor counts, awards, or
 competition results. The team facts shown (second season, Room 408, grades 9–12,
@@ -140,8 +149,8 @@ If you choose this route, stop using the generator.
 
 - `tools/rvsite.py` — header, footer, navigation, contact details, icons, layout.
 - `tools/pages/home.py`, `about.py`, `robots.py`, `sponsors.py`, `gallery.py`,
-  `join.py`, `contact.py`, `credits.py`, `accessibility.py`, `notfound.py`,
-  `packet.py`.
+  `watch.py`, `join.py`, `contact.py`, `credits.py`, `accessibility.py`,
+  `notfound.py`, `packet.py`.
 - `css/site.css` — all site styles and responsive breakpoints.
 - `js/site.js` — mobile navigation, reveal animations, lightbox, tier prefill,
   and mailto forms.
@@ -150,10 +159,10 @@ If you choose this route, stop using the generator.
 
 ## Images and logo
 
-The team's Instagram source images are in `source/instagram/`. The folder now includes
-the full second-post carousel: the shop bench, CAD screenshots, two student photos,
-electronics, soldering, the assembled robot, the printed armor, and both flyers. The
-site uses optimized `.webp` versions in `assets/img/`.
+The team's Instagram source images are in `source/instagram/`. The folder includes
+the shop bench, CAD screenshots, electronics, soldering, the assembled robot, the
+printed armor, and both flyers. The site uses optimized `.webp` versions in
+`assets/img/`.
 
 To re-crop and re-compress after adding new source photos:
 
@@ -178,6 +187,52 @@ The full-resolution transparent logo is saved as `source/logo-full.png`.
 To swap a gallery image, replace the matching file in `assets/img/` and update the
 caption and alt text in `tools/pages/gallery.py` (then rebuild), or edit
 `gallery.html` directly.
+
+---
+
+## Match video
+
+The Watch page plays 11 locally hosted matches from Impact Robotics League #1 2026
+and four newer YouTube picks. The local videos are 720p H.264 MP4s in
+`assets/video/`; posters are in `assets/img/video/`. Total size is about 62 MB.
+The page data (source file names, match names, durations, YouTube IDs) lives in
+`tools/pages/watch.py`. The supplied 30-second announcement clip is not a match, so
+it is intentionally left out of the archive.
+
+The videos are committed, so rebuilding the site does **not** require ffmpeg. To add
+or replace footage, use the preparation script:
+
+```powershell
+# 1. Put the original MP4s in a folder outside the repository.
+# 2. Add or edit a row in LOCAL_VIDEOS in tools/pages/watch.py.
+# 3. Point at ffmpeg and encode.
+$env:FFMPEG = "C:\path\to\ffmpeg.exe"
+python tools/make-videos.py --source "D:\path\to\match-footage" --force
+
+# Rebuild the pages after the files exist.
+python tools/build.py
+```
+
+The script writes `assets/video/<slug>.mp4`, a 1280×720 WebP poster for each match
+(halfway through the fight), and reports the sizes. It uses CRF 30 video and 64 kbps
+mono audio to keep the archive small; adjust the values in `encode_video()` if the
+footage needs more detail.
+
+Useful flags:
+
+- `--skip-video` rebuilds posters only, without re-encoding the MP4s.
+- `--youtube` refreshes the four YouTube thumbnail images from `i.ytimg.com`.
+- `--force` overwrites existing MP4s. Without it, the script keeps files that are
+  newer than their source.
+
+The newer YouTube picks are privacy-enhanced embeds (`youtube-nocookie.com`) created
+only when a visitor presses play. Update their IDs, titles, and durations in
+`YOUTUBE_VIDEOS` in `tools/pages/watch.py`, then run `--youtube` if the thumbnails
+changed.
+
+The video player is in `js/site.js` (the `Video player` block) and the styles are in
+`css/site.css` under `Watch / video`. Each card is a normal link to the MP4 or the
+YouTube watch page, so the page still works if JavaScript is unavailable.
 
 ---
 
@@ -209,6 +264,8 @@ The site targets WCAG 2.1 AA:
 
 - Semantic headings and landmarks, skip link, visible focus styles.
 - Keyboard-operable mobile menu and photo lightbox (Esc, arrow keys).
+- Match videos never autoplay; they open in a native-controls player, and YouTube
+  picks load only after the visitor chooses one.
 - Reduced-motion support.
 - Descriptive alt text and labelled form fields.
 - Sufficient text/background contrast in the default theme.
@@ -227,8 +284,11 @@ the relevant component. The statement page invites visitors to report barriers.
 - **Meetings:** Thursdays and Fridays, Room 408 (source: team Instagram).
 - **Instagram:** [@rv.robotics](https://www.instagram.com/rv.robotics/).
 - **Google Classroom:** `gftqhxdh` (source: team Instagram bio).
-- **Photos:** all photos and flyers come from the team's Instagram, including the full
+- **Photos:** all photos and flyers come from the team's Instagram, including the
   second-post carousel (shop, CAD, electronics, soldering, and the assembled robot).
+- **Match video:** 11 fights from Impact Robotics League #1 2026, plus newer videos
+  from the [@BadPlants1](https://www.youtube.com/@BadPlants1) YouTube channel.
+  Event names and match spellings come from the supplied files and video titles.
 - **Colors:** school green, black, white, and silver, taken from the River Valley
   High School Falcons mark. No gold.
 
@@ -240,6 +300,8 @@ competition league, team number, awards, or match record.
 ## Credits
 
 - Team photography and flyers: [@rv.robotics](https://www.instagram.com/rv.robotics/).
+- Match footage: Impact Robotics League #1 2026, supplied for the site.
+- YouTube match videos and thumbnails: [@BadPlants1](https://www.youtube.com/@BadPlants1).
 - River Valley High School Falcons logo: River Valley High School / Yuba City Unified
   School District.
 - Official team logo: River Valley Robotics (provided by the team).

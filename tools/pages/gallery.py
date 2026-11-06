@@ -16,8 +16,6 @@ ITEMS = [
     ("soldering-arm", 1000, 1250, "Soldering", "A student soldering a wire on a printed arm.", "A student soldering a wire on a printed robot arm at a workbench"),
     ("soldering-closeup", 1000, 1250, "Power", "A speed controller and battery connector, mid-wire.", "A speed controller and battery connector with wires on a workbench"),
     ("parts-homework", 1000, 1250, "After school", "Robot parts on top of a math assignment.", "Printed robot parts and motors sitting on top of a math assignment"),
-    ("student-desk", 1000, 1250, "Desk work", "A student checking the build at a classroom desk.", "A student at a classroom desk with a computer and robot parts"),
-    ("students-workshop", 1000, 1250, "Two builders", "A quick photo between build steps.", "Two River Valley Robotics students at a workbench with a soldering iron"),
     ("armor-part", 1000, 1250, "Armor", "A printed armor piece for the robot.", "A white 3D-printed armor piece for the combat robot"),
     ("meeting-flyer", 1000, 1331, "First meeting", "The flyer for the first meeting, September 2025.", "Flyer for the first robotics meeting on September 22, 2025"),
     ("club-update", 1000, 1333, "Club update", "The 2026&ndash;27 meeting announcement.", "Flyer announcing Thursday and Friday meetings in Room 408"),
@@ -33,13 +31,15 @@ for idx, (name, width, height, title, caption, alt) in enumerate(ITEMS):
     </button>
     """
 
+FEED_LINK = f'Follow <a href="{INSTAGRAM}" target="_blank" rel="noopener" style="color:var(--accent)">{INSTAGRAM_HANDLE}</a> for build updates and match news.'
+
 BODY = f"""
 {page_hero(
     "Gallery",
     "From the shop.",
     "Tools on the bench, CAD on the screen, and the first assembled robot. Most of these photos are from the team's Instagram.",
     "The feed",
-    f"Follow <a href=\"{INSTAGRAM}\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent)\">{INSTAGRAM_HANDLE}</a> for build updates and match news.",
+    FEED_LINK,
     "Gallery",
 )}
 
@@ -55,7 +55,7 @@ BODY = f"""
     <div class="gallery-grid">
       {items_html}
     </div>
-    <p class="photo-credit">All photos and flyers from <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a>. More will be added as the season goes.</p>
+    <p class="photo-credit">All photos and flyers from <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a>. More will be added as the season goes. Match footage is on the <a href="watch.html">watch page</a>.</p>
   </div>
 </section>
 

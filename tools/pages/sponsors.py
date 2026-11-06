@@ -67,13 +67,15 @@ for idx, tier in enumerate(TIERS):
     </article>
     """
 
+PACKET_NOTE = 'Levels, benefits, and contact info.<br><a href="assets/RVRobotics-Sponsorship-Packet.pdf" style="color:var(--accent)">Download the PDF &rarr;</a>'
+
 BODY = f"""
 {page_hero(
     "Sponsorship",
     "Help us buy parts.",
     "We're a second-year club with a real parts bill. Sponsorship pays for motors, batteries, filament, tools, entry fees, and travel. Depending on the level, your name can go on the robot, the shirts, and the site.",
     "Sponsor packet",
-    "Levels, benefits, and contact info.<br><a href=\"assets/RVRobotics-Sponsorship-Packet.pdf\" style=\"color:var(--accent)\">Download the PDF &rarr;</a>",
+    PACKET_NOTE,
     "Sponsors",
 )}
 

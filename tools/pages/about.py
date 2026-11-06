@@ -32,7 +32,7 @@ BODY = f"""
         </div>
       </div>
       <figure class="feature-media feature-media--portrait reveal" style="--d:100ms; margin:0">
-        <img src="assets/img/students-workshop.webp" width="1000" height="1250" alt="Two River Valley Robotics students at a workbench with a soldering iron and robot parts" loading="lazy">
+        <img src="assets/img/soldering-arm.webp" width="1000" height="1250" alt="A student soldering a wire on a printed robot arm at a workbench" loading="lazy">
         <figcaption class="media-tag">After a build session</figcaption>
       </figure>
     </div>

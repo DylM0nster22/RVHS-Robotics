@@ -6,6 +6,8 @@ SITE_URL = "https://rvrobotics.ycusd.org"
 EMAIL = "rvrobotics@ycusd.org"
 INSTAGRAM = "https://www.instagram.com/rv.robotics/"
 INSTAGRAM_HANDLE = "@rv.robotics"
+YOUTUBE = "https://www.youtube.com/@BadPlants1"
+YOUTUBE_HANDLE = "@BadPlants1"
 PHONE = "(530) 822-2500"
 ROOM = "Room 408"
 MEETINGS = "Thursdays &amp; Fridays"
@@ -34,6 +36,8 @@ ICONS = {
     "calendar": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="1.5"/><path d="M8 2.5v4M16 2.5v4M3 9.5h18M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/></svg>',
     "download": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>',
     "instagram": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>',
+    "youtube": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor" stroke="none"/></svg>',
+    "play": '<svg class="{cls}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.2v13.6L19 12 8 5.2Z"/></svg>',
     "link": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13.5a4.5 4.5 0 0 0 6.4 0l2.4-2.4a4.5 4.5 0 0 0-6.4-6.4L11 6"/><path d="M14 10.5a4.5 4.5 0 0 0-6.4 0l-2.4 2.4a4.5 4.5 0 0 0 6.4 6.4L13 18"/></svg>',
     "close": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>',
     "prev": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',
@@ -49,6 +53,7 @@ NAV = [
     ("about.html", "About", "about"),
     ("robots.html", "Build", "robots"),
     ("sponsors.html", "Sponsors", "sponsors"),
+    ("watch.html", "Watch", "watch"),
     ("gallery.html", "Gallery", "gallery"),
     ("join.html", "Join", "join"),
     ("contact.html", "Contact", "contact"),
@@ -60,12 +65,15 @@ def icon(name, cls=""):
 
 
 def header(active):
+    def current(key):
+        return ' aria-current="page"' if key == active else ""
+
     links = "\n".join(
-        f'<a href="{href}"{" aria-current=\"page\"" if key == active else ""}>{label}</a>'
+        f'<a href="{href}"{current(key)}>{label}</a>'
         for href, label, key in NAV
     )
     mobile_links = "\n".join(
-        f'<li><a href="{href}"{" aria-current=\"page\"" if key == active else ""}>{label}<span>{idx:02d}</span></a></li>'
+        f'<li><a href="{href}"{current(key)}>{label}<span>{idx:02d}</span></a></li>'
         for idx, (href, label, key) in enumerate(NAV, start=1)
     )
     return f"""<a class="skip-link" href="#main">Skip to content</a>
@@ -111,6 +119,7 @@ def footer():
         <p class="footer-meetings">Meets {MEETINGS} &middot; {ROOM}</p>
         <div class="footer-socials">
           <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="River Valley Robotics on Instagram">{icon("instagram")}</a>
+          <a href="{YOUTUBE}" target="_blank" rel="noopener" aria-label="Match videos on YouTube">{icon("youtube")}</a>
           <a href="mailto:{EMAIL}" aria-label="Email River Valley Robotics">{icon("mail")}</a>
           <a href="https://rvhs.ycusd.org/" target="_blank" rel="noopener" aria-label="River Valley High School website">{icon("link")}</a>
         </div>
@@ -120,6 +129,7 @@ def footer():
         <ul>
           <li><a href="about.html">About the club</a></li>
           <li><a href="robots.html">The build</a></li>
+          <li><a href="watch.html">Watch the matches</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="sponsors.html">Sponsorship</a></li>
         </ul>

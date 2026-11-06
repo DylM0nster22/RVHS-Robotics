@@ -1,5 +1,5 @@
 ﻿"""Photo credits / licensing page."""
-from rvsite import page_hero, INSTAGRAM, INSTAGRAM_HANDLE
+from rvsite import page_hero, INSTAGRAM, INSTAGRAM_HANDLE, YOUTUBE, YOUTUBE_HANDLE
 
 TITLE = "Photo credits | River Valley Robotics"
 DESCRIPTION = "Photography, illustration, and font credits for the River Valley Robotics website."
@@ -14,7 +14,7 @@ BODY = f"""
       <div>
         <p class="kicker">Credits</p>
         <h1>Where the images<br>come from.</h1>
-        <p class="lead">The site uses the team's own photos and flyers from Instagram, plus original graphics made for this site.</p>
+        <p class="lead">The site uses the team's own photos and flyers from Instagram, match video, plus original graphics made for this site.</p>
       </div>
       <div class="page-hero-aside">
         <strong>Team archive</strong>
@@ -55,6 +55,18 @@ BODY = f"""
       <div class="info-row">
         <dt>School logo</dt>
         <dd>River Valley High School Falcons logo. Property of River Valley High School / Yuba City Unified School District, used here to identify the team's school.</dd>
+      </div>
+    </div>
+
+    <h3 style="margin-top:3rem">Match video</h3>
+    <div class="info-list" style="margin-top:1rem">
+      <div class="info-row">
+        <dt>Impact Robotics League #1</dt>
+        <dd>Overhead match footage from the 2026 event. Event overlays, logos, and sponsor marks belong to Impact Robotics League and its sponsors.</dd>
+      </div>
+      <div class="info-row">
+        <dt>YouTube picks</dt>
+        <dd>Newer match videos and thumbnails from the <a href="{YOUTUBE}" target="_blank" rel="noopener">{YOUTUBE_HANDLE}</a> channel. These play through YouTube's privacy-enhanced embed; the site does not host copies.</dd>
       </div>
     </div>
 
