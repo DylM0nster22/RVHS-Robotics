@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 MANIFEST = ROOT / "assets" / "models" / "manifest.json"
 
 TITLE = "3D CAD lab | River Valley Robotics"
-DESCRIPTION = "Orbit the actual STEP CAD for the 3lb vertical spinner and every other public build from DylM0nster22 on GitHub. Interactive 3D in the browser, no plugins."
+DESCRIPTION = "Orbit the actual STEP CAD for the 3lb vertical spinner and the other public combat robots from DylM0nster22 on GitHub. Interactive 3D in the browser, no plugins."
 ACTIVE = "cad"
 FILENAME = "cad.html"
 
@@ -22,7 +22,7 @@ EXTRA_HEAD = """<script type="importmap">
   }
   </script>"""
 
-GROUP_ORDER = ["3 lb", "1 lb", "Plastic ant", "150 g", "More builds"]
+GROUP_ORDER = ["3 lb", "1 lb", "Plastic ant", "150 g", "Other robots"]
 
 
 def load_models():
@@ -35,11 +35,13 @@ def load_models():
 
 
 MODELS = load_models()
+for model in MODELS:
+    model["glb"] = f'{model["glb"]}?v={ASSET_VERSION}'
+    model["thumb"] = f'{model["thumb"]}?v={ASSET_VERSION}'
 FEATURED = next((model for model in MODELS if model.get("featured")), MODELS[0])
 BY_ID = {model["id"]: model for model in MODELS}
 COUNT = len(MODELS)
 COMBAT_COUNT = sum(1 for model in MODELS if model.get("group") == "combat")
-OTHER_COUNT = COUNT - COMBAT_COUNT
 
 
 def group_label(model):
@@ -52,7 +54,7 @@ def group_label(model):
         return "Plastic ant"
     if "150 g" in value:
         return "150 g"
-    return "More builds"
+    return "Other robots"
 
 
 def dimensions(model):
@@ -114,7 +116,7 @@ def model_cards():
         if stats.get("triangles"):
             card_stats += f' &middot; {stats["triangles"]:,} tris'
         cards.append(
-            f"""<a class="cad-card{featured}" href="cad.html?model={model["id"]}" data-cad-model="{model["id"]}" data-group="{model.get("group", "other")}">
+            f"""<a class="cad-card{featured}" href="cad.html?model={model["id"]}" data-cad-model="{model["id"]}">
   <span class="cad-card-media">
     <img src="{model["thumb"]}" width="600" height="450" alt="{html.escape(alt)}" loading="lazy">
     <span class="cad-card-view">View in 3D {icon("cube")}</span>
@@ -143,9 +145,9 @@ BODY = f"""
 {page_hero(
     "CAD lab",
     "Every robot,<br>in the round.",
-    "The actual CAD, not a render. Orbit the 3lb vertical spinner, then open any other public build from Dyl's GitHub. STEP files converted for the browser, with the originals one click away.",
+    "The actual CAD, not a render. Orbit the 3lb vertical spinner, then open the other public combat robots from Dyl's GitHub. STEP files converted for the browser, with the originals one click away.",
     f"{COUNT} public models",
-    f"{COMBAT_COUNT} combat robots and {OTHER_COUNT} other builds, all from public GitHub repos. Drag, zoom, and take them apart with your eyes.",
+    f"{COMBAT_COUNT} combat robots, each with a full CAD assembly and a public GitHub repo. Drag, zoom, and take them apart with your eyes.",
     "CAD lab",
 )}
 
@@ -258,11 +260,6 @@ BODY = f"""
         <p class="kicker">The library</p>
         <h2 id="cad-library">All {COUNT} models.</h2>
       </div>
-      <div class="cad-filters" role="group" aria-label="Filter models">
-        <button type="button" class="cad-filter is-active" data-filter="all" aria-pressed="true">All <span>{COUNT}</span></button>
-        <button type="button" class="cad-filter" data-filter="combat" aria-pressed="false">Combat <span>{COMBAT_COUNT}</span></button>
-        <button type="button" class="cad-filter" data-filter="other" aria-pressed="false">Other <span>{OTHER_COUNT}</span></button>
-      </div>
     </div>
     <div class="cad-grid" id="cad-grid">
       {model_cards()}
@@ -311,7 +308,7 @@ BODY = f"""
       </details>
       <details>
         <summary>Why are some builds missing?</summary>
-        <p>This page shows the public GitHub repos that contain a full CAD assembly. A repo without a STEP file, or one that is not public yet, does not appear. The library uses the main assembly from each repo, not every individual part STL or print plate. If a build gets a new file, add it to <code>tools/models.json</code> and rebuild the assets.</p>
+        <p>This page focuses on the public combat robots. Workshop projects and other CAD files are left out, and a repo without a STEP file or one that is not public yet does not appear. The library uses the main assembly from each repo, not every individual part STL or print plate. If a build gets a new file, add it to <code>tools/models.json</code> and rebuild the assets.</p>
       </details>
       <details>
         <summary>Credits and reuse</summary>

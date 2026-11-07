@@ -110,6 +110,41 @@ function accessor(doc, buffer, array, type, componentType) {
     .setBuffer(buffer);
 }
 
+function srgbToLinear(value) {
+  return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+}
+
+function colorFromHex(hex) {
+  const value = hex.replace("#", "");
+  if (!/^[0-9a-f]{6}$/i.test(value)) throw new Error(`invalid color: ${hex}`);
+  return [0, 2, 4].map((offset) => srgbToLinear(parseInt(value.slice(offset, offset + 2), 16) / 255));
+}
+
+function applyColorOverrides(result, model) {
+  if (model.meshColors) {
+    for (const mesh of result.meshes) {
+      const override = mesh.name && model.meshColors[mesh.name];
+      if (override) mesh.color = colorFromHex(override);
+    }
+  }
+
+  if (model.nodeColors && result.root) {
+    const overrides = new Map(Object.entries(model.nodeColors));
+    const visit = (node) => {
+      const override = overrides.get(node.name);
+      if (override) {
+        const color = colorFromHex(override);
+        for (const index of node.meshes || []) {
+          const mesh = result.meshes[index];
+          if (mesh && !mesh.color) mesh.color = color;
+        }
+      }
+      for (const child of node.children || []) visit(child);
+    };
+    visit(result.root);
+  }
+}
+
 function createGlb(meshes, name) {
   const doc = new Document();
   const buffer = doc.createBuffer("buffer");
@@ -218,6 +253,7 @@ async function convertOne(model) {
   console.log(
     `[${model.id}] tessellated ${result.meshes.length} solids in ${((Date.now() - started) / 1000).toFixed(1)}s`
   );
+  applyColorOverrides(result, model);
 
   const { doc, parts } = createGlb(result.meshes, model.name);
   const rawFile = path.join(RAW, `${model.id}.glb`);
@@ -247,9 +283,15 @@ async function convertOne(model) {
 }
 
 async function buildRuntimeManifest(models) {
+  const previous = fs.existsSync(RUNTIME_MANIFEST)
+    ? readJson(RUNTIME_MANIFEST).models || []
+    : [];
+  const previousStats = new Map(previous.map((model) => [model.id, model.stats || null]));
   const merged = models.map((model) => {
     const statsFile = path.join(STATS, `${model.id}.json`);
-    const stats = fs.existsSync(statsFile) ? readJson(statsFile) : null;
+    const stats = fs.existsSync(statsFile)
+      ? readJson(statsFile)
+      : previousStats.get(model.id) || null;
     return {
       ...model,
       repoUrl: repoUrl(model),

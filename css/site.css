@@ -2494,38 +2494,6 @@ html:not(.js) .cad-hint,
 html:not(.js) .cad-corner { display: none; }
 
 .cad-library-head { align-items: end; }
-.cad-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.cad-filter {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 36px;
-  padding: 0 0.8rem;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  background: transparent;
-  color: var(--muted);
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.2s var(--ease), color 0.2s var(--ease),
-    border-color 0.2s var(--ease);
-}
-.cad-filter span { color: var(--green); font-size: 0.58rem; }
-.cad-filter:hover { border-color: var(--green); color: var(--ink); }
-.cad-filter.is-active {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--white);
-}
-.cad-filter.is-active span { color: var(--accent); }
 
 .cad-grid {
   display: grid;
@@ -2782,7 +2750,7 @@ html:not(.js) .cad-corner { display: none; }
 }
 
 @media print {
-  .cad-stage, .cad-grid, .cad-filters { display: none !important; }
+  .cad-stage, .cad-grid { display: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

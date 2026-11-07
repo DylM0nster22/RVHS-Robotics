@@ -738,25 +738,6 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
     });
   });
 
-  /* ---------- Library filters ---------- */
-  document.querySelectorAll("[data-filter]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const filter = button.getAttribute("data-filter") || "all";
-      document.querySelectorAll("[data-filter]").forEach((item) => {
-        const active = item === button;
-        item.classList.toggle("is-active", active);
-        item.setAttribute("aria-pressed", String(active));
-      });
-      let shown = 0;
-      document.querySelectorAll("[data-cad-model]").forEach((card) => {
-        const matches = filter === "all" || card.getAttribute("data-group") === filter;
-        card.hidden = !matches;
-        if (matches) shown += 1;
-      });
-      announce(`${shown} model${shown === 1 ? "" : "s"} shown.`);
-    });
-  });
-
   /* ---------- Size and render loop ---------- */
   function resize() {
     const width = Math.max(1, Math.round(viewport.clientWidth));

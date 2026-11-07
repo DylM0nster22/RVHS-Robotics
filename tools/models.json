@@ -43,7 +43,12 @@
           "~1.36 kg"
         ]
       ],
-      "deflection": 0.002
+      "deflection": 0.002,
+      "nodeColors": {
+        "Chassis": "#1a44ff",
+        "Forks": "#9aa3a2",
+        "Weapon Stack Hardware": "#8b9290"
+      }
     },
     {
       "id": "3lb-melty",
@@ -86,7 +91,10 @@
           "Custom PCB"
         ]
       ],
-      "deflection": 0.003
+      "deflection": 0.003,
+      "meshColors": {
+        "3lbmelty_PCB (1)": "#2d6b43"
+      }
     },
     {
       "id": "kitt-v23",
@@ -336,23 +344,27 @@
     },
     {
       "id": "torque-walker",
-      "name": "Torque Walker",
-      "shortName": "Torque Walker",
-      "class": "Walker",
+      "name": "Gyro Walker",
+      "shortName": "Gyro Walker",
+      "class": "Plastic ant",
       "type": "Gyro walker",
       "group": "combat",
       "repo": "DylM0nster22/Gryo-Walker",
       "branch": "main",
       "stepPath": "Full CAD.step",
-      "description": "A torque walker with two 5-inch asymmetric disks spinning in opposite directions. Adjusting the speed of each blade makes the robot pivot and walk. PLA frame, two RS2205 motors, a 3S 300 mAh pack, and a Malenki HV receiver.",
+      "description": "A plastic antweight torque walker with two 5-inch asymmetric disks spinning in opposite directions. Adjusting the speed of each blade makes the robot pivot and walk. PLA frame, two RS2205 motors, a 3S 300 mAh pack, and a Malenki HV receiver.",
       "view": [
         39,
         30
       ],
       "specs": [
         [
+          "Class",
+          "Plastic ant"
+        ],
+        [
           "Type",
-          "Torque walker"
+          "Gyro walker"
         ],
         [
           "Weapons",
@@ -369,10 +381,6 @@
         [
           "Frame",
           "PLA"
-        ],
-        [
-          "Motors",
-          "2 × RS2205"
         ]
       ],
       "deflection": 0.003
@@ -412,88 +420,6 @@
         [
           "CAD",
           "BrawlBot.step"
-        ]
-      ],
-      "deflection": 0.003
-    },
-    {
-      "id": "undercity-arena",
-      "name": "UnderCity Arena",
-      "shortName": "Arena",
-      "class": "Other",
-      "type": "Test arena",
-      "group": "other",
-      "repo": "DylM0nster22/Combat-Robot-Arena",
-      "branch": "main",
-      "stepPath": "UnderCity Arena.step",
-      "description": "A test arena for full combat antweights and smaller. Quarter-inch polycarbonate walls, a 3/4-inch plywood top and bottom, a hinged lid for loading bots, and 2x4 kickplates. Built after asking whether UnderCity had an arena and finding out it did not.",
-      "view": [
-        39,
-        12
-      ],
-      "specs": [
-        [
-          "Type",
-          "Test arena"
-        ],
-        [
-          "Walls",
-          "1/4 in polycarbonate"
-        ],
-        [
-          "Floor",
-          "3/4 in plywood"
-        ],
-        [
-          "Lid",
-          "Hinged + latched"
-        ],
-        [
-          "Size",
-          "Ants and below"
-        ],
-        [
-          "CAD",
-          "UnderCity Arena.step"
-        ]
-      ],
-      "deflection": 0.003
-    },
-    {
-      "id": "mixbot",
-      "name": "Mixbot",
-      "shortName": "Mixbot",
-      "class": "Other",
-      "type": "Robot arm",
-      "group": "other",
-      "repo": "DylM0nster22/Team-Noname---Mixbot",
-      "branch": "main",
-      "stepPath": "Blueprint Cad ALL.step",
-      "description": "Team Noname's drink-mixing robot arm, built with an ESP32, a 1.8-inch TFT screen, and an AMD AI recipe picker. The repo includes the full CAD, firmware, mission code, and training notes. It demoed a Shirley Temple.",
-      "specs": [
-        [
-          "Type",
-          "Drink robot"
-        ],
-        [
-          "Control",
-          "ESP32"
-        ],
-        [
-          "Display",
-          "1.8 in TFT"
-        ],
-        [
-          "Team",
-          "Noname"
-        ],
-        [
-          "Software",
-          "AMD AI"
-        ],
-        [
-          "CAD",
-          "Blueprint Cad ALL.step"
         ]
       ],
       "deflection": 0.003

@@ -17,7 +17,7 @@ build step required to host it.
 | `index.html` | Home, what students do, shop photos, sponsor CTA, meeting CTA |
 | `about.html` | Club story, student work, meeting details, FAQ |
 | `robots.html` | Current build, CAD and shop photos, build process, shop rules, next steps |
-| `cad.html` | Interactive 3D CAD viewer for the 3lb vertical spinner and every public build with a STEP file |
+| `cad.html` | Interactive 3D CAD viewer for the 3lb vertical spinner and the other public combat robots with STEP files |
 | `sponsors.html` | Why sponsor, parts costs, levels, benefits table, inquiry form, FAQ |
 | `gallery.html` | All team photos and flyers from Instagram, with a keyboard-friendly lightbox |
 | `watch.html` | Match video archive: 11 fights from Impact Robotics League #1 2026, plus newer YouTube picks |
@@ -153,8 +153,9 @@ The root `.html` files are complete and editable. This is fine for one-off chang
 but running `python tools/build.py` again will overwrite them with the page modules.
 If you choose this route, stop using the generator.
 
-When you change `css/site.css` or `js/site.js`, bump `ASSET_VERSION` in
-`tools/rvsite.py` so browsers fetch the new files instead of using their cache.
+When you change `css/site.css`, `js/site.js`, or the model/thumbnail assets, bump
+`ASSET_VERSION` in `tools/rvsite.py` so browsers fetch the new files instead of
+using their cache.
 
 ### Shared pieces
 
@@ -250,9 +251,10 @@ YouTube watch page, so the page still works if JavaScript is unavailable.
 ## 3D CAD viewer
 
 `cad.html` is a static Three.js viewer. The 3lb vertical spinner is the featured
-model; every other public repo with a full STEP assembly is in the library. Model
-metadata (names, descriptions, specs, repo paths, camera angles) lives in
-`tools/models.json`. The generated runtime manifest is
+model; the library includes the other public combat robot builds with a full STEP
+assembly. Model metadata (names, descriptions, specs, repo paths, camera angles,
+and optional color overrides) lives in `tools/models.json`. The generated runtime
+manifest is
 `assets/models/manifest.json`, and the page embeds that data when it builds.
 
 The browser loads one compressed GLB at a time. STEP files are converted ahead of
@@ -283,6 +285,11 @@ Useful flags:
 - `node tools/make-models.mjs --jobs 2` converts two models at once.
 - `node tools/make-model-thumbs.mjs --only 3lb-vertical-spinner` re-renders one card.
 - Set `CHROME_PATH` if Chrome or Edge is not in the default Windows location.
+
+Some STEP exports lose colors on subassemblies even when the original CAD has them.
+Add `nodeColors` (by assembly node name) or `meshColors` (by mesh name) to an entry
+in `tools/models.json` to override those parts with an sRGB hex color, then rebuild.
+`nodeColors` only fills in uncolored parts; `meshColors` forces the color.
 
 Downloads are cached in `tools/.cache/models` (ignored by Git). The generated GLBs
 and thumbnails are committed, so a normal deploy does not need Node or the source

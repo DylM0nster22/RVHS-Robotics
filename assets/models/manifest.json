@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-07T00:05:49.724Z",
+  "generated": "2026-11-07T02:44:38.385Z",
   "source": "https://github.com/DylM0nster22",
   "models": [
     {
@@ -45,6 +45,11 @@
         ]
       ],
       "deflection": 0.002,
+      "nodeColors": {
+        "Chassis": "#1a44ff",
+        "Forks": "#9aa3a2",
+        "Weapon Stack Hardware": "#8b9290"
+      },
       "repoUrl": "https://github.com/DylM0nster22/3lb-Vertical-Spinner",
       "stepUrl": "https://github.com/DylM0nster22/3lb-Vertical-Spinner/blob/main/Cad%20files/3lb.step",
       "glb": "assets/models/3lb-vertical-spinner.glb",
@@ -59,8 +64,8 @@
         },
         "parts": 216,
         "stepBytes": 39976995,
-        "glbBytes": 2223136,
-        "generated": "2026-11-06T23:22:47.885Z"
+        "glbBytes": 2225036,
+        "generated": "2026-11-07T02:35:14.076Z"
       }
     },
     {
@@ -105,6 +110,9 @@
         ]
       ],
       "deflection": 0.003,
+      "meshColors": {
+        "3lbmelty_PCB (1)": "#2d6b43"
+      },
       "repoUrl": "https://github.com/DylM0nster22/3lb-Melty",
       "stepUrl": "https://github.com/DylM0nster22/3lb-Melty/blob/main/Unscheduled%20Disassembly%20v20s%20v3.step",
       "glb": "assets/models/3lb-melty.glb",
@@ -120,7 +128,7 @@
         "parts": 460,
         "stepBytes": 6806723,
         "glbBytes": 489796,
-        "generated": "2026-11-06T23:21:41.728Z"
+        "generated": "2026-11-07T02:35:23.936Z"
       }
     },
     {
@@ -167,16 +175,16 @@
       "thumb": "assets/models/thumbs/kitt-v23.webp",
       "stats": {
         "triangles": 143649,
-        "vertices": 188503,
+        "vertices": 0,
         "bbox": {
           "x": 233.7,
           "y": 141.4,
           "z": 107
         },
-        "parts": 61,
+        "parts": 0,
         "stepBytes": 33780155,
         "glbBytes": 833832,
-        "generated": "2026-11-06T23:22:50.369Z"
+        "generated": "2026-11-07T02:43:49.820506Z"
       }
     },
     {
@@ -223,16 +231,16 @@
       "thumb": "assets/models/thumbs/kitt-v2.webp",
       "stats": {
         "triangles": 330486,
-        "vertices": 278449,
+        "vertices": 0,
         "bbox": {
           "x": 224.3,
           "y": 223.1,
           "z": 122.6
         },
-        "parts": 38,
+        "parts": 0,
         "stepBytes": 40639247,
         "glbBytes": 1528640,
-        "generated": "2026-11-06T23:23:53.186Z"
+        "generated": "2026-11-07T02:43:49.820506Z"
       }
     },
     {
@@ -279,16 +287,16 @@
       "thumb": "assets/models/thumbs/edgehog-v7.webp",
       "stats": {
         "triangles": 107002,
-        "vertices": 154242,
+        "vertices": 0,
         "bbox": {
           "x": 145.8,
           "y": 159.8,
           "z": 66.3
         },
-        "parts": 43,
+        "parts": 0,
         "stepBytes": 34554009,
         "glbBytes": 655176,
-        "generated": "2026-11-06T23:24:00.101Z"
+        "generated": "2026-11-07T02:43:49.820506Z"
       }
     },
     {
@@ -339,16 +347,16 @@
       "thumb": "assets/models/thumbs/edgehog-v6.webp",
       "stats": {
         "triangles": 450985,
-        "vertices": 376470,
+        "vertices": 0,
         "bbox": {
           "x": 186.3,
           "y": 146,
           "z": 61.2
         },
-        "parts": 29,
+        "parts": 0,
         "stepBytes": 47541618,
         "glbBytes": 2079464,
-        "generated": "2026-11-06T23:25:26.064Z"
+        "generated": "2026-11-07T02:43:49.820506Z"
       }
     },
     {
@@ -399,16 +407,16 @@
       "thumb": "assets/models/thumbs/plant-tower-vert.webp",
       "stats": {
         "triangles": 44544,
-        "vertices": 68345,
+        "vertices": 0,
         "bbox": {
           "x": 303,
           "y": 159.9,
           "z": 102.1
         },
-        "parts": 27,
+        "parts": 0,
         "stepBytes": 17159415,
         "glbBytes": 274260,
-        "generated": "2026-11-06T23:24:35.002Z"
+        "generated": "2026-11-07T02:43:49.820506Z"
       }
     },
     {
@@ -459,37 +467,41 @@
       "thumb": "assets/models/thumbs/150g-bristle-bot.webp",
       "stats": {
         "triangles": 116660,
-        "vertices": 113337,
+        "vertices": 0,
         "bbox": {
           "x": 110.4,
           "y": 139.5,
           "z": 33.9
         },
-        "parts": 55,
+        "parts": 0,
         "stepBytes": 8787066,
         "glbBytes": 636808,
-        "generated": "2026-11-06T23:24:55.182Z"
+        "generated": "2026-11-07T02:43:49.820506Z"
       }
     },
     {
       "id": "torque-walker",
-      "name": "Torque Walker",
-      "shortName": "Torque Walker",
-      "class": "Walker",
+      "name": "Gyro Walker",
+      "shortName": "Gyro Walker",
+      "class": "Plastic ant",
       "type": "Gyro walker",
       "group": "combat",
       "repo": "DylM0nster22/Gryo-Walker",
       "branch": "main",
       "stepPath": "Full CAD.step",
-      "description": "A torque walker with two 5-inch asymmetric disks spinning in opposite directions. Adjusting the speed of each blade makes the robot pivot and walk. PLA frame, two RS2205 motors, a 3S 300 mAh pack, and a Malenki HV receiver.",
+      "description": "A plastic antweight torque walker with two 5-inch asymmetric disks spinning in opposite directions. Adjusting the speed of each blade makes the robot pivot and walk. PLA frame, two RS2205 motors, a 3S 300 mAh pack, and a Malenki HV receiver.",
       "view": [
         39,
         30
       ],
       "specs": [
         [
+          "Class",
+          "Plastic ant"
+        ],
+        [
           "Type",
-          "Torque walker"
+          "Gyro walker"
         ],
         [
           "Weapons",
@@ -506,10 +518,6 @@
         [
           "Frame",
           "PLA"
-        ],
-        [
-          "Motors",
-          "2 × RS2205"
         ]
       ],
       "deflection": 0.003,
@@ -519,16 +527,16 @@
       "thumb": "assets/models/thumbs/torque-walker.webp",
       "stats": {
         "triangles": 22324,
-        "vertices": 22579,
+        "vertices": 0,
         "bbox": {
           "x": 229.8,
           "y": 88.7,
           "z": 60.8
         },
-        "parts": 10,
+        "parts": 0,
         "stepBytes": 1988969,
         "glbBytes": 138240,
-        "generated": "2026-11-06T23:21:06.188Z"
+        "generated": "2026-11-07T02:43:49.820506Z"
       }
     },
     {
@@ -575,132 +583,16 @@
       "thumb": "assets/models/thumbs/brawl-bots.webp",
       "stats": {
         "triangles": 96670,
-        "vertices": 94059,
+        "vertices": 0,
         "bbox": {
           "x": 244.5,
           "y": 138.3,
           "z": 178
         },
-        "parts": 30,
+        "parts": 0,
         "stepBytes": 9031803,
         "glbBytes": 515428,
-        "generated": "2026-11-06T23:25:12.565Z"
-      }
-    },
-    {
-      "id": "undercity-arena",
-      "name": "UnderCity Arena",
-      "shortName": "Arena",
-      "class": "Other",
-      "type": "Test arena",
-      "group": "other",
-      "repo": "DylM0nster22/Combat-Robot-Arena",
-      "branch": "main",
-      "stepPath": "UnderCity Arena.step",
-      "description": "A test arena for full combat antweights and smaller. Quarter-inch polycarbonate walls, a 3/4-inch plywood top and bottom, a hinged lid for loading bots, and 2x4 kickplates. Built after asking whether UnderCity had an arena and finding out it did not.",
-      "view": [
-        39,
-        12
-      ],
-      "specs": [
-        [
-          "Type",
-          "Test arena"
-        ],
-        [
-          "Walls",
-          "1/4 in polycarbonate"
-        ],
-        [
-          "Floor",
-          "3/4 in plywood"
-        ],
-        [
-          "Lid",
-          "Hinged + latched"
-        ],
-        [
-          "Size",
-          "Ants and below"
-        ],
-        [
-          "CAD",
-          "UnderCity Arena.step"
-        ]
-      ],
-      "deflection": 0.003,
-      "repoUrl": "https://github.com/DylM0nster22/Combat-Robot-Arena",
-      "stepUrl": "https://github.com/DylM0nster22/Combat-Robot-Arena/blob/main/UnderCity%20Arena.step",
-      "glb": "assets/models/undercity-arena.glb",
-      "thumb": "assets/models/thumbs/undercity-arena.webp",
-      "stats": {
-        "triangles": 94982,
-        "vertices": 85181,
-        "bbox": {
-          "x": 1261,
-          "y": 1257.2,
-          "z": 687.4
-        },
-        "parts": 204,
-        "stepBytes": 5001014,
-        "glbBytes": 420428,
-        "generated": "2026-11-06T23:25:24.536Z"
-      }
-    },
-    {
-      "id": "mixbot",
-      "name": "Mixbot",
-      "shortName": "Mixbot",
-      "class": "Other",
-      "type": "Robot arm",
-      "group": "other",
-      "repo": "DylM0nster22/Team-Noname---Mixbot",
-      "branch": "main",
-      "stepPath": "Blueprint Cad ALL.step",
-      "description": "Team Noname's drink-mixing robot arm, built with an ESP32, a 1.8-inch TFT screen, and an AMD AI recipe picker. The repo includes the full CAD, firmware, mission code, and training notes. It demoed a Shirley Temple.",
-      "specs": [
-        [
-          "Type",
-          "Drink robot"
-        ],
-        [
-          "Control",
-          "ESP32"
-        ],
-        [
-          "Display",
-          "1.8 in TFT"
-        ],
-        [
-          "Team",
-          "Noname"
-        ],
-        [
-          "Software",
-          "AMD AI"
-        ],
-        [
-          "CAD",
-          "Blueprint Cad ALL.step"
-        ]
-      ],
-      "deflection": 0.003,
-      "repoUrl": "https://github.com/DylM0nster22/Team-Noname---Mixbot",
-      "stepUrl": "https://github.com/DylM0nster22/Team-Noname---Mixbot/blob/main/Blueprint%20Cad%20ALL.step",
-      "glb": "assets/models/mixbot.glb",
-      "thumb": "assets/models/thumbs/mixbot.webp",
-      "stats": {
-        "triangles": 123371,
-        "vertices": 139139,
-        "bbox": {
-          "x": 260.5,
-          "y": 271.1,
-          "z": 77.4
-        },
-        "parts": 282,
-        "stepBytes": 20912712,
-        "glbBytes": 597976,
-        "generated": "2026-11-06T23:26:02.970Z"
+        "generated": "2026-11-07T02:43:49.820506Z"
       }
     }
   ]
