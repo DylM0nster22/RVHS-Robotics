@@ -1,8 +1,9 @@
-﻿"""Shared layout, navigation and icon helpers for the RV Robotics site build."""
+"""Shared layout, navigation and icon helpers for the RV Robotics site build."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_URL = "https://rvrobotics.ycusd.org"
+ASSET_VERSION = "20261107-4"
 EMAIL = "rvrobotics@ycusd.org"
 INSTAGRAM = "https://www.instagram.com/rv.robotics/"
 INSTAGRAM_HANDLE = "@rv.robotics"
@@ -44,6 +45,13 @@ ICONS = {
     "next": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>',
     "zoom": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M10.5 7.5v6M7.5 10.5h6"/></svg>',
     "external": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v4.5A1.5 1.5 0 0 1 17.5 20h-12A1.5 1.5 0 0 1 4 18.5v-12A1.5 1.5 0 0 1 5.5 5H10"/></svg>',
+    "rotate": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.9-6.4"/><path d="M20.5 4v5h-5"/></svg>',
+    "wireframe": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8 4.5v10l-8 4.5-8-4.5v-10l8-4.5Z"/><path d="m4 7 8 4.5L20 7M12 11.5V21.5M4 17l8-5.5M20 17l-8-5.5"/></svg>',
+    "grid": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"/><path d="M3.5 9h17M3.5 15h17M9 3.5v17M15 3.5v17"/></svg>',
+    "fullscreen": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>',
+    "collapse": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h5V3M21 8h-5V3M3 16h5v5M21 16h-5v5"/></svg>',
+    "reset": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10a8 8 0 1 1 .6 6.5"/><path d="M4.5 4v6h6"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>',
+    "cube": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg>',
     "robot": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7.5" width="16" height="12" rx="2"/><path d="M12 3.5V7.5M9 3.5h6M8.5 12h.01M15.5 12h.01M9 16h6M1.5 11v5M22.5 11v5"/></svg>',
 }
 
@@ -52,6 +60,7 @@ BRAND_MARK = """<img class="brand-logo" src="assets/img/logo-mark.webp" width="3
 NAV = [
     ("about.html", "About", "about"),
     ("robots.html", "Build", "robots"),
+    ("cad.html", "CAD", "cad"),
     ("sponsors.html", "Sponsors", "sponsors"),
     ("watch.html", "Watch", "watch"),
     ("gallery.html", "Gallery", "gallery"),
@@ -129,6 +138,7 @@ def footer():
         <ul>
           <li><a href="about.html">About the club</a></li>
           <li><a href="robots.html">The build</a></li>
+          <li><a href="cad.html">3D CAD viewer</a></li>
           <li><a href="watch.html">Watch the matches</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="sponsors.html">Sponsorship</a></li>
@@ -157,7 +167,7 @@ def footer():
       <p>&copy; <span data-year>2026</span> River Valley Robotics &middot; River Valley High School</p>
       <div class="footer-legal">
         <a href="https://www.ycusd.org/Non-Discrimination-Policy/index.html" target="_blank" rel="noopener">Non-discrimination policy</a>
-        <a href="credits.html">Photo credits</a>
+        <a href="credits.html">Credits</a>
         <a href="accessibility.html">Accessibility</a>
       </div>
     </div>
@@ -199,7 +209,7 @@ def layout(title, description, active, body, filename="index.html", body_class="
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/site.css?v={ASSET_VERSION}">
   {extra_head}
   <script type="application/ld+json">
   {{
@@ -234,7 +244,7 @@ def layout(title, description, active, body, filename="index.html", body_class="
 {body}
 </main>
 {footer()}
-<script src="js/site.js" defer></script>
+<script src="js/site.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>
 """

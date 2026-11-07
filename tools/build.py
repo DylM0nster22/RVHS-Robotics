@@ -17,6 +17,7 @@ PAGES = [
     "home",
     "about",
     "robots",
+    "cad",
     "sponsors",
     "gallery",
     "watch",
@@ -31,6 +32,7 @@ SITEMAP_PAGES = [
     ("index.html", "1.0"),
     ("about.html", "0.8"),
     ("robots.html", "0.8"),
+    ("cad.html", "0.7"),
     ("sponsors.html", "0.9"),
     ("gallery.html", "0.6"),
     ("watch.html", "0.7"),
@@ -51,6 +53,8 @@ def build_pages():
             module.BODY,
             filename=module.FILENAME,
             robots=getattr(module, "ROBOTS", "index, follow"),
+            body_class=getattr(module, "BODY_CLASS", ""),
+            extra_head=getattr(module, "EXTRA_HEAD", ""),
         )
         output = ROOT / module.FILENAME
         output.write_text(html, encoding="utf-8")

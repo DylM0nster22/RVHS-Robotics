@@ -1,20 +1,20 @@
-﻿"""Photo credits / licensing page."""
+﻿"""Credits / licensing page."""
 from rvsite import page_hero, INSTAGRAM, INSTAGRAM_HANDLE, YOUTUBE, YOUTUBE_HANDLE
 
-TITLE = "Photo credits | River Valley Robotics"
-DESCRIPTION = "Photography, illustration, and font credits for the River Valley Robotics website."
+TITLE = "Credits | River Valley Robotics"
+DESCRIPTION = "Photography, CAD model, illustration, font, and software credits for the River Valley Robotics website."
 ACTIVE = ""
 FILENAME = "credits.html"
 
 BODY = f"""
 <section class="page-hero">
   <div class="container">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span aria-current="page">Photo credits</span></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span aria-current="page">Credits</span></nav>
     <div class="page-hero-grid">
       <div>
         <p class="kicker">Credits</p>
-        <h1>Where the images<br>come from.</h1>
-        <p class="lead">The site uses the team's own photos and flyers from Instagram, match video, plus original graphics made for this site.</p>
+        <h1>Where it all<br>comes from.</h1>
+        <p class="lead">The site uses the team's own photos and flyers from Instagram, match video, public CAD models, plus original graphics made for this site.</p>
       </div>
       <div class="page-hero-aside">
         <strong>Team archive</strong>
@@ -67,6 +67,18 @@ BODY = f"""
       <div class="info-row">
         <dt>YouTube picks</dt>
         <dd>Newer match videos and thumbnails from the <a href="{YOUTUBE}" target="_blank" rel="noopener">{YOUTUBE_HANDLE}</a> channel. These play through YouTube's privacy-enhanced embed; the site does not host copies.</dd>
+      </div>
+    </div>
+
+    <h3 style="margin-top:3rem">3D CAD models</h3>
+    <div class="info-list" style="margin-top:1rem">
+      <div class="info-row">
+        <dt>Model sources</dt>
+        <dd>The <a href="cad.html">CAD lab</a> uses STEP files from <a href="https://github.com/DylM0nster22" target="_blank" rel="noopener">DylM0nster22's public GitHub repositories</a> and work by the listed collaborators. Models remain the work of their authors; check each repository for license terms before reusing geometry or design files.</dd>
+      </div>
+      <div class="info-row">
+        <dt>Viewer</dt>
+        <dd>Three.js and the meshoptimizer decoder, both MIT licensed and self-hosted. Card thumbnails were rendered from the CAD files for this site.</dd>
       </div>
     </div>
 

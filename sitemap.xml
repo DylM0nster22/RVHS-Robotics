@@ -3,6 +3,7 @@
   <url><loc>https://rvrobotics.ycusd.org/</loc><priority>1.0</priority></url>
   <url><loc>https://rvrobotics.ycusd.org/about.html</loc><priority>0.8</priority></url>
   <url><loc>https://rvrobotics.ycusd.org/robots.html</loc><priority>0.8</priority></url>
+  <url><loc>https://rvrobotics.ycusd.org/cad.html</loc><priority>0.7</priority></url>
   <url><loc>https://rvrobotics.ycusd.org/sponsors.html</loc><priority>0.9</priority></url>
   <url><loc>https://rvrobotics.ycusd.org/gallery.html</loc><priority>0.6</priority></url>
   <url><loc>https://rvrobotics.ycusd.org/watch.html</loc><priority>0.7</priority></url>

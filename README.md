@@ -17,12 +17,13 @@ build step required to host it.
 | `index.html` | Home, what students do, shop photos, sponsor CTA, meeting CTA |
 | `about.html` | Club story, student work, meeting details, FAQ |
 | `robots.html` | Current build, CAD and shop photos, build process, shop rules, next steps |
+| `cad.html` | Interactive 3D CAD viewer for the 3lb vertical spinner and every public build with a STEP file |
 | `sponsors.html` | Why sponsor, parts costs, levels, benefits table, inquiry form, FAQ |
 | `gallery.html` | All team photos and flyers from Instagram, with a keyboard-friendly lightbox |
 | `watch.html` | Match video archive: 11 fights from Impact Robotics League #1 2026, plus newer YouTube picks |
 | `join.html` | Student and parent/mentor info, meeting details, interest form, FAQ |
 | `contact.html` | Contact methods, general inquiry form, map |
-| `credits.html` | Photo, font, and illustration credits |
+| `credits.html` | Photo, CAD, font, illustration, and software credits |
 | `accessibility.html` | Accessibility statement and how to request help |
 | `404.html` | Friendly not-found page |
 | `sponsor-packet.html` | Printable 2-page sponsorship packet (screen + print styles) |
@@ -31,6 +32,10 @@ build step required to host it.
 Supporting files: `css/site.css`, `js/site.js`, self-hosted fonts, optimized images,
 web-optimized match video in `assets/video/`, `site.webmanifest`, `robots.txt`, and
 `sitemap.xml`.
+
+The CAD lab also uses `js/cad-viewer.js`, self-hosted Three.js modules in
+`assets/js/vendor/`, and converted models and thumbnails in `assets/models/`.
+Everything is static; the browser loads one GLB at a time.
 
 ---
 
@@ -115,6 +120,9 @@ before the site goes live.
     sponsor names, the PDF, and any external links. Check with the site administrator
     before launch.
 13. **PDF.** Regenerate the PDF after any sponsor/packet edit (instructions below).
+14. **CAD viewer.** Confirm the model authors and collaborators approve publishing the
+    converted models and thumbnails, and check each GitHub repository's license before
+    sharing or reusing geometry. The CAD lab links back to every source repo.
 
 The site intentionally does **not** invent student counts, mentor counts, awards, or
 competition results. The team facts shown (second season, Room 408, grades 9–12,
@@ -139,11 +147,14 @@ The HTML files in the root are generated from the small Python page modules in
 
 3. Rebuild the PDF (see below) if you changed the packet.
 
-### Option B — edit the HTML directly
+### Option B - edit the HTML directly
 
 The root `.html` files are complete and editable. This is fine for one-off changes,
 but running `python tools/build.py` again will overwrite them with the page modules.
 If you choose this route, stop using the generator.
+
+When you change `css/site.css` or `js/site.js`, bump `ASSET_VERSION` in
+`tools/rvsite.py` so browsers fetch the new files instead of using their cache.
 
 ### Shared pieces
 
@@ -236,6 +247,54 @@ YouTube watch page, so the page still works if JavaScript is unavailable.
 
 ---
 
+## 3D CAD viewer
+
+`cad.html` is a static Three.js viewer. The 3lb vertical spinner is the featured
+model; every other public repo with a full STEP assembly is in the library. Model
+metadata (names, descriptions, specs, repo paths, camera angles) lives in
+`tools/models.json`. The generated runtime manifest is
+`assets/models/manifest.json`, and the page embeds that data when it builds.
+
+The browser loads one compressed GLB at a time. STEP files are converted ahead of
+time with OpenCascade (`occt-import-js`), compressed with meshoptimizer
+(`gltfpack`), and rendered with self-hosted Three.js modules. Nothing needs Node
+on the web server.
+
+To rebuild the model assets after changing `tools/models.json` or a model repo:
+
+```powershell
+# One time, installs the conversion tools (not needed to host the site).
+cd tools
+npm install
+
+# From the project root: download STEP files, convert, and write the manifest.
+node tools/make-models.mjs
+
+# Rebuild the HTML so the new manifest and model views are embedded first.
+python tools/build.py
+
+# Optional but recommended: render new card thumbnails with Chrome or Edge.
+node tools/make-model-thumbs.mjs
+```
+
+Useful flags:
+
+- `node tools/make-models.mjs --only 3lb-vertical-spinner --force` rebuilds one model.
+- `node tools/make-models.mjs --jobs 2` converts two models at once.
+- `node tools/make-model-thumbs.mjs --only 3lb-vertical-spinner` re-renders one card.
+- Set `CHROME_PATH` if Chrome or Edge is not in the default Windows location.
+
+Downloads are cached in `tools/.cache/models` (ignored by Git). The generated GLBs
+and thumbnails are committed, so a normal deploy does not need Node or the source
+STEP files. `assets/models/manifest.json` is generated; edit `tools/models.json`
+instead.
+
+Each model links to its public GitHub repository and original STEP file. Check the
+repository's license before reusing geometry or design files. The viewer uses
+Three.js and the meshoptimizer decoder, both MIT licensed; their notices are in
+`assets/js/vendor/LICENSE-three.txt` and
+`assets/js/vendor/LICENSE-meshoptimizer.txt`.
+
 ## Sponsorship packet PDF
 
 The packet is designed as two US Letter pages. To regenerate the PDF from
@@ -306,6 +365,9 @@ competition league, team number, awards, or match record.
   School District.
 - Official team logo: River Valley Robotics (provided by the team).
 - Typefaces: Barlow Condensed and Inter, SIL Open Font License 1.1, self-hosted.
+- CAD models: [DylM0nster22's public GitHub repositories](https://github.com/DylM0nster22)
+  and the listed collaborators. Check each repo for license terms.
+- 3D viewer: Three.js and meshoptimizer, MIT licensed, self-hosted.
 - Icons and page graphics: original work made for this site.
 
 See `credits.html` for the public-facing version.

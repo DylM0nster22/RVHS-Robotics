@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D CAD lab | River Valley Robotics</title>
+  <meta name="description" content="Orbit the actual STEP CAD for the 3lb vertical spinner and every other public build from DylM0nster22 on GitHub. Interactive 3D in the browser, no plugins.">
+  <link rel="canonical" href="https://rvrobotics.ycusd.org/cad.html">
+  <meta name="theme-color" content="#173d20">
+  <meta name="robots" content="index, follow">
+  <script>document.documentElement.classList.add("js");</script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="River Valley Robotics">
+  <meta property="og:title" content="3D CAD lab | River Valley Robotics">
+  <meta property="og:description" content="Orbit the actual STEP CAD for the 3lb vertical spinner and every other public build from DylM0nster22 on GitHub. Interactive 3D in the browser, no plugins.">
+  <meta property="og:url" content="https://rvrobotics.ycusd.org/cad.html">
+  <meta property="og:image" content="https://rvrobotics.ycusd.org/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="3D CAD lab | River Valley Robotics">
+  <meta name="twitter:description" content="Orbit the actual STEP CAD for the 3lb vertical spinner and every other public build from DylM0nster22 on GitHub. Interactive 3D in the browser, no plugins.">
+  <meta name="twitter:image" content="https://rvrobotics.ycusd.org/assets/img/og.jpg">
+
+  <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/site.css?v=20261107-4">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./assets/js/vendor/three.module.js",
+      "three/addons/": "./assets/js/vendor/addons/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "River Valley Robotics",
+    "alternateName": "RVHS Robotics",
+    "url": "https://rvrobotics.ycusd.org/",
+    "logo": "https://rvrobotics.ycusd.org/assets/img/icon-512.png",
+    "description": "Student-run combat robotics club at River Valley High School in Yuba City, California.",
+    "parentOrganization": {
+      "@type": "HighSchool",
+      "name": "River Valley High School",
+      "url": "https://rvhs.ycusd.org/"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "801 El Margarita Rd.",
+      "addressLocality": "Yuba City",
+      "addressRegion": "CA",
+      "postalCode": "95993",
+      "addressCountry": "US"
+    },
+    "email": "rvrobotics@ycusd.org",
+    "sameAs": ["https://www.instagram.com/rv.robotics/"]
+  }
+  </script>
+</head>
+<body class="">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="River Valley Robotics — home">
+      <img class="brand-logo" src="assets/img/logo-mark.webp" width="300" height="229" alt="" aria-hidden="true" decoding="async">
+      <span class="brand-type">River Valley <em>Robotics</em></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="about.html">About</a>
+<a href="robots.html">Build</a>
+<a href="cad.html" aria-current="page">CAD</a>
+<a href="sponsors.html">Sponsors</a>
+<a href="watch.html">Watch</a>
+<a href="gallery.html">Gallery</a>
+<a href="join.html">Join</a>
+<a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--primary" href="sponsors.html#tiers">Sponsor the team <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <ul>
+      <li><a href="about.html">About<span>01</span></a></li>
+<li><a href="robots.html">Build<span>02</span></a></li>
+<li><a href="cad.html" aria-current="page">CAD<span>03</span></a></li>
+<li><a href="sponsors.html">Sponsors<span>04</span></a></li>
+<li><a href="watch.html">Watch<span>05</span></a></li>
+<li><a href="gallery.html">Gallery<span>06</span></a></li>
+<li><a href="join.html">Join<span>07</span></a></li>
+<li><a href="contact.html">Contact<span>08</span></a></li>
+    </ul>
+  </nav>
+  <div class="mobile-nav-footer">
+    <a class="btn btn--primary" href="sponsors.html#tiers">Sponsor the team</a>
+    <a class="btn btn--ghost" href="join.html">Join the team</a>
+  </div>
+</div>
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span aria-current="page">CAD lab</span></nav>
+    <div class="page-hero-grid">
+      <div>
+        <p class="kicker">CAD lab</p>
+        <h1>Every robot,<br>in the round.</h1>
+        <p class="lead">The actual CAD, not a render. Orbit the 3lb vertical spinner, then open any other public build from Dyl's GitHub. STEP files converted for the browser, with the originals one click away.</p>
+      </div>
+      <div class="page-hero-aside"><strong>12 public models</strong><p>10 combat robots and 2 other builds, all from public GitHub repos. Drag, zoom, and take them apart with your eyes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section cad-stage" id="viewer" aria-labelledby="cad-viewer-heading">
+  <div class="container">
+    <div class="cad-shell">
+      <div class="cad-visual">
+        <div class="cad-viewport" id="cad-viewport" tabindex="0" role="application" aria-describedby="cad-hint" aria-keyshortcuts="ArrowLeft ArrowRight ArrowUp ArrowDown + - R A W G F" aria-label="Interactive 3D model viewer. Drag to orbit, scroll to zoom, right-drag to pan.">
+          <canvas id="cad-canvas" aria-hidden="true"></canvas>
+
+          <div class="cad-toolbar" role="toolbar" aria-label="3D view controls">
+            <button class="cad-tool" type="button" data-cad-action="reset" aria-label="Reset view" title="Reset view (R)">
+              <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10a8 8 0 1 1 .6 6.5"/><path d="M4.5 4v6h6"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg><span>Reset</span>
+            </button>
+            <button class="cad-tool" type="button" data-cad-action="spin" aria-label="Toggle auto-rotate" aria-pressed="true" title="Auto-rotate (A)">
+              <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.9-6.4"/><path d="M20.5 4v5h-5"/></svg><span>Spin</span>
+            </button>
+            <button class="cad-tool" type="button" data-cad-action="wireframe" aria-label="Toggle wireframe" aria-pressed="false" title="Wireframe (W)">
+              <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8 4.5v10l-8 4.5-8-4.5v-10l8-4.5Z"/><path d="m4 7 8 4.5L20 7M12 11.5V21.5M4 17l8-5.5M20 17l-8-5.5"/></svg><span>Wire</span>
+            </button>
+            <button class="cad-tool" type="button" data-cad-action="grid" aria-label="Toggle floor grid" aria-pressed="true" title="Grid (G)">
+              <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"/><path d="M3.5 9h17M3.5 15h17M9 3.5v17M15 3.5v17"/></svg><span>Grid</span>
+            </button>
+            <button class="cad-tool" type="button" data-cad-action="fullscreen" aria-label="Enter fullscreen" aria-pressed="false" title="Fullscreen (F)">
+              <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg><span>Full</span>
+            </button>
+          </div>
+
+          <div class="cad-viewport-tag">
+            <span class="cad-live-dot" aria-hidden="true"></span>
+            <span id="cad-viewport-label">3lb Vertical Spinner</span>
+          </div>
+
+          <div class="cad-loading" id="cad-loading" aria-hidden="true">
+            <span class="mono-label" id="cad-loading-label">Loading model</span>
+            <div class="cad-progress"><span id="cad-progress-bar"></span></div>
+            <span class="cad-progress-pct" id="cad-progress-pct">0%</span>
+          </div>
+
+          <div class="cad-error" id="cad-error" role="alert" hidden>
+            <span class="mono-label">Model unavailable</span>
+            <p id="cad-error-text">The model could not be loaded. Check your connection, or open the original STEP file.</p>
+            <a class="text-link" id="cad-error-link" href="https://github.com/DylM0nster22/3lb-Vertical-Spinner/blob/main/Cad%20files/3lb.step" target="_blank" rel="noopener">Open the STEP file <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v4.5A1.5 1.5 0 0 1 17.5 20h-12A1.5 1.5 0 0 1 4 18.5v-12A1.5 1.5 0 0 1 5.5 5H10"/></svg></a>
+          </div>
+
+          <div class="cad-fallback" id="cad-fallback">
+            <span class="mono-label">3D CAD</span>
+            <p>The interactive model needs JavaScript and WebGL. The original file is still available:</p>
+            <a class="text-link" id="cad-fallback-link" href="https://github.com/DylM0nster22/3lb-Vertical-Spinner/blob/main/Cad%20files/3lb.step" target="_blank" rel="noopener">Open the STEP file <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v4.5A1.5 1.5 0 0 1 17.5 20h-12A1.5 1.5 0 0 1 4 18.5v-12A1.5 1.5 0 0 1 5.5 5H10"/></svg></a>
+          </div>
+
+          <p class="cad-hint" id="cad-hint">Drag to orbit <span aria-hidden="true">&middot;</span> Scroll to zoom <span aria-hidden="true">&middot;</span> Right-drag to pan</p>
+          <span class="cad-corner" aria-hidden="true">RV / CAD</span>
+        </div>
+        <p class="cad-viewer-note">Each model is framed to fit the viewer, so relative scale between different robots is not exact. Print from the original STEP, not the on-screen mesh.</p>
+      </div>
+
+      <aside class="cad-panel" aria-label="Selected model">
+        <p class="kicker" id="cad-panel-kicker">Featured build</p>
+        <h2 id="cad-viewer-heading" data-cad-name>3lb Vertical Spinner</h2>
+        <p class="cad-model-meta">
+          <span data-cad-class>3 lb</span>
+          <span class="cad-sep" aria-hidden="true">/</span>
+          <span data-cad-type>Vertical spinner</span>
+        </p>
+        <p class="cad-model-desc" data-cad-desc>The redemption build. A 5.2-inch vertical spinner on a printed glass-filled nylon hub, belt-driven 2:1 from a 2812 outrunner. Two Repeat 2006 Pro motors drive the wheels directly and two 6S packs run in parallel. Forks for verticals, a wedge for horizontals.</p>
+
+        <dl class="cad-specs" data-cad-specs>
+          <div><dt>Class</dt><dd>3 lb</dd></div>
+<div><dt>Weapon</dt><dd>5.2 in vertical</dd></div>
+<div><dt>Weapon drive</dt><dd>2812, 2:1 belt</dd></div>
+<div><dt>Drive</dt><dd>2-wheel direct</dd></div>
+<div><dt>Power</dt><dd>2 × 6S LiPo</dd></div>
+<div><dt>Weight</dt><dd>~1.36 kg</dd></div>
+        </dl>
+
+        <p class="cad-model-stats" data-cad-stats>286.1 &times; 220.9 &times; 115.2 mm &middot; 428,197 triangles</p>
+
+        <div class="cad-links">
+          <a class="text-link" data-cad-repo href="https://github.com/DylM0nster22/3lb-Vertical-Spinner" target="_blank" rel="noopener">Source on GitHub <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v4.5A1.5 1.5 0 0 1 17.5 20h-12A1.5 1.5 0 0 1 4 18.5v-12A1.5 1.5 0 0 1 5.5 5H10"/></svg></a>
+          <a class="text-link" data-cad-step href="https://github.com/DylM0nster22/3lb-Vertical-Spinner/blob/main/Cad%20files/3lb.step" target="_blank" rel="noopener">Download STEP <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg></a>
+        </div>
+
+        <div class="cad-picker">
+          <label for="cad-model-select">Choose a model</label>
+          <select id="cad-model-select" class="cad-select">
+            <optgroup label="3 lb">
+<option value="3lb-vertical-spinner" selected>3lb Vertical Spinner &mdash; Vertical spinner</option>
+<option value="3lb-melty">Unscheduled Disassembly &mdash; Meltybrain</option>
+</optgroup>
+<optgroup label="1 lb">
+<option value="kitt-v23">KITT v23 &mdash; Vertical spinner</option>
+<option value="kitt-v2">Kitt v2 &mdash; Tower vertical</option>
+<option value="edgehog-v7">Edgehog v7 &mdash; Drum spinner</option>
+</optgroup>
+<optgroup label="Plastic ant">
+<option value="edgehog-v6">Edgehog v6 &mdash; Vertical spinner</option>
+<option value="plant-tower-vert">PLAnt Tower Vert &mdash; Tower vertical</option>
+</optgroup>
+<optgroup label="150 g">
+<option value="150g-bristle-bot">150g Bristle Bot &mdash; Bristle walker</option>
+</optgroup>
+<optgroup label="More builds">
+<option value="torque-walker">Torque Walker &mdash; Gyro walker</option>
+<option value="brawl-bots">Brawl Bots &mdash; Boxing robots</option>
+<option value="undercity-arena">UnderCity Arena &mdash; Test arena</option>
+<option value="mixbot">Mixbot &mdash; Robot arm</option>
+</optgroup>
+          </select>
+          <div class="cad-pager">
+            <button type="button" class="cad-pager-btn" data-cad-prev aria-label="Previous model"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>Prev</span></button>
+            <span class="cad-position" id="cad-position">01 / 12</span>
+            <button type="button" class="cad-pager-btn" data-cad-next aria-label="Next model"><span>Next</span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+
+        <p class="cad-source-note">CAD by <a href="https://github.com/DylM0nster22" target="_blank" rel="noopener">DylM0nster22</a> and collaborators. Check each repo for its license before reusing a model.</p>      </aside>
+    </div>
+
+    <p class="visually-hidden" id="cad-status" role="status" aria-live="polite"></p>
+    <noscript>
+      <div class="cad-noscript">
+        <p>JavaScript is off, so the interactive 3D viewer is not active. The original files are on GitHub:</p>
+        <ul class="cad-noscript-list">
+          <li><a href="https://github.com/DylM0nster22/3lb-Vertical-Spinner" target="_blank" rel="noopener">3lb Vertical Spinner</a> <span>Vertical spinner</span></li><li><a href="https://github.com/DylM0nster22/3lb-Melty" target="_blank" rel="noopener">Unscheduled Disassembly</a> <span>Meltybrain</span></li><li><a href="https://github.com/DylM0nster22/1lb-vertical-spinner" target="_blank" rel="noopener">KITT v23</a> <span>Vertical spinner</span></li><li><a href="https://github.com/DylM0nster22/Kitt-1lb-Combat-robot" target="_blank" rel="noopener">Kitt v2</a> <span>Tower vertical</span></li><li><a href="https://github.com/DylM0nster22/Edgehog-v7" target="_blank" rel="noopener">Edgehog v7</a> <span>Drum spinner</span></li><li><a href="https://github.com/DylM0nster22/plant_vertical_spinner" target="_blank" rel="noopener">Edgehog v6</a> <span>Vertical spinner</span></li><li><a href="https://github.com/DylM0nster22/PLAnt-Tower-Vert" target="_blank" rel="noopener">PLAnt Tower Vert</a> <span>Tower vertical</span></li><li><a href="https://github.com/DylM0nster22/150g-Combat-Robot" target="_blank" rel="noopener">150g Bristle Bot</a> <span>Bristle walker</span></li><li><a href="https://github.com/DylM0nster22/Gryo-Walker" target="_blank" rel="noopener">Torque Walker</a> <span>Gyro walker</span></li><li><a href="https://github.com/DylM0nster22/Brawl-Bots" target="_blank" rel="noopener">Brawl Bots</a> <span>Boxing robots</span></li><li><a href="https://github.com/DylM0nster22/Combat-Robot-Arena" target="_blank" rel="noopener">UnderCity Arena</a> <span>Test arena</span></li><li><a href="https://github.com/DylM0nster22/Team-Noname---Mixbot" target="_blank" rel="noopener">Mixbot</a> <span>Robot arm</span></li>
+        </ul>
+      </div>
+    </noscript>
+  </div>
+</section>
+
+<section class="section section--paper" id="models" aria-labelledby="cad-library">
+  <div class="container">
+    <div class="heading-row cad-library-head">
+      <div>
+        <p class="kicker">The library</p>
+        <h2 id="cad-library">All 12 models.</h2>
+      </div>
+      <div class="cad-filters" role="group" aria-label="Filter models">
+        <button type="button" class="cad-filter is-active" data-filter="all" aria-pressed="true">All <span>12</span></button>
+        <button type="button" class="cad-filter" data-filter="combat" aria-pressed="false">Combat <span>10</span></button>
+        <button type="button" class="cad-filter" data-filter="other" aria-pressed="false">Other <span>2</span></button>
+      </div>
+    </div>
+    <div class="cad-grid" id="cad-grid">
+      <a class="cad-card cad-card--featured" href="cad.html?model=3lb-vertical-spinner" data-cad-model="3lb-vertical-spinner" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/3lb-vertical-spinner.webp" width="600" height="450" alt="3D render of the 3lb Vertical Spinner CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    <span class="cad-card-badge">Featured</span>
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">01 &middot; 3 lb</span>
+      <span class="cad-card-type">Vertical spinner</span>
+    </span>
+    <strong>3lb Vertical Spinner</strong>
+    <span class="cad-card-stats">286.1 &times; 220.9 &times; 115.2 mm &middot; 428,197 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=3lb-melty" data-cad-model="3lb-melty" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/3lb-melty.webp" width="600" height="450" alt="3D render of the Unscheduled Disassembly CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">02 &middot; 3 lb</span>
+      <span class="cad-card-type">Meltybrain</span>
+    </span>
+    <strong>Unscheduled Disassembly</strong>
+    <span class="cad-card-stats">296.6 &times; 216 &times; 57.6 mm &middot; 106,178 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=kitt-v23" data-cad-model="kitt-v23" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/kitt-v23.webp" width="600" height="450" alt="3D render of the KITT v23 CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">03 &middot; 1 lb</span>
+      <span class="cad-card-type">Vertical spinner</span>
+    </span>
+    <strong>KITT v23</strong>
+    <span class="cad-card-stats">233.7 &times; 141.4 &times; 107 mm &middot; 143,649 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=kitt-v2" data-cad-model="kitt-v2" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/kitt-v2.webp" width="600" height="450" alt="3D render of the Kitt v2 CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">04 &middot; 1 lb</span>
+      <span class="cad-card-type">Tower vertical</span>
+    </span>
+    <strong>Kitt v2</strong>
+    <span class="cad-card-stats">224.3 &times; 223.1 &times; 122.6 mm &middot; 330,486 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=edgehog-v7" data-cad-model="edgehog-v7" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/edgehog-v7.webp" width="600" height="450" alt="3D render of the Edgehog v7 CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">05 &middot; 1 lb plastic</span>
+      <span class="cad-card-type">Drum spinner</span>
+    </span>
+    <strong>Edgehog v7</strong>
+    <span class="cad-card-stats">145.8 &times; 159.8 &times; 66.3 mm &middot; 107,002 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=edgehog-v6" data-cad-model="edgehog-v6" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/edgehog-v6.webp" width="600" height="450" alt="3D render of the Edgehog v6 CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">06 &middot; Plastic ant</span>
+      <span class="cad-card-type">Vertical spinner</span>
+    </span>
+    <strong>Edgehog v6</strong>
+    <span class="cad-card-stats">186.3 &times; 146 &times; 61.2 mm &middot; 450,985 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=plant-tower-vert" data-cad-model="plant-tower-vert" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/plant-tower-vert.webp" width="600" height="450" alt="3D render of the PLAnt Tower Vert CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">07 &middot; Plastic ant</span>
+      <span class="cad-card-type">Tower vertical</span>
+    </span>
+    <strong>PLAnt Tower Vert</strong>
+    <span class="cad-card-stats">303 &times; 159.9 &times; 102.1 mm &middot; 44,544 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=150g-bristle-bot" data-cad-model="150g-bristle-bot" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/150g-bristle-bot.webp" width="600" height="450" alt="3D render of the 150g Bristle Bot CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">08 &middot; 150 g</span>
+      <span class="cad-card-type">Bristle walker</span>
+    </span>
+    <strong>150g Bristle Bot</strong>
+    <span class="cad-card-stats">110.4 &times; 139.5 &times; 33.9 mm &middot; 116,660 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=torque-walker" data-cad-model="torque-walker" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/torque-walker.webp" width="600" height="450" alt="3D render of the Torque Walker CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">09 &middot; Walker</span>
+      <span class="cad-card-type">Gyro walker</span>
+    </span>
+    <strong>Torque Walker</strong>
+    <span class="cad-card-stats">229.8 &times; 88.7 &times; 60.8 mm &middot; 22,324 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=brawl-bots" data-cad-model="brawl-bots" data-group="combat">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/brawl-bots.webp" width="600" height="450" alt="3D render of the Brawl Bots CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">10 &middot; Other</span>
+      <span class="cad-card-type">Boxing robots</span>
+    </span>
+    <strong>Brawl Bots</strong>
+    <span class="cad-card-stats">244.5 &times; 138.3 &times; 178 mm &middot; 96,670 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=undercity-arena" data-cad-model="undercity-arena" data-group="other">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/undercity-arena.webp" width="600" height="450" alt="3D render of the UnderCity Arena CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">11 &middot; Other</span>
+      <span class="cad-card-type">Test arena</span>
+    </span>
+    <strong>UnderCity Arena</strong>
+    <span class="cad-card-stats">1261 &times; 1257.2 &times; 687.4 mm &middot; 94,982 tris</span>
+  </span>
+</a>
+<a class="cad-card" href="cad.html?model=mixbot" data-cad-model="mixbot" data-group="other">
+  <span class="cad-card-media">
+    <img src="assets/models/thumbs/mixbot.webp" width="600" height="450" alt="3D render of the Mixbot CAD model" loading="lazy">
+    <span class="cad-card-view">View in 3D <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></span>
+    
+  </span>
+  <span class="cad-card-copy">
+    <span class="cad-card-top">
+      <span class="mono-label">12 &middot; Other</span>
+      <span class="cad-card-type">Robot arm</span>
+    </span>
+    <strong>Mixbot</strong>
+    <span class="cad-card-stats">260.5 &times; 271.1 &times; 77.4 mm &middot; 123,371 tris</span>
+  </span>
+</a>
+    </div>
+    <p class="cad-library-note">Every card opens the same viewer with that model selected. The STEP link inside the viewer always points at the original file on GitHub.</p>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="cad-how">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="kicker">How it works</p>
+        <h2 id="cad-how">Real CAD,<br>no plugin.</h2>
+      </div>
+      <div class="head-copy">
+        <p class="lead">The site is still plain HTML, CSS, and JavaScript. The heavy lifting happens ahead of time, and the browser only downloads the model you pick.</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <article class="card reveal">
+        <div class="card-icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13.5a4.5 4.5 0 0 0 6.4 0l2.4-2.4a4.5 4.5 0 0 0-6.4-6.4L11 6"/><path d="M14 10.5a4.5 4.5 0 0 0-6.4 0l-2.4 2.4a4.5 4.5 0 0 0 6.4 6.4L13 18"/></svg></div>
+        <h3>Straight from GitHub</h3>
+        <p>Every model links back to its public repository and the original STEP file. Nothing is re-modeled for the site.</p>
+      </article>
+      <article class="card reveal" style="--d:70ms">
+        <div class="card-icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5L12 2.5Z"/><path d="m3.5 7.25 8.5 4.75 8.5-4.75M12 12v9.5"/></svg></div>
+        <h3>Tessellated once</h3>
+        <p>STEP files are converted to compressed GLB assets with OpenCascade and meshoptimizer. The first model loads immediately; the rest wait until you pick one.</p>
+      </article>
+      <article class="card reveal" style="--d:140ms">
+        <div class="card-icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M10.5 7.5v6M7.5 10.5h6"/></svg></div>
+        <h3>Built to explore</h3>
+        <p>Orbit, pan, zoom, wireframe, floor grid, and fullscreen. Keyboard controls work when the viewer has focus.</p>
+      </article>
+    </div>
+
+    <div class="faq cad-faq">
+      <details>
+        <summary>Viewer controls</summary>
+        <p><strong>Mouse:</strong> drag to orbit, scroll to zoom, right-drag to pan. <strong>Touch:</strong> one finger orbits, two fingers zoom and pan. <strong>Keyboard:</strong> arrow keys orbit, <kbd>+</kbd> and <kbd>&minus;</kbd> zoom, <kbd>R</kbd> resets, <kbd>A</kbd> toggles spin, <kbd>W</kbd> wireframe, <kbd>G</kbd> grid, and <kbd>F</kbd> fullscreen. <strong>Buttons:</strong> the toolbar does the same thing and works without a mouse wheel.</p>
+      </details>
+      <details>
+        <summary>How accurate is the 3D model?</summary>
+        <p>The geometry comes from each repo's STEP file. Curved surfaces are tessellated into triangles for display, so small curves are slightly simplified, and the mesh is not a substitute for the original CAD. Dimensions listed in the viewer are the model's overall extents in millimeters. Each model is framed to fit the viewer, so scale between different robots is not directly comparable. Print and machine from the STEP file.</p>
+      </details>
+      <details>
+        <summary>Why are some builds missing?</summary>
+        <p>This page shows the public GitHub repos that contain a full CAD assembly. A repo without a STEP file, or one that is not public yet, does not appear. The library uses the main assembly from each repo, not every individual part STL or print plate. If a build gets a new file, add it to <code>tools/models.json</code> and rebuild the assets.</p>
+      </details>
+      <details>
+        <summary>Credits and reuse</summary>
+        <p>CAD by DylM0nster22 and the listed collaborators. Models are linked from their public repositories; check each repository for license terms before reusing geometry, images, or design files. The 3D viewer uses Three.js (MIT) and the meshoptimizer decoder (MIT), both self-hosted.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container cta-band-inner">
+    <div>
+      <p class="kicker">Get involved</p>
+      <h2>Want to build one?</h2>
+      <p>The CAD is public. The shop is in Room 408. Come to a meeting, ask questions, and make the next version better.</p>
+    </div>
+    <div class="cta-band-actions">
+      <a class="btn btn--primary" href="join.html">How to join <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="contact.html">Ask a question</a>
+    </div>
+  </div>
+</section>
+
+<script type="application/json" id="cad-models-data">{"models":[{"id":"3lb-vertical-spinner","name":"3lb Vertical Spinner","shortName":"3lb vert","class":"3 lb","type":"Vertical spinner","group":"combat","featured":true,"repo":"DylM0nster22/3lb-Vertical-Spinner","branch":"main","stepPath":"Cad files/3lb.step","description":"The redemption build. A 5.2-inch vertical spinner on a printed glass-filled nylon hub, belt-driven 2:1 from a 2812 outrunner. Two Repeat 2006 Pro motors drive the wheels directly and two 6S packs run in parallel. Forks for verticals, a wedge for horizontals.","view":[232,16],"specs":[["Class","3 lb"],["Weapon","5.2 in vertical"],["Weapon drive","2812, 2:1 belt"],["Drive","2-wheel direct"],["Power","2 × 6S LiPo"],["Weight","~1.36 kg"]],"deflection":0.002,"repoUrl":"https://github.com/DylM0nster22/3lb-Vertical-Spinner","stepUrl":"https://github.com/DylM0nster22/3lb-Vertical-Spinner/blob/main/Cad%20files/3lb.step","glb":"assets/models/3lb-vertical-spinner.glb","thumb":"assets/models/thumbs/3lb-vertical-spinner.webp","stats":{"triangles":428197,"vertices":421024,"bbox":{"x":286.1,"y":220.9,"z":115.2},"parts":216,"stepBytes":39976995,"glbBytes":2223136,"generated":"2026-11-06T23:22:47.885Z"}},{"id":"3lb-melty","name":"Unscheduled Disassembly","shortName":"3lb melty","class":"3 lb","type":"Meltybrain","group":"combat","repo":"DylM0nster22/3lb-Melty","branch":"main","stepPath":"Unscheduled Disassembly v20s v3.step","description":"A 3 lb meltybrain built with Luke. Two overpowered drive motors spin the whole robot, while a custom control board translates and mixes the drive so it can still cross the arena. Custom PCB, AR500 weapons, and a lot of power in a small package.","view":[39,32],"specs":[["Class","3 lb"],["Type","Meltybrain"],["Drive","2 × brushless"],["Weapon","Whole body"],["Weapon steel","AR500"],["Control","Custom PCB"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/3lb-Melty","stepUrl":"https://github.com/DylM0nster22/3lb-Melty/blob/main/Unscheduled%20Disassembly%20v20s%20v3.step","glb":"assets/models/3lb-melty.glb","thumb":"assets/models/thumbs/3lb-melty.webp","stats":{"triangles":106178,"vertices":108394,"bbox":{"x":296.6,"y":216,"z":57.6},"parts":460,"stepBytes":6806723,"glbBytes":489796,"generated":"2026-11-06T23:21:41.728Z"}},{"id":"kitt-v23","name":"KITT v23","shortName":"KITT","class":"1 lb","type":"Vertical spinner","group":"combat","repo":"DylM0nster22/1lb-vertical-spinner","branch":"main","stepPath":"KITT v23.step","description":"KITT, a 1 lb vertical spinner with a weapon that takes up a big share of the weight budget. The frame, uprights, forks, and armor are printed in Easy Nylon, and the weapon is AR500 steel. Deep Six was the inspiration: most of the mass is in the spinner.","specs":[["Class","1 lb"],["Type","Vertical spinner"],["Weapon","AR500 steel"],["Frame","Easy Nylon"],["Version","v23"],["Drive","2-wheel"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/1lb-vertical-spinner","stepUrl":"https://github.com/DylM0nster22/1lb-vertical-spinner/blob/main/KITT%20v23.step","glb":"assets/models/kitt-v23.glb","thumb":"assets/models/thumbs/kitt-v23.webp","stats":{"triangles":143649,"vertices":188503,"bbox":{"x":233.7,"y":141.4,"z":107},"parts":61,"stepBytes":33780155,"glbBytes":833832,"generated":"2026-11-06T23:22:50.369Z"}},{"id":"kitt-v2","name":"Kitt v2","shortName":"Kitt v2","class":"1 lb","type":"Tower vertical","group":"combat","repo":"DylM0nster22/Kitt-1lb-Combat-robot","branch":"main","stepPath":"Kitt v2 Belt motor.step","description":"A 1 lb tower vertical spinner with a belt-driven weapon and shuffle drive. The tall, narrow layout puts a large-diameter, thin weapon high up and keeps the footprint small. The repo includes the belt-motor CAD and a build-plate 3MF.","specs":[["Class","1 lb"],["Type","Tower vertical"],["Weapon","Belt-driven"],["Drive","Shuffle"],["Frame","3D printed"],["CAD","Kitt v2 Belt motor.step"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/Kitt-1lb-Combat-robot","stepUrl":"https://github.com/DylM0nster22/Kitt-1lb-Combat-robot/blob/main/Kitt%20v2%20Belt%20motor.step","glb":"assets/models/kitt-v2.glb","thumb":"assets/models/thumbs/kitt-v2.webp","stats":{"triangles":330486,"vertices":278449,"bbox":{"x":224.3,"y":223.1,"z":122.6},"parts":38,"stepBytes":40639247,"glbBytes":1528640,"generated":"2026-11-06T23:23:53.186Z"}},{"id":"edgehog-v7","name":"Edgehog v7","shortName":"Edgehog v7","class":"1 lb plastic","type":"Drum spinner","group":"combat","repo":"DylM0nster22/Edgehog-v7","branch":"main","stepPath":"Edgehog v8.step","description":"The seventh full redesign of Edgehog, a 1 lb plastic antweight drum. The weapon is aimed at roughly 250 mph tip speed, with a compact printed frame and a wiring diagram in the repo. The CAD file in the repo is labeled v8.","specs":[["Class","1 lb plastic"],["Type","Drum"],["Tip speed","~250 mph"],["Frame","3D printed"],["CAD","Edgehog v8.step"],["Drive","2-wheel"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/Edgehog-v7","stepUrl":"https://github.com/DylM0nster22/Edgehog-v7/blob/main/Edgehog%20v8.step","glb":"assets/models/edgehog-v7.glb","thumb":"assets/models/thumbs/edgehog-v7.webp","stats":{"triangles":107002,"vertices":154242,"bbox":{"x":145.8,"y":159.8,"z":66.3},"parts":43,"stepBytes":34554009,"glbBytes":655176,"generated":"2026-11-06T23:24:00.101Z"}},{"id":"edgehog-v6","name":"Edgehog v6","shortName":"Edgehog v6","class":"Plastic ant","type":"Vertical spinner","group":"combat","repo":"DylM0nster22/plant_vertical_spinner","branch":"main","stepPath":"Edgehog v6 v3.step","description":"The v6 plastic antweight vertical spinner. Around 100 g of weapon in a bot that uses belt and gear reduction, printed in Overture SuperPLA+. The weapon is about a quarter of the total weight and the body only half of that.","view":[39,24],"specs":[["Class","Plastic ant"],["Type","Vertical spinner"],["Weapon","~100 g"],["Material","SuperPLA+"],["Drive","Belt + gear"],["CAD","Edgehog v6 v3.step"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/plant_vertical_spinner","stepUrl":"https://github.com/DylM0nster22/plant_vertical_spinner/blob/main/Edgehog%20v6%20v3.step","glb":"assets/models/edgehog-v6.glb","thumb":"assets/models/thumbs/edgehog-v6.webp","stats":{"triangles":450985,"vertices":376470,"bbox":{"x":186.3,"y":146,"z":61.2},"parts":29,"stepBytes":47541618,"glbBytes":2079464,"generated":"2026-11-06T23:25:26.064Z"}},{"id":"plant-tower-vert","name":"PLAnt Tower Vert","shortName":"PLAnt","class":"Plastic ant","type":"Tower vertical","group":"combat","repo":"DylM0nster22/PLAnt-Tower-Vert","branch":"main","stepPath":"Tower vert.step","description":"A plastic antweight tower vert with a 4.5-inch weapon and a weapon motor the size of a 3 lb motor. Big spinner, small class. The CAD is a single assembly in the root of the repo.","view":[39,28],"specs":[["Class","Plastic ant"],["Type","Tower vertical"],["Weapon","4.5 in"],["Weapon motor","3 lb class"],["Frame","3D printed"],["CAD","Tower vert.step"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/PLAnt-Tower-Vert","stepUrl":"https://github.com/DylM0nster22/PLAnt-Tower-Vert/blob/main/Tower%20vert.step","glb":"assets/models/plant-tower-vert.glb","thumb":"assets/models/thumbs/plant-tower-vert.webp","stats":{"triangles":44544,"vertices":68345,"bbox":{"x":303,"y":159.9,"z":102.1},"parts":27,"stepBytes":17159415,"glbBytes":274260,"generated":"2026-11-06T23:24:35.002Z"}},{"id":"150g-bristle-bot","name":"150g Bristle Bot","shortName":"150g bristle","class":"150 g","type":"Bristle walker","group":"combat","repo":"DylM0nster22/150g-Combat-Robot","branch":"main","stepPath":"CAD/Bot.step","description":"A fairyweight with no wheels. An unbalanced weapon shakes the bot across the floor, hexbug-style, using gyroscopic forces and bristles to move. The weapon alone is a huge part of the 150 g budget, so it should hit hard if it works.","view":[39,34],"specs":[["Class","150 g"],["Type","Bristle walker"],["Weapon","Unbalanced"],["Drive","Vibration"],["Frame","3D printed"],["CAD","CAD/Bot.step"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/150g-Combat-Robot","stepUrl":"https://github.com/DylM0nster22/150g-Combat-Robot/blob/main/CAD/Bot.step","glb":"assets/models/150g-bristle-bot.glb","thumb":"assets/models/thumbs/150g-bristle-bot.webp","stats":{"triangles":116660,"vertices":113337,"bbox":{"x":110.4,"y":139.5,"z":33.9},"parts":55,"stepBytes":8787066,"glbBytes":636808,"generated":"2026-11-06T23:24:55.182Z"}},{"id":"torque-walker","name":"Torque Walker","shortName":"Torque Walker","class":"Walker","type":"Gyro walker","group":"combat","repo":"DylM0nster22/Gryo-Walker","branch":"main","stepPath":"Full CAD.step","description":"A torque walker with two 5-inch asymmetric disks spinning in opposite directions. Adjusting the speed of each blade makes the robot pivot and walk. PLA frame, two RS2205 motors, a 3S 300 mAh pack, and a Malenki HV receiver.","view":[39,30],"specs":[["Type","Torque walker"],["Weapons","2 × 5 in disks"],["Tip speed","300+ mph"],["Power","3S 300 mAh"],["Frame","PLA"],["Motors","2 × RS2205"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/Gryo-Walker","stepUrl":"https://github.com/DylM0nster22/Gryo-Walker/blob/main/Full%20CAD.step","glb":"assets/models/torque-walker.glb","thumb":"assets/models/thumbs/torque-walker.webp","stats":{"triangles":22324,"vertices":22579,"bbox":{"x":229.8,"y":88.7,"z":60.8},"parts":10,"stepBytes":1988969,"glbBytes":138240,"generated":"2026-11-06T23:21:06.188Z"}},{"id":"brawl-bots","name":"Brawl Bots","shortName":"Brawl Bots","class":"Other","type":"Boxing robots","group":"combat","repo":"DylM0nster22/Brawl-Bots","branch":"main","stepPath":"BrawlBot.step","description":"Two-wheeled, two-armed boxing robots built to fight each other in a ring. Each bot can drive, punch, and block. Hits to the face button score points, and there is a sliding plate behind it so a solid punch registers.","specs":[["Type","Boxing robot"],["Drive","2-wheel"],["Arms","2"],["Scoring","Face button"],["Arena","Boxing ring"],["CAD","BrawlBot.step"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/Brawl-Bots","stepUrl":"https://github.com/DylM0nster22/Brawl-Bots/blob/main/BrawlBot.step","glb":"assets/models/brawl-bots.glb","thumb":"assets/models/thumbs/brawl-bots.webp","stats":{"triangles":96670,"vertices":94059,"bbox":{"x":244.5,"y":138.3,"z":178},"parts":30,"stepBytes":9031803,"glbBytes":515428,"generated":"2026-11-06T23:25:12.565Z"}},{"id":"undercity-arena","name":"UnderCity Arena","shortName":"Arena","class":"Other","type":"Test arena","group":"other","repo":"DylM0nster22/Combat-Robot-Arena","branch":"main","stepPath":"UnderCity Arena.step","description":"A test arena for full combat antweights and smaller. Quarter-inch polycarbonate walls, a 3/4-inch plywood top and bottom, a hinged lid for loading bots, and 2x4 kickplates. Built after asking whether UnderCity had an arena and finding out it did not.","view":[39,12],"specs":[["Type","Test arena"],["Walls","1/4 in polycarbonate"],["Floor","3/4 in plywood"],["Lid","Hinged + latched"],["Size","Ants and below"],["CAD","UnderCity Arena.step"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/Combat-Robot-Arena","stepUrl":"https://github.com/DylM0nster22/Combat-Robot-Arena/blob/main/UnderCity%20Arena.step","glb":"assets/models/undercity-arena.glb","thumb":"assets/models/thumbs/undercity-arena.webp","stats":{"triangles":94982,"vertices":85181,"bbox":{"x":1261,"y":1257.2,"z":687.4},"parts":204,"stepBytes":5001014,"glbBytes":420428,"generated":"2026-11-06T23:25:24.536Z"}},{"id":"mixbot","name":"Mixbot","shortName":"Mixbot","class":"Other","type":"Robot arm","group":"other","repo":"DylM0nster22/Team-Noname---Mixbot","branch":"main","stepPath":"Blueprint Cad ALL.step","description":"Team Noname's drink-mixing robot arm, built with an ESP32, a 1.8-inch TFT screen, and an AMD AI recipe picker. The repo includes the full CAD, firmware, mission code, and training notes. It demoed a Shirley Temple.","specs":[["Type","Drink robot"],["Control","ESP32"],["Display","1.8 in TFT"],["Team","Noname"],["Software","AMD AI"],["CAD","Blueprint Cad ALL.step"]],"deflection":0.003,"repoUrl":"https://github.com/DylM0nster22/Team-Noname---Mixbot","stepUrl":"https://github.com/DylM0nster22/Team-Noname---Mixbot/blob/main/Blueprint%20Cad%20ALL.step","glb":"assets/models/mixbot.glb","thumb":"assets/models/thumbs/mixbot.webp","stats":{"triangles":123371,"vertices":139139,"bbox":{"x":260.5,"y":271.1,"z":77.4},"parts":282,"stepBytes":20912712,"glbBytes":597976,"generated":"2026-11-06T23:26:02.970Z"}}],"featured":"3lb-vertical-spinner"}</script>
+<script type="module" src="js/cad-viewer.js?v=20261107-4"></script>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand brand--footer" href="index.html" aria-label="River Valley Robotics — home">
+          <img class="brand-logo brand-logo--footer" src="assets/img/logo-footer.webp" width="360" height="339" alt="River Valley Robotics">
+        </a>
+        <p>A student club at River Valley High School. We design, build, and drive combat robots in Room 408.</p>
+        <p class="footer-meetings">Meets Thursdays &amp; Fridays &middot; Room 408</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/rv.robotics/" target="_blank" rel="noopener" aria-label="River Valley Robotics on Instagram"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/@BadPlants1" target="_blank" rel="noopener" aria-label="Match videos on YouTube"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="mailto:rvrobotics@ycusd.org" aria-label="Email River Valley Robotics"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></a>
+          <a href="https://rvhs.ycusd.org/" target="_blank" rel="noopener" aria-label="River Valley High School website"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13.5a4.5 4.5 0 0 0 6.4 0l2.4-2.4a4.5 4.5 0 0 0-6.4-6.4L11 6"/><path d="M14 10.5a4.5 4.5 0 0 0-6.4 0l-2.4 2.4a4.5 4.5 0 0 0 6.4 6.4L13 18"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About the club</a></li>
+          <li><a href="robots.html">The build</a></li>
+          <li><a href="cad.html">3D CAD viewer</a></li>
+          <li><a href="watch.html">Watch the matches</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="sponsors.html">Sponsorship</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="join.html">Join the club</a></li>
+          <li><a href="join.html#mentors">Parents &amp; mentors</a></li>
+          <li><a href="sponsors.html#tiers">Sponsor the team</a></li>
+          <li><a href="assets/RVRobotics-Sponsorship-Packet.pdf">Sponsorship packet</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          801 El Margarita Rd.<br>
+          Yuba City, CA 95993<br>
+          <a href="tel:+15308222500">(530) 822-2500</a><br>
+          <a href="mailto:rvrobotics@ycusd.org">rvrobotics@ycusd.org</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> River Valley Robotics &middot; River Valley High School</p>
+      <div class="footer-legal">
+        <a href="https://www.ycusd.org/Non-Discrimination-Policy/index.html" target="_blank" rel="noopener">Non-discrimination policy</a>
+        <a href="credits.html">Credits</a>
+        <a href="accessibility.html">Accessibility</a>
+      </div>
+    </div>
+    <div class="footer-nondiscrimination">
+      <p>Yuba City Unified School District prohibits discrimination, harassment (including sexual harassment), intimidation, and bullying based on actual or perceived race, color, ethnicity, national origin, immigration status, ancestry, age, creed, religion, political affiliation, gender, gender identity, gender expression, genetic information, mental or physical disability, sex, sexual orientation, marital status, pregnancy or parental status, medical information, military veteran status, affiliation with the Boy Scouts of America and other designated youth groups, association with a person or group with one or more of these actual or perceived characteristics, or any other basis protected by law or regulation, in its educational programs or employment.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/site.js?v=20261107-4" defer></script>
+</body>
+</html>

@@ -38,6 +38,7 @@ BODY = f"""
           <div class="spec"><dt>Status</dt><dd>In progress</dd></div>
         </div>
         <p class="small muted" style="margin-top:1rem">Some of this will change before the next match. That's the point.</p>
+        <a class="text-link" href="cad.html" style="margin-top:1.5rem">Open the 3D CAD viewer {icon("cube")}</a>
       </div>
     </div>
   </div>

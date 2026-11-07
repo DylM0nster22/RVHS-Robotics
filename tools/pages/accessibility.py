@@ -34,6 +34,7 @@ BODY = f"""
           <div class="info-row"><dt>Contrast</dt><dd>Text and controls are designed for strong contrast in the default theme.</dd></div>
           <div class="info-row"><dt>Images</dt><dd>Decorative images are hidden from assistive tech; meaningful images have descriptions.</dd></div>
           <div class="info-row"><dt>Video</dt><dd>Match videos never autoplay. They open in a player with native controls, and YouTube picks load only after you choose one. If you need a more detailed description of a match, email us.</dd></div>
+          <div class="info-row"><dt>3D models</dt><dd>The CAD viewer works with a mouse, touch, or keyboard. Each model also links to its original STEP file and GitHub repository, and the model details are available as plain text.</dd></div>
           <div class="info-row"><dt>Forms</dt><dd>Every field has a visible label and a clear error path.</dd></div>
         </div>
       </div>

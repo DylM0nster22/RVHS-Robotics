@@ -1,0 +1,502 @@
+{
+  "source": "https://github.com/DylM0nster22",
+  "models": [
+    {
+      "id": "3lb-vertical-spinner",
+      "name": "3lb Vertical Spinner",
+      "shortName": "3lb vert",
+      "class": "3 lb",
+      "type": "Vertical spinner",
+      "group": "combat",
+      "featured": true,
+      "repo": "DylM0nster22/3lb-Vertical-Spinner",
+      "branch": "main",
+      "stepPath": "Cad files/3lb.step",
+      "description": "The redemption build. A 5.2-inch vertical spinner on a printed glass-filled nylon hub, belt-driven 2:1 from a 2812 outrunner. Two Repeat 2006 Pro motors drive the wheels directly and two 6S packs run in parallel. Forks for verticals, a wedge for horizontals.",
+      "view": [
+        232,
+        16
+      ],
+      "specs": [
+        [
+          "Class",
+          "3 lb"
+        ],
+        [
+          "Weapon",
+          "5.2 in vertical"
+        ],
+        [
+          "Weapon drive",
+          "2812, 2:1 belt"
+        ],
+        [
+          "Drive",
+          "2-wheel direct"
+        ],
+        [
+          "Power",
+          "2 × 6S LiPo"
+        ],
+        [
+          "Weight",
+          "~1.36 kg"
+        ]
+      ],
+      "deflection": 0.002
+    },
+    {
+      "id": "3lb-melty",
+      "name": "Unscheduled Disassembly",
+      "shortName": "3lb melty",
+      "class": "3 lb",
+      "type": "Meltybrain",
+      "group": "combat",
+      "repo": "DylM0nster22/3lb-Melty",
+      "branch": "main",
+      "stepPath": "Unscheduled Disassembly v20s v3.step",
+      "description": "A 3 lb meltybrain built with Luke. Two overpowered drive motors spin the whole robot, while a custom control board translates and mixes the drive so it can still cross the arena. Custom PCB, AR500 weapons, and a lot of power in a small package.",
+      "view": [
+        39,
+        32
+      ],
+      "specs": [
+        [
+          "Class",
+          "3 lb"
+        ],
+        [
+          "Type",
+          "Meltybrain"
+        ],
+        [
+          "Drive",
+          "2 × brushless"
+        ],
+        [
+          "Weapon",
+          "Whole body"
+        ],
+        [
+          "Weapon steel",
+          "AR500"
+        ],
+        [
+          "Control",
+          "Custom PCB"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "kitt-v23",
+      "name": "KITT v23",
+      "shortName": "KITT",
+      "class": "1 lb",
+      "type": "Vertical spinner",
+      "group": "combat",
+      "repo": "DylM0nster22/1lb-vertical-spinner",
+      "branch": "main",
+      "stepPath": "KITT v23.step",
+      "description": "KITT, a 1 lb vertical spinner with a weapon that takes up a big share of the weight budget. The frame, uprights, forks, and armor are printed in Easy Nylon, and the weapon is AR500 steel. Deep Six was the inspiration: most of the mass is in the spinner.",
+      "specs": [
+        [
+          "Class",
+          "1 lb"
+        ],
+        [
+          "Type",
+          "Vertical spinner"
+        ],
+        [
+          "Weapon",
+          "AR500 steel"
+        ],
+        [
+          "Frame",
+          "Easy Nylon"
+        ],
+        [
+          "Version",
+          "v23"
+        ],
+        [
+          "Drive",
+          "2-wheel"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "kitt-v2",
+      "name": "Kitt v2",
+      "shortName": "Kitt v2",
+      "class": "1 lb",
+      "type": "Tower vertical",
+      "group": "combat",
+      "repo": "DylM0nster22/Kitt-1lb-Combat-robot",
+      "branch": "main",
+      "stepPath": "Kitt v2 Belt motor.step",
+      "description": "A 1 lb tower vertical spinner with a belt-driven weapon and shuffle drive. The tall, narrow layout puts a large-diameter, thin weapon high up and keeps the footprint small. The repo includes the belt-motor CAD and a build-plate 3MF.",
+      "specs": [
+        [
+          "Class",
+          "1 lb"
+        ],
+        [
+          "Type",
+          "Tower vertical"
+        ],
+        [
+          "Weapon",
+          "Belt-driven"
+        ],
+        [
+          "Drive",
+          "Shuffle"
+        ],
+        [
+          "Frame",
+          "3D printed"
+        ],
+        [
+          "CAD",
+          "Kitt v2 Belt motor.step"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "edgehog-v7",
+      "name": "Edgehog v7",
+      "shortName": "Edgehog v7",
+      "class": "1 lb plastic",
+      "type": "Drum spinner",
+      "group": "combat",
+      "repo": "DylM0nster22/Edgehog-v7",
+      "branch": "main",
+      "stepPath": "Edgehog v8.step",
+      "description": "The seventh full redesign of Edgehog, a 1 lb plastic antweight drum. The weapon is aimed at roughly 250 mph tip speed, with a compact printed frame and a wiring diagram in the repo. The CAD file in the repo is labeled v8.",
+      "specs": [
+        [
+          "Class",
+          "1 lb plastic"
+        ],
+        [
+          "Type",
+          "Drum"
+        ],
+        [
+          "Tip speed",
+          "~250 mph"
+        ],
+        [
+          "Frame",
+          "3D printed"
+        ],
+        [
+          "CAD",
+          "Edgehog v8.step"
+        ],
+        [
+          "Drive",
+          "2-wheel"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "edgehog-v6",
+      "name": "Edgehog v6",
+      "shortName": "Edgehog v6",
+      "class": "Plastic ant",
+      "type": "Vertical spinner",
+      "group": "combat",
+      "repo": "DylM0nster22/plant_vertical_spinner",
+      "branch": "main",
+      "stepPath": "Edgehog v6 v3.step",
+      "description": "The v6 plastic antweight vertical spinner. Around 100 g of weapon in a bot that uses belt and gear reduction, printed in Overture SuperPLA+. The weapon is about a quarter of the total weight and the body only half of that.",
+      "view": [
+        39,
+        24
+      ],
+      "specs": [
+        [
+          "Class",
+          "Plastic ant"
+        ],
+        [
+          "Type",
+          "Vertical spinner"
+        ],
+        [
+          "Weapon",
+          "~100 g"
+        ],
+        [
+          "Material",
+          "SuperPLA+"
+        ],
+        [
+          "Drive",
+          "Belt + gear"
+        ],
+        [
+          "CAD",
+          "Edgehog v6 v3.step"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "plant-tower-vert",
+      "name": "PLAnt Tower Vert",
+      "shortName": "PLAnt",
+      "class": "Plastic ant",
+      "type": "Tower vertical",
+      "group": "combat",
+      "repo": "DylM0nster22/PLAnt-Tower-Vert",
+      "branch": "main",
+      "stepPath": "Tower vert.step",
+      "description": "A plastic antweight tower vert with a 4.5-inch weapon and a weapon motor the size of a 3 lb motor. Big spinner, small class. The CAD is a single assembly in the root of the repo.",
+      "view": [
+        39,
+        28
+      ],
+      "specs": [
+        [
+          "Class",
+          "Plastic ant"
+        ],
+        [
+          "Type",
+          "Tower vertical"
+        ],
+        [
+          "Weapon",
+          "4.5 in"
+        ],
+        [
+          "Weapon motor",
+          "3 lb class"
+        ],
+        [
+          "Frame",
+          "3D printed"
+        ],
+        [
+          "CAD",
+          "Tower vert.step"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "150g-bristle-bot",
+      "name": "150g Bristle Bot",
+      "shortName": "150g bristle",
+      "class": "150 g",
+      "type": "Bristle walker",
+      "group": "combat",
+      "repo": "DylM0nster22/150g-Combat-Robot",
+      "branch": "main",
+      "stepPath": "CAD/Bot.step",
+      "description": "A fairyweight with no wheels. An unbalanced weapon shakes the bot across the floor, hexbug-style, using gyroscopic forces and bristles to move. The weapon alone is a huge part of the 150 g budget, so it should hit hard if it works.",
+      "view": [
+        39,
+        34
+      ],
+      "specs": [
+        [
+          "Class",
+          "150 g"
+        ],
+        [
+          "Type",
+          "Bristle walker"
+        ],
+        [
+          "Weapon",
+          "Unbalanced"
+        ],
+        [
+          "Drive",
+          "Vibration"
+        ],
+        [
+          "Frame",
+          "3D printed"
+        ],
+        [
+          "CAD",
+          "CAD/Bot.step"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "torque-walker",
+      "name": "Torque Walker",
+      "shortName": "Torque Walker",
+      "class": "Walker",
+      "type": "Gyro walker",
+      "group": "combat",
+      "repo": "DylM0nster22/Gryo-Walker",
+      "branch": "main",
+      "stepPath": "Full CAD.step",
+      "description": "A torque walker with two 5-inch asymmetric disks spinning in opposite directions. Adjusting the speed of each blade makes the robot pivot and walk. PLA frame, two RS2205 motors, a 3S 300 mAh pack, and a Malenki HV receiver.",
+      "view": [
+        39,
+        30
+      ],
+      "specs": [
+        [
+          "Type",
+          "Torque walker"
+        ],
+        [
+          "Weapons",
+          "2 × 5 in disks"
+        ],
+        [
+          "Tip speed",
+          "300+ mph"
+        ],
+        [
+          "Power",
+          "3S 300 mAh"
+        ],
+        [
+          "Frame",
+          "PLA"
+        ],
+        [
+          "Motors",
+          "2 × RS2205"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "brawl-bots",
+      "name": "Brawl Bots",
+      "shortName": "Brawl Bots",
+      "class": "Other",
+      "type": "Boxing robots",
+      "group": "combat",
+      "repo": "DylM0nster22/Brawl-Bots",
+      "branch": "main",
+      "stepPath": "BrawlBot.step",
+      "description": "Two-wheeled, two-armed boxing robots built to fight each other in a ring. Each bot can drive, punch, and block. Hits to the face button score points, and there is a sliding plate behind it so a solid punch registers.",
+      "specs": [
+        [
+          "Type",
+          "Boxing robot"
+        ],
+        [
+          "Drive",
+          "2-wheel"
+        ],
+        [
+          "Arms",
+          "2"
+        ],
+        [
+          "Scoring",
+          "Face button"
+        ],
+        [
+          "Arena",
+          "Boxing ring"
+        ],
+        [
+          "CAD",
+          "BrawlBot.step"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "undercity-arena",
+      "name": "UnderCity Arena",
+      "shortName": "Arena",
+      "class": "Other",
+      "type": "Test arena",
+      "group": "other",
+      "repo": "DylM0nster22/Combat-Robot-Arena",
+      "branch": "main",
+      "stepPath": "UnderCity Arena.step",
+      "description": "A test arena for full combat antweights and smaller. Quarter-inch polycarbonate walls, a 3/4-inch plywood top and bottom, a hinged lid for loading bots, and 2x4 kickplates. Built after asking whether UnderCity had an arena and finding out it did not.",
+      "view": [
+        39,
+        12
+      ],
+      "specs": [
+        [
+          "Type",
+          "Test arena"
+        ],
+        [
+          "Walls",
+          "1/4 in polycarbonate"
+        ],
+        [
+          "Floor",
+          "3/4 in plywood"
+        ],
+        [
+          "Lid",
+          "Hinged + latched"
+        ],
+        [
+          "Size",
+          "Ants and below"
+        ],
+        [
+          "CAD",
+          "UnderCity Arena.step"
+        ]
+      ],
+      "deflection": 0.003
+    },
+    {
+      "id": "mixbot",
+      "name": "Mixbot",
+      "shortName": "Mixbot",
+      "class": "Other",
+      "type": "Robot arm",
+      "group": "other",
+      "repo": "DylM0nster22/Team-Noname---Mixbot",
+      "branch": "main",
+      "stepPath": "Blueprint Cad ALL.step",
+      "description": "Team Noname's drink-mixing robot arm, built with an ESP32, a 1.8-inch TFT screen, and an AMD AI recipe picker. The repo includes the full CAD, firmware, mission code, and training notes. It demoed a Shirley Temple.",
+      "specs": [
+        [
+          "Type",
+          "Drink robot"
+        ],
+        [
+          "Control",
+          "ESP32"
+        ],
+        [
+          "Display",
+          "1.8 in TFT"
+        ],
+        [
+          "Team",
+          "Noname"
+        ],
+        [
+          "Software",
+          "AMD AI"
+        ],
+        [
+          "CAD",
+          "Blueprint Cad ALL.step"
+        ]
+      ],
+      "deflection": 0.003
+    }
+  ]
+}
