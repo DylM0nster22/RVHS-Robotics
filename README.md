@@ -287,9 +287,11 @@ Useful flags:
 - Set `CHROME_PATH` if Chrome or Edge is not in the default Windows location.
 
 Some STEP exports lose colors on subassemblies even when the original CAD has them.
-Add `nodeColors` (by assembly node name) or `meshColors` (by mesh name) to an entry
-in `tools/models.json` to override those parts with an sRGB hex color, then rebuild.
-`nodeColors` only fills in uncolored parts; `meshColors` forces the color.
+Add `nodeColors` (by assembly node name), `meshColors` (by mesh name), or
+`colorReplacements` (from one existing color to another) to an entry in
+`tools/models.json`, then rebuild. A `nodeColors` value can be a hex string to fill
+uncolored parts, or `{ "color": "#...", "force": true }` to override colored parts
+too. `meshColors` and `colorReplacements` always force the change.
 
 Downloads are cached in `tools/.cache/models` (ignored by Git). The generated GLBs
 and thumbnails are committed, so a normal deploy does not need Node or the source

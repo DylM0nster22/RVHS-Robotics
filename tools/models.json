@@ -94,6 +94,13 @@
       "deflection": 0.003,
       "meshColors": {
         "3lbmelty_PCB (1)": "#2d6b43"
+      },
+      "nodeColors": {
+        "3lbmelty v1 (1)": "#151515",
+        "Weapon": {
+          "color": "#111111",
+          "force": true
+        }
       }
     },
     {
@@ -133,7 +140,27 @@
           "2-wheel"
         ]
       ],
-      "deflection": 0.003
+      "deflection": 0.003,
+      "nodeColors": {
+        "Body": "#b8a37b",
+        "Lid (1)": {
+          "color": "#b8a37b",
+          "force": true
+        },
+        "armor": {
+          "color": "#1b1b1b",
+          "force": true
+        },
+        "motor upright": {
+          "color": "#1b1b1b",
+          "force": true
+        },
+        "Forks": {
+          "color": "#b9c1c8",
+          "force": true
+        },
+        "HUB-2207.5 v3": "#8f9797"
+      }
     },
     {
       "id": "kitt-v2",
@@ -172,7 +199,31 @@
           "Kitt v2 Belt motor.step"
         ]
       ],
-      "deflection": 0.003
+      "deflection": 0.003,
+      "nodeColors": {
+        "Uprights": {
+          "color": "#dfe2de",
+          "force": true
+        },
+        "Armor": {
+          "color": "#151515",
+          "force": true
+        },
+        "Weapon Collection (1)_5.5-1 v4": {
+          "color": "#111111",
+          "force": true
+        },
+        "Armor ": {
+          "color": "#151515",
+          "force": true
+        },
+        "Left drive": "#151515",
+        "Right Drive": "#151515"
+      },
+      "meshColors": {
+        "Feet": "#dfe2de",
+        "Feet (1)": "#dfe2de"
+      }
     },
     {
       "id": "edgehog-v7",
@@ -211,7 +262,57 @@
           "2-wheel"
         ]
       ],
-      "deflection": 0.003
+      "deflection": 0.003,
+      "nodeColors": {
+        "v7 body": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "v7 armor": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "v7 uprights": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "v7 uprights(Mirror)": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "Component159": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "Component161": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "weapon v7.5 v7": {
+          "color": "#4caf2f",
+          "force": true
+        },
+        "Edgehog v7_Edgehog v6 Weapon v2 v1 v1": {
+          "color": "#4caf2f",
+          "force": true
+        },
+        "Edgehog v5_wheels v1 (1)(Mirror) v3": {
+          "color": "#3553c7",
+          "force": true
+        },
+        "Edgehog v5_wheels v1 (1)(Mirror) v3 (1)": {
+          "color": "#3553c7",
+          "force": true
+        },
+        "Edgehog v5_wheels v1 (1)(Mirror) v3(Mirror) (2)": {
+          "color": "#3553c7",
+          "force": true
+        },
+        "Edgehog v5_wheels v1 (1)(Mirror) v3(Mirror) (3)": {
+          "color": "#3553c7",
+          "force": true
+        }
+      }
     },
     {
       "id": "edgehog-v6",
@@ -254,7 +355,25 @@
           "Edgehog v6 v3.step"
         ]
       ],
-      "deflection": 0.003
+      "deflection": 0.003,
+      "nodeColors": {
+        "modified alex drive v7": "#121212",
+        "Edgehog v6 Bottom": {
+          "color": "#121212",
+          "force": true
+        },
+        "Edgehog v6 armor": {
+          "color": "#121212",
+          "force": true
+        },
+        "Edgehog v6 Top": {
+          "color": "#b9bec4",
+          "force": true
+        }
+      },
+      "colorReplacements": {
+        "#9b865d": "#161616"
+      }
     },
     {
       "id": "plant-tower-vert",
@@ -340,7 +459,37 @@
           "CAD/Bot.step"
         ]
       ],
-      "deflection": 0.003
+      "deflection": 0.003,
+      "nodeColors": {
+        "Weapon v3": {
+          "color": "#111111",
+          "force": true
+        },
+        "Top lids": {
+          "color": "#121212",
+          "force": true
+        },
+        "trusses": {
+          "color": "#6f7a80",
+          "force": true
+        },
+        "Component18": {
+          "color": "#121212",
+          "force": true
+        },
+        "Component19": {
+          "color": "#6f7a80",
+          "force": true
+        },
+        "5909K1_Needle-Roller Thrust Bearing": {
+          "color": "#9aa3a8",
+          "force": true
+        },
+        "90453A111_Thin-Profile Nylon-Insert Locknut": {
+          "color": "#9aa3a8",
+          "force": true
+        }
+      }
     },
     {
       "id": "torque-walker",
@@ -383,7 +532,25 @@
           "PLA"
         ]
       ],
-      "deflection": 0.003
+      "deflection": 0.003,
+      "nodeColors": {
+        "Body": {
+          "color": "#2f86c9",
+          "force": true
+        },
+        "Weapon 1": {
+          "color": "#111111",
+          "force": true
+        },
+        "Weapon 2": {
+          "color": "#111111",
+          "force": true
+        },
+        "rs 2205 new v2": {
+          "color": "#1b1b1b",
+          "force": true
+        }
+      }
     },
     {
       "id": "brawl-bots",
@@ -422,7 +589,11 @@
           "BrawlBot.step"
         ]
       ],
-      "deflection": 0.003
+      "deflection": 0.003,
+      "colorReplacements": {
+        "#f6f6f3": "#151515",
+        "#ff0000": "#151515"
+      }
     }
   ]
 }

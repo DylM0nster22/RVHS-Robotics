@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-07T02:44:38.385Z",
+  "generated": "2026-11-07T18:21:43.773Z",
   "source": "https://github.com/DylM0nster22",
   "models": [
     {
@@ -113,6 +113,13 @@
       "meshColors": {
         "3lbmelty_PCB (1)": "#2d6b43"
       },
+      "nodeColors": {
+        "3lbmelty v1 (1)": "#151515",
+        "Weapon": {
+          "color": "#111111",
+          "force": true
+        }
+      },
       "repoUrl": "https://github.com/DylM0nster22/3lb-Melty",
       "stepUrl": "https://github.com/DylM0nster22/3lb-Melty/blob/main/Unscheduled%20Disassembly%20v20s%20v3.step",
       "glb": "assets/models/3lb-melty.glb",
@@ -127,8 +134,8 @@
         },
         "parts": 460,
         "stepBytes": 6806723,
-        "glbBytes": 489796,
-        "generated": "2026-11-07T02:35:23.936Z"
+        "glbBytes": 490816,
+        "generated": "2026-11-07T18:12:59.453Z"
       }
     },
     {
@@ -169,22 +176,42 @@
         ]
       ],
       "deflection": 0.003,
+      "nodeColors": {
+        "Body": "#b8a37b",
+        "Lid (1)": {
+          "color": "#b8a37b",
+          "force": true
+        },
+        "armor": {
+          "color": "#1b1b1b",
+          "force": true
+        },
+        "motor upright": {
+          "color": "#1b1b1b",
+          "force": true
+        },
+        "Forks": {
+          "color": "#b9c1c8",
+          "force": true
+        },
+        "HUB-2207.5 v3": "#8f9797"
+      },
       "repoUrl": "https://github.com/DylM0nster22/1lb-vertical-spinner",
       "stepUrl": "https://github.com/DylM0nster22/1lb-vertical-spinner/blob/main/KITT%20v23.step",
       "glb": "assets/models/kitt-v23.glb",
       "thumb": "assets/models/thumbs/kitt-v23.webp",
       "stats": {
         "triangles": 143649,
-        "vertices": 0,
+        "vertices": 188503,
         "bbox": {
           "x": 233.7,
           "y": 141.4,
           "z": 107
         },
-        "parts": 0,
+        "parts": 61,
         "stepBytes": 33780155,
-        "glbBytes": 833832,
-        "generated": "2026-11-07T02:43:49.820506Z"
+        "glbBytes": 836152,
+        "generated": "2026-11-07T18:13:52.364Z"
       }
     },
     {
@@ -225,22 +252,46 @@
         ]
       ],
       "deflection": 0.003,
+      "nodeColors": {
+        "Uprights": {
+          "color": "#dfe2de",
+          "force": true
+        },
+        "Armor": {
+          "color": "#151515",
+          "force": true
+        },
+        "Weapon Collection (1)_5.5-1 v4": {
+          "color": "#111111",
+          "force": true
+        },
+        "Armor ": {
+          "color": "#151515",
+          "force": true
+        },
+        "Left drive": "#151515",
+        "Right Drive": "#151515"
+      },
+      "meshColors": {
+        "Feet": "#dfe2de",
+        "Feet (1)": "#dfe2de"
+      },
       "repoUrl": "https://github.com/DylM0nster22/Kitt-1lb-Combat-robot",
       "stepUrl": "https://github.com/DylM0nster22/Kitt-1lb-Combat-robot/blob/main/Kitt%20v2%20Belt%20motor.step",
       "glb": "assets/models/kitt-v2.glb",
       "thumb": "assets/models/thumbs/kitt-v2.webp",
       "stats": {
         "triangles": 330486,
-        "vertices": 0,
+        "vertices": 278449,
         "bbox": {
           "x": 224.3,
           "y": 223.1,
           "z": 122.6
         },
-        "parts": 0,
+        "parts": 38,
         "stepBytes": 40639247,
-        "glbBytes": 1528640,
-        "generated": "2026-11-07T02:43:49.820506Z"
+        "glbBytes": 1529568,
+        "generated": "2026-11-07T18:21:43.546Z"
       }
     },
     {
@@ -281,22 +332,72 @@
         ]
       ],
       "deflection": 0.003,
+      "nodeColors": {
+        "v7 body": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "v7 armor": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "v7 uprights": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "v7 uprights(Mirror)": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "Component159": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "Component161": {
+          "color": "#6b3fa0",
+          "force": true
+        },
+        "weapon v7.5 v7": {
+          "color": "#4caf2f",
+          "force": true
+        },
+        "Edgehog v7_Edgehog v6 Weapon v2 v1 v1": {
+          "color": "#4caf2f",
+          "force": true
+        },
+        "Edgehog v5_wheels v1 (1)(Mirror) v3": {
+          "color": "#3553c7",
+          "force": true
+        },
+        "Edgehog v5_wheels v1 (1)(Mirror) v3 (1)": {
+          "color": "#3553c7",
+          "force": true
+        },
+        "Edgehog v5_wheels v1 (1)(Mirror) v3(Mirror) (2)": {
+          "color": "#3553c7",
+          "force": true
+        },
+        "Edgehog v5_wheels v1 (1)(Mirror) v3(Mirror) (3)": {
+          "color": "#3553c7",
+          "force": true
+        }
+      },
       "repoUrl": "https://github.com/DylM0nster22/Edgehog-v7",
       "stepUrl": "https://github.com/DylM0nster22/Edgehog-v7/blob/main/Edgehog%20v8.step",
       "glb": "assets/models/edgehog-v7.glb",
       "thumb": "assets/models/thumbs/edgehog-v7.webp",
       "stats": {
         "triangles": 107002,
-        "vertices": 0,
+        "vertices": 154242,
         "bbox": {
           "x": 145.8,
           "y": 159.8,
           "z": 66.3
         },
-        "parts": 0,
+        "parts": 43,
         "stepBytes": 34554009,
-        "glbBytes": 655176,
-        "generated": "2026-11-07T02:43:49.820506Z"
+        "glbBytes": 655068,
+        "generated": "2026-11-07T18:14:41.432Z"
       }
     },
     {
@@ -341,22 +442,40 @@
         ]
       ],
       "deflection": 0.003,
+      "nodeColors": {
+        "modified alex drive v7": "#121212",
+        "Edgehog v6 Bottom": {
+          "color": "#121212",
+          "force": true
+        },
+        "Edgehog v6 armor": {
+          "color": "#121212",
+          "force": true
+        },
+        "Edgehog v6 Top": {
+          "color": "#b9bec4",
+          "force": true
+        }
+      },
+      "colorReplacements": {
+        "#9b865d": "#161616"
+      },
       "repoUrl": "https://github.com/DylM0nster22/plant_vertical_spinner",
       "stepUrl": "https://github.com/DylM0nster22/plant_vertical_spinner/blob/main/Edgehog%20v6%20v3.step",
       "glb": "assets/models/edgehog-v6.glb",
       "thumb": "assets/models/thumbs/edgehog-v6.webp",
       "stats": {
         "triangles": 450985,
-        "vertices": 0,
+        "vertices": 376470,
         "bbox": {
           "x": 186.3,
           "y": 146,
           "z": 61.2
         },
-        "parts": 0,
+        "parts": 29,
         "stepBytes": 47541618,
-        "glbBytes": 2079464,
-        "generated": "2026-11-07T02:43:49.820506Z"
+        "glbBytes": 2080076,
+        "generated": "2026-11-07T18:15:00.058Z"
       }
     },
     {
@@ -461,22 +580,52 @@
         ]
       ],
       "deflection": 0.003,
+      "nodeColors": {
+        "Weapon v3": {
+          "color": "#111111",
+          "force": true
+        },
+        "Top lids": {
+          "color": "#121212",
+          "force": true
+        },
+        "trusses": {
+          "color": "#6f7a80",
+          "force": true
+        },
+        "Component18": {
+          "color": "#121212",
+          "force": true
+        },
+        "Component19": {
+          "color": "#6f7a80",
+          "force": true
+        },
+        "5909K1_Needle-Roller Thrust Bearing": {
+          "color": "#9aa3a8",
+          "force": true
+        },
+        "90453A111_Thin-Profile Nylon-Insert Locknut": {
+          "color": "#9aa3a8",
+          "force": true
+        }
+      },
       "repoUrl": "https://github.com/DylM0nster22/150g-Combat-Robot",
       "stepUrl": "https://github.com/DylM0nster22/150g-Combat-Robot/blob/main/CAD/Bot.step",
       "glb": "assets/models/150g-bristle-bot.glb",
       "thumb": "assets/models/thumbs/150g-bristle-bot.webp",
       "stats": {
         "triangles": 116660,
-        "vertices": 0,
+        "vertices": 113337,
         "bbox": {
           "x": 110.4,
           "y": 139.5,
           "z": 33.9
         },
-        "parts": 0,
+        "parts": 55,
         "stepBytes": 8787066,
-        "glbBytes": 636808,
-        "generated": "2026-11-07T02:43:49.820506Z"
+        "glbBytes": 638896,
+        "generated": "2026-11-07T18:20:48.994Z"
       }
     },
     {
@@ -521,22 +670,40 @@
         ]
       ],
       "deflection": 0.003,
+      "nodeColors": {
+        "Body": {
+          "color": "#2f86c9",
+          "force": true
+        },
+        "Weapon 1": {
+          "color": "#111111",
+          "force": true
+        },
+        "Weapon 2": {
+          "color": "#111111",
+          "force": true
+        },
+        "rs 2205 new v2": {
+          "color": "#1b1b1b",
+          "force": true
+        }
+      },
       "repoUrl": "https://github.com/DylM0nster22/Gryo-Walker",
       "stepUrl": "https://github.com/DylM0nster22/Gryo-Walker/blob/main/Full%20CAD.step",
       "glb": "assets/models/torque-walker.glb",
       "thumb": "assets/models/thumbs/torque-walker.webp",
       "stats": {
         "triangles": 22324,
-        "vertices": 0,
+        "vertices": 22579,
         "bbox": {
           "x": 229.8,
           "y": 88.7,
           "z": 60.8
         },
-        "parts": 0,
+        "parts": 10,
         "stepBytes": 1988969,
-        "glbBytes": 138240,
-        "generated": "2026-11-07T02:43:49.820506Z"
+        "glbBytes": 138836,
+        "generated": "2026-11-07T18:15:03.170Z"
       }
     },
     {
@@ -577,22 +744,26 @@
         ]
       ],
       "deflection": 0.003,
+      "colorReplacements": {
+        "#f6f6f3": "#151515",
+        "#ff0000": "#151515"
+      },
       "repoUrl": "https://github.com/DylM0nster22/Brawl-Bots",
       "stepUrl": "https://github.com/DylM0nster22/Brawl-Bots/blob/main/BrawlBot.step",
       "glb": "assets/models/brawl-bots.glb",
       "thumb": "assets/models/thumbs/brawl-bots.webp",
       "stats": {
         "triangles": 96670,
-        "vertices": 0,
+        "vertices": 94059,
         "bbox": {
           "x": 244.5,
           "y": 138.3,
           "z": 178
         },
-        "parts": 0,
+        "parts": 30,
         "stepBytes": 9031803,
-        "glbBytes": 515428,
-        "generated": "2026-11-07T02:43:49.820506Z"
+        "glbBytes": 514856,
+        "generated": "2026-11-07T18:15:16.771Z"
       }
     }
   ]

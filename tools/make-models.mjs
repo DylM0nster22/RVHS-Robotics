@@ -121,6 +121,25 @@ function colorFromHex(hex) {
 }
 
 function applyColorOverrides(result, model) {
+  if (model.colorReplacements) {
+    const replacements = Object.entries(model.colorReplacements).map(([from, to]) => ({
+      from: colorFromHex(from),
+      to: colorFromHex(to),
+    }));
+    for (const mesh of result.meshes) {
+      if (!mesh.color) continue;
+      for (const replacement of replacements) {
+        const matches = mesh.color.every(
+          (value, index) => Math.abs(value - replacement.from[index]) < 0.01
+        );
+        if (matches) {
+          mesh.color = [...replacement.to];
+          break;
+        }
+      }
+    }
+  }
+
   if (model.meshColors) {
     for (const mesh of result.meshes) {
       const override = mesh.name && model.meshColors[mesh.name];
@@ -133,10 +152,22 @@ function applyColorOverrides(result, model) {
     const visit = (node) => {
       const override = overrides.get(node.name);
       if (override) {
-        const color = colorFromHex(override);
-        for (const index of node.meshes || []) {
-          const mesh = result.meshes[index];
-          if (mesh && !mesh.color) mesh.color = color;
+        const settings = typeof override === "string" ? { color: override, force: false } : override;
+        const color = colorFromHex(settings.color);
+        const apply = (indices) => {
+          for (const index of indices || []) {
+            const mesh = result.meshes[index];
+            if (mesh && (settings.force || !mesh.color)) mesh.color = color;
+          }
+        };
+        apply(node.meshes);
+        for (const child of node.children || []) {
+          const stack = [child];
+          while (stack.length) {
+            const item = stack.pop();
+            apply(item.meshes);
+            for (const grandchild of item.children || []) stack.push(grandchild);
+          }
         }
       }
       for (const child of node.children || []) visit(child);
