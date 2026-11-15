@@ -3,7 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_URL = "https://rvrobotics.ycusd.org"
-ASSET_VERSION = "20261107-8"
+ASSET_VERSION = "20261115-1"
 EMAIL = "rvrobotics@ycusd.org"
 INSTAGRAM = "https://www.instagram.com/rv.robotics/"
 INSTAGRAM_HANDLE = "@rv.robotics"
@@ -15,6 +15,12 @@ MEETINGS = "Thursdays &amp; Fridays"
 CLASSROOM = "gftqhxdh"
 ADDRESS_1 = "801 El Margarita Rd."
 ADDRESS_2 = "Yuba City, CA 95993"
+
+# Hack Club Bank hosts the donation form, receipts, and public ledger.
+HCB_SLUG = "rvhs-robotics-club"
+DONATE_URL = f"https://hcb.hackclub.com/donations/start/{HCB_SLUG}"
+LEDGER_URL = f"https://hcb.hackclub.com/{HCB_SLUG}"
+GRAPH_URL = f"https://graph.hcb.hackclub.com/{HCB_SLUG}"
 
 ICONS = {
     "arrow": '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>',
@@ -96,7 +102,7 @@ def header(active):
       {links}
     </nav>
     <div class="header-actions">
-      <a class="btn btn--primary" href="sponsors.html#tiers">Sponsor the team {icon("arrow", "btn-arrow")}</a>
+      <a class="btn btn--primary" href="sponsors.html#donate">Donate {icon("arrow", "btn-arrow")}</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
         <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
@@ -110,7 +116,7 @@ def header(active):
     </ul>
   </nav>
   <div class="mobile-nav-footer">
-    <a class="btn btn--primary" href="sponsors.html#tiers">Sponsor the team</a>
+    <a class="btn btn--primary" href="sponsors.html#donate">Donate online</a>
     <a class="btn btn--ghost" href="join.html">Join the team</a>
   </div>
 </div>"""
@@ -149,6 +155,7 @@ def footer():
         <ul>
           <li><a href="join.html">Join the club</a></li>
           <li><a href="join.html#mentors">Parents &amp; mentors</a></li>
+          <li><a href="sponsors.html#donate">Donate online</a></li>
           <li><a href="sponsors.html#tiers">Sponsor the team</a></li>
           <li><a href="assets/RVRobotics-Sponsorship-Packet.pdf">Sponsorship packet</a></li>
         </ul>
@@ -306,8 +313,8 @@ def sponsor_cta():
         </div>
       </div>
       <div class="sponsor-cta-actions">
-        <a class="btn btn--dark" href="sponsors.html#tiers">See the levels {icon("arrow", "btn-arrow")}</a>
-        <a class="btn btn--ghost" href="assets/RVRobotics-Sponsorship-Packet.pdf">Sponsor packet</a>
+        <a class="btn btn--dark" href="sponsors.html#donate">Donate online {icon("arrow", "btn-arrow")}</a>
+        <a class="btn btn--ghost" href="sponsors.html#tiers">See the levels</a>
       </div>
     </div>
   </div>

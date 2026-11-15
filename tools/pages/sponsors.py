@@ -1,8 +1,19 @@
 ﻿"""Sponsorship page."""
-from rvsite import icon, page_hero, EMAIL, PHONE, INSTAGRAM, INSTAGRAM_HANDLE
+from rvsite import (
+    icon,
+    page_hero,
+    EMAIL,
+    PHONE,
+    INSTAGRAM,
+    INSTAGRAM_HANDLE,
+    HCB_SLUG,
+    DONATE_URL,
+    LEDGER_URL,
+    GRAPH_URL,
+)
 
 TITLE = "Sponsor the team | River Valley Robotics"
-DESCRIPTION = "Sponsor River Valley Robotics, a student combat robotics club at River Valley High School in Yuba City. See realistic levels, what the money buys, and how to help."
+DESCRIPTION = "Sponsor River Valley Robotics, a student combat robotics club at River Valley High School in Yuba City. Donate online, see realistic levels, what the money buys, and how to help."
 ACTIVE = "sponsors"
 FILENAME = "sponsors.html"
 
@@ -63,11 +74,85 @@ for idx, tier in enumerate(TIERS):
       <div class="tier-price">{tier['price']}<small>one-time</small></div>
       <p>{tier['desc']}</p>
       <ul>{features}</ul>
-      <a class="btn btn--dark btn--block" href="#sponsor-form" data-tier="{tier['key']}">Choose {tier['key']}</a>
+      <a class="btn btn--dark btn--block" href="#donate-form" data-donate-amount="{tier['price'].replace('$', '').replace(',', '')}" data-donate-tier="{tier['key']}">Give {tier['price']}</a>
     </article>
     """
 
 PACKET_NOTE = 'Levels, benefits, and contact info.<br><a href="assets/RVRobotics-Sponsorship-Packet.pdf" style="color:var(--accent)">Download the PDF &rarr;</a>'
+
+DONATE_POINTS = [
+    (
+        "shield",
+        "Tax-deductible",
+        "Hack Club Bank is a 501(c)(3). You get an emailed receipt as soon as the gift clears.",
+    ),
+    (
+        "chip",
+        "Card payments by Stripe",
+        "Stripe processes the card. Your card number goes to Stripe, not to us or HCB.",
+    ),
+    (
+        "users",
+        "An open ledger",
+        "Every dollar in and out is posted publicly on our HCB page, so anyone can check.",
+    ),
+]
+
+donate_points = "".join(
+    f'<li>{icon(key)}<div><strong>{title}</strong><span>{text}</span></div></li>'
+    for key, title, text in DONATE_POINTS
+)
+
+DONATE_SECTION = f"""
+<section class="section section--white" id="donate" aria-labelledby="donate-heading">
+  <div class="container">
+    <div class="donate-grid">
+      <div class="reveal">
+        <p class="kicker">Give online</p>
+        <h2 id="donate-heading">Donate in<br>two minutes.</h2>
+        <p class="lead" style="margin-top:1.4rem">Give any amount, one time or monthly. Gifts go straight to the team's Hack Club Bank account and turn into motors, batteries, filament, and entry fees.</p>
+        <ul class="donate-points">
+          {donate_points}
+        </ul>
+        <div class="donate-actions">
+          <a class="btn btn--dark" href="{DONATE_URL}" target="_blank" rel="noopener">Open the donation page {icon("external", "btn-arrow")}</a>
+          <a class="text-link" href="{LEDGER_URL}" target="_blank" rel="noopener">See the public ledger {icon("external")}</a>
+        </div>
+        <div class="donate-other">
+          <h3>Prefer not to use a card?</h3>
+          <p>Email <a href="mailto:{EMAIL}">{EMAIL}</a> for a check, transfer, or in-kind gift. Businesses can <a href="#tiers">pick a sponsorship level</a> for logo placement.</p>
+        </div>
+      </div>
+      <div class="reveal donate-panel" id="donate-form" style="--d:100ms">
+        <div class="donate-panel-head">
+          <span class="donate-panel-title">Donation form</span>
+          <span class="donate-panel-tag">Secure &middot; HCB</span>
+        </div>
+        <p class="donate-hint" data-donate-hint aria-live="polite" hidden></p>
+        <iframe class="donate-frame" src="{DONATE_URL}" title="Donation form for RVHS Robotics Club, hosted by Hack Club Bank" allow="payment" scrolling="yes" loading="lazy"></iframe>
+        <p class="small muted donate-panel-note">The form is hosted by Hack Club Bank. If it does not load, <a href="{DONATE_URL}" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight section--forest" id="donors" aria-labelledby="donors-heading">
+  <div class="container">
+    <div class="donor-wall-head">
+      <div>
+        <p class="kicker">Donor wall</p>
+        <h2 id="donors-heading">Who backs<br>the build.</h2>
+      </div>
+      <p>Donors who give publicly appear here, and the full ledger is open to anyone. We're a second-year club looking for the first names on the wall.</p>
+    </div>
+    <a class="donor-wall-graph" href="{LEDGER_URL}" target="_blank" rel="noopener" aria-label="Donor wall for RVHS Robotics Club — open the public HCB ledger">
+      <span class="donor-wall-label">Live donor graph &middot; graph.hcb.hackclub.com</span>
+      <img src="{GRAPH_URL}" width="1152" height="88" alt="Donor wall for RVHS Robotics Club, live from Hack Club Bank" loading="lazy">
+    </a>
+  </div>
+</section>
+"""
+
 
 BODY = f"""
 {page_hero(
@@ -78,6 +163,8 @@ BODY = f"""
     PACKET_NOTE,
     "Sponsors",
 )}
+
+{DONATE_SECTION}
 
 <section class="section section--paper" aria-labelledby="why">
   <div class="container">
@@ -241,8 +328,12 @@ BODY = f"""
     </div>
     <div class="faq">
       <details>
-        <summary>Is my sponsorship tax deductible?</summary>
-        <p>Ask us for the current tax information before you give. Donations may be processed through the RVHS Booster Club or the district, depending on the type of support. We'll give you the correct receipt and paperwork.</p>
+        <summary>How do I donate online?</summary>
+        <p>Use the form at the top of this page, or open <a href="{DONATE_URL}" target="_blank" rel="noopener">hcb.hackclub.com/donations/start/{HCB_SLUG}</a> in a new tab. You can give any amount, one time or monthly. Hack Club Bank hosts the form, the receipts, and the public ledger.</p>
+      </details>
+      <details>
+        <summary>Is my donation tax deductible?</summary>
+        <p>Online gifts are tax-deductible through Hack Club Bank, a 501(c)(3). You'll get an emailed receipt as soon as the gift clears, so keep it for your records. For checks, transfers, or in-kind support, talk to us first so we route the gift through the right account.</p>
       </details>
       <details>
         <summary>Can we donate materials or services instead of cash?</summary>

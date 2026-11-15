@@ -107,7 +107,7 @@ BODY = f"""
     <div style="border:1px solid var(--line);background:var(--white);padding:0.5rem">
       <iframe
         title="Map to River Valley High School, 801 El Margarita Road, Yuba City, California"
-        src="https://www.google.com/maps?q=801+El+Margarita+Rd,+Yuba+City,+CA+95993&output=embed"
+        src="https://www.google.com/maps?q=801+El+Margarita+Rd,+Yuba+City,+CA+95993&amp;output=embed"
         width="100%" height="420" style="border:0;display:block" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>

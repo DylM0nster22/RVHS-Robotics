@@ -58,6 +58,14 @@ BODY = f"""
       </div>
     </div>
 
+    <h3 style="margin-top:3rem">Donations</h3>
+    <div class="info-list" style="margin-top:1rem">
+      <div class="info-row">
+        <dt>Hack Club Bank</dt>
+        <dd>Online donations, receipts, and the public ledger are hosted by Hack Club Bank, Hack Club's 501(c)(3) fiscal sponsorship program. The donor graph is the open-source <a href="https://github.com/hackclub/hcb-donor-graph" target="_blank" rel="noopener">hcb-donor-graph</a> service.</dd>
+      </div>
+    </div>
+
     <h3 style="margin-top:3rem">Match video</h3>
     <div class="info-list" style="margin-top:1rem">
       <div class="info-row">

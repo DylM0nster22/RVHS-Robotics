@@ -18,7 +18,7 @@ build step required to host it.
 | `about.html` | Club story, student work, meeting details, FAQ |
 | `robots.html` | Current build, CAD and shop photos, build process, shop rules, next steps |
 | `cad.html` | Interactive 3D CAD viewer for the 3lb vertical spinner and the other public combat robots with STEP files |
-| `sponsors.html` | Why sponsor, parts costs, levels, benefits table, inquiry form, FAQ |
+| `sponsors.html` | Donate online through Hack Club Bank, donor wall, why sponsor, parts costs, levels, benefits table, inquiry form, FAQ |
 | `gallery.html` | All team photos and flyers from Instagram, with a keyboard-friendly lightbox |
 | `watch.html` | Match video archive: 11 fights from Impact Robotics League #1 2026, plus newer YouTube picks |
 | `join.html` | Student and parent/mentor info, meeting details, interest form, FAQ |
@@ -80,6 +80,39 @@ Forms, Formspree, etc.), replace the form `action`/JavaScript handler and update
 
 ---
 
+## Donations (Hack Club Bank)
+
+Online donations run through **Hack Club Bank (HCB)**, Hack Club's 501(c)(3) fiscal
+sponsor. `sponsors.html` embeds HCB's hosted donation form and shows the live donor
+graph. Both are served by HCB and update on their own.
+
+- Donation form: <https://hcb.hackclub.com/donations/start/rvhs-robotics-club>
+- Public ledger: <https://hcb.hackclub.com/rvhs-robotics-club>
+- Donor graph: <https://graph.hcb.hackclub.com/rvhs-robotics-club>
+
+The slug lives in `tools/rvsite.py` as `HCB_SLUG` and is shared by the page modules.
+If the HCB organization slug changes, update that one value, then run
+`python tools/build.py`.
+
+The form is an iframe with a fixed height (`930px`, `990px` at 460px wide and below)
+because HCB does not report its content height to the parent page. If HCB changes
+the form layout, adjust `.donate-frame` in `css/site.css`. The panel also has a
+direct link to the hosted donation page for browsers or networks that block
+third-party frames.
+
+If the school's web server sends a Content-Security-Policy, allow
+`frame-src https://hcb.hackclub.com` and `img-src https://graph.hcb.hackclub.com`
+or the form and donor graph will be blocked. The frame also loads Stripe and
+Cloudflare Turnstile for card processing and bot checks; HCB's page already
+permits them.
+
+HCB does not support preselecting a donation amount in the URL, so the four sponsor
+level buttons jump to the form and show the amount to enter. Card data is handled by
+Stripe on HCB's page; the site never sees it. Checks, transfers, and in-kind gifts
+still go through the sponsor inquiry form.
+
+---
+
 ## Before you publish — review these
 
 These details came from the team's Instagram or are sensible defaults. Confirm them
@@ -123,6 +156,11 @@ before the site goes live.
 14. **CAD viewer.** Confirm the model authors and collaborators approve publishing the
     converted models and thumbnails, and check each GitHub repository's license before
     sharing or reusing geometry. The CAD lab links back to every source repo.
+15. **HCB donation page.** The form is hosted at
+    `hcb.hackclub.com/donations/start/rvhs-robotics-club`. Confirm the HCB
+    organization is active and transparent, the page shows **RVHS Robotics Club**,
+    and a test gift produces the tax receipt. If the HCB slug changes, update
+    `HCB_SLUG` in `tools/rvsite.py` and rebuild.
 
 The site intentionally does **not** invent student counts, mentor counts, awards, or
 competition results. The team facts shown (second season, Room 408, grades 9–12,

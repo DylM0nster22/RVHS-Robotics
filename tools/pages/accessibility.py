@@ -1,5 +1,5 @@
 ﻿"""Accessibility statement page."""
-from rvsite import icon, page_hero, EMAIL
+from rvsite import icon, page_hero, EMAIL, DONATE_URL
 
 TITLE = "Accessibility | River Valley Robotics"
 DESCRIPTION = "River Valley Robotics is committed to making this website usable for everyone. Read our accessibility statement and how to request help."
@@ -36,6 +36,7 @@ BODY = f"""
           <div class="info-row"><dt>Video</dt><dd>Match videos never autoplay. They open in a player with native controls, and YouTube picks load only after you choose one. If you need a more detailed description of a match, email us.</dd></div>
           <div class="info-row"><dt>3D models</dt><dd>The CAD viewer works with a mouse, touch, or keyboard. Each model also links to its original STEP file and GitHub repository, and the model details are available as plain text.</dd></div>
           <div class="info-row"><dt>Forms</dt><dd>Every field has a visible label and a clear error path.</dd></div>
+          <div class="info-row"><dt>Donations</dt><dd>Card gifts use Hack Club Bank's embedded form. If the frame is hard to use with your setup, <a href="{DONATE_URL}" target="_blank" rel="noopener">open the donation page directly</a> or email us for another way to give.</dd></div>
         </div>
       </div>
     </div>

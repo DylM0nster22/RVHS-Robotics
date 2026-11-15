@@ -1028,6 +1028,149 @@ hr {
 .tier li svg { width: 14px; height: 14px; flex: none; margin-top: 0.28em; color: var(--green); }
 .tier .btn { margin-top: auto; }
 
+/* ---------- Donations (Hack Club Bank embed) ---------- */
+.donate-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+.donate-points {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+  border-top: 1px solid var(--line);
+}
+.donate-points li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 0.9rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.donate-points svg {
+  width: 20px;
+  height: 20px;
+  margin-top: 0.1em;
+  color: var(--green);
+}
+.donate-points strong {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.donate-points span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.donate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.1rem 1.5rem;
+  margin-top: 1.75rem;
+}
+.donate-actions .text-link { color: var(--green); }
+.donate-actions .text-link:hover { color: var(--forest); }
+
+.donate-other {
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.25rem;
+  border-left: 3px solid var(--green);
+  background: var(--paper);
+}
+.donate-other h3 { margin-bottom: 0.35rem; font-size: 1.05rem; }
+.donate-other p { font-size: 0.88rem; line-height: 1.55; color: var(--muted); }
+.donate-other a { color: var(--green); }
+
+.donate-panel {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.donate-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+.donate-panel-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.donate-panel-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.donate-hint {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: var(--accent-soft);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--accent-deep);
+}
+.donate-hint strong { color: var(--forest); }
+.donate-frame {
+  display: block;
+  width: 100%;
+  height: 930px;
+  border: 0;
+  background: var(--paper);
+}
+.donate-panel-note {
+  margin: 0;
+  padding: 0.8rem 1rem;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.donor-wall-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: end;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+.donor-wall-head p { max-width: 58ch; color: rgba(255, 255, 255, 0.72); }
+.donor-wall-graph {
+  display: block;
+  padding: 1.15rem 1.25rem 1.35rem;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  background: #111315;
+  text-decoration: none;
+  transition: border-color 0.2s var(--ease);
+}
+.donor-wall-graph:hover { border-color: var(--accent); }
+.donor-wall-label {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.donor-wall-graph img { width: 100%; height: auto; }
+
 .benefits-wrap {
   overflow-x: auto;
   border: 1px solid var(--line);
@@ -1968,6 +2111,8 @@ hr {
   .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-3 { grid-template-columns: 1fr; }
   .feature-split { grid-template-columns: 1fr; }
+  .donate-grid { grid-template-columns: 1fr; }
+  .donor-wall-head { grid-template-columns: 1fr; align-items: start; }
   .cta-band-inner { grid-template-columns: 1fr; }
   .cta-band-actions { justify-content: flex-start; }
   .sponsor-cta { grid-template-columns: 1fr; }
@@ -2013,6 +2158,7 @@ hr {
   .brand-logo { height: 38px; }
   .hero-eyebrow { font-size: 0.56rem; letter-spacing: 0.1em; }
   .footer-top { grid-template-columns: 1fr; }
+  .donate-frame { height: 990px; }
 }
 
 /* ---------- Reduced motion ---------- */

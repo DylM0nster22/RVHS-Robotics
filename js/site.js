@@ -337,15 +337,17 @@
     });
   });
 
-  /* ---------- Tier buttons prefill the sponsor form ---------- */
-  document.querySelectorAll("[data-tier]").forEach(function (button) {
+  /* ---------- Donate buttons set the amount hint ---------- */
+  var donateHint = document.querySelector("[data-donate-hint]");
+  document.querySelectorAll("[data-donate-amount]").forEach(function (button) {
     button.addEventListener("click", function () {
-      var select = document.getElementById("sponsor-tier");
-      if (!select) return;
-      var tier = button.getAttribute("data-tier");
-      Array.prototype.forEach.call(select.options, function (option) {
-        if (option.value.indexOf(tier) === 0) select.value = option.value;
-      });
+      if (!donateHint) return;
+      var amount = button.getAttribute("data-donate-amount");
+      var tier = button.getAttribute("data-donate-tier") || "Custom";
+      donateHint.innerHTML =
+        "<strong>" + tier + " &mdash; $" + amount + ".</strong> Enter " +
+        amount + " in the Donation amount field. Any amount works.";
+      donateHint.hidden = false;
     });
   });
 
