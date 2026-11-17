@@ -62,7 +62,7 @@ BODY = f"""
     <div class="info-list" style="margin-top:1rem">
       <div class="info-row">
         <dt>Hack Club Bank</dt>
-        <dd>Online donations, receipts, and the public ledger are hosted by Hack Club Bank, Hack Club's 501(c)(3) fiscal sponsorship program. The donor graph is the open-source <a href="https://github.com/hackclub/hcb-donor-graph" target="_blank" rel="noopener">hcb-donor-graph</a> service.</dd>
+        <dd>Online donations, receipts, and the public ledger are hosted by Hack Club Bank, Hack Club's 501(c)(3) fiscal sponsorship program. The donor wall reads the public donations feed, and the fallback graph is the open-source <a href="https://github.com/hackclub/hcb-donor-graph" target="_blank" rel="noopener">hcb-donor-graph</a> service.</dd>
       </div>
     </div>
 

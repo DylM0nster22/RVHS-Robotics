@@ -11,7 +11,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-from rvsite import layout  # noqa: E402
+from rvsite import SITE_URL, layout  # noqa: E402
 
 PAGES = [
     "home",
@@ -55,6 +55,7 @@ def build_pages():
             robots=getattr(module, "ROBOTS", "index, follow"),
             body_class=getattr(module, "BODY_CLASS", ""),
             extra_head=getattr(module, "EXTRA_HEAD", ""),
+            extra_body=getattr(module, "EXTRA_BODY", ""),
         )
         output = ROOT / module.FILENAME
         output.write_text(html, encoding="utf-8")
@@ -63,14 +64,18 @@ def build_pages():
 
 def build_packet():
     packet = importlib.import_module("pages.packet")
+    # The packet hard-codes the public address in print copy; keep it on
+    # SITE_URL so a domain change only needs one edit in rvsite.py.
+    html = packet.HTML.replace("https://rvrobotics.ycusd.org", SITE_URL)
+    html = html.replace("rvrobotics.ycusd.org", SITE_URL.replace("https://", ""))
     output = ROOT / "sponsor-packet.html"
-    output.write_text(packet.HTML, encoding="utf-8")
+    output.write_text(html, encoding="utf-8")
     print("built sponsor-packet.html")
 
 
 def build_sitemap():
     urls = "\n".join(
-        f'  <url><loc>https://rvrobotics.ycusd.org/{"" if page == "index.html" else page}</loc><priority>{priority}</priority></url>'
+        f'  <url><loc>{SITE_URL}/{"" if page == "index.html" else page}</loc><priority>{priority}</priority></url>'
         for page, priority in SITEMAP_PAGES
     )
     sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>

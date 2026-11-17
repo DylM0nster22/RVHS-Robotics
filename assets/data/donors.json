@@ -1,0 +1,18 @@
+{
+  "_readme": [
+    "Sponsor display settings for the live donor wall on sponsors.html.",
+    "Keys under \"sponsors\" match the donor name exactly as it appears on the Hack Club Bank ledger (case does not matter).",
+    "display: name shown on the site. logo: image path under assets/img/sponsors/. url: website linked from the name.",
+    "tier: force Supporter, Partner, Builder, or Champion, for example an in-kind sponsor whose gifts do not match the amount.",
+    "hide: true removes the donor from the wall."
+  ],
+  "_example": {
+    "Acme Machine": {
+      "display": "Acme Machine Co.",
+      "logo": "assets/img/sponsors/acme-machine.png",
+      "url": "https://example.com",
+      "tier": "Builder"
+    }
+  },
+  "sponsors": {}
+}

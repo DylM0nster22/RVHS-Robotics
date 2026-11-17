@@ -12,7 +12,7 @@ BODY = f"""
 {page_hero(
     "The build",
     "The robot<br>in Room 408.",
-    "We're in the second year of the club. The current robot is a 3D-printed combat bot with a drum, four wheels, and a lot of test fits. Here's what's done and what's still changing.",
+    "We're in the second year of the club, and this is the 2026&ndash;27 robot: a 3D-printed combat bot with a drum, four wheels, and a lot of test fits. Here's what's done and what's still changing.",
     "2026&ndash;27 build",
     BUILD_NOTE,
     "Build",

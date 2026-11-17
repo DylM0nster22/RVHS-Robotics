@@ -10,7 +10,7 @@ BODY = f"""
 {page_hero(
     "About",
     "A small club<br>with a full build.",
-    "River Valley Robotics started in fall 2025. We're a student club at River Valley High School, and this is our second year.",
+    "River Valley Robotics started in fall 2025. The first robots came together in 2026, and this is the club's second year.",
     "At a glance",
     f"Meets {MEETINGS} &middot; {ROOM}<br>Grades 9&ndash;12<br>No experience needed",
     "About",
@@ -22,12 +22,12 @@ BODY = f"""
       <div class="reveal">
         <p class="kicker">The short version</p>
         <h2 id="story">We started<br>in fall 2025.</h2>
-        <p class="lead" style="margin-top:1.4rem">The club began with a first meeting in September 2025 and a simple goal: build a combat robot and learn what it takes to keep it running.</p>
-        <p>This year we're doing it again with a new robot. Students design parts in CAD, print and assemble them, wire the electronics, and test the robot until it does what we want. On a small team, everyone ends up helping with more than one job.</p>
+        <p class="lead" style="margin-top:1.4rem">The club began with a first meeting on September 22, 2025: a room, a plan, and a group of students who wanted to build a combat robot.</p>
+        <p>The first year was the club itself: meetings, planning, and figuring out what we wanted to build. The robots came next, in 2026. Students design parts in CAD, print and assemble them, wire the electronics, and test the robot until it does what we want. On a small team, everyone ends up helping with more than one job.</p>
         <p>We meet Thursdays and Fridays in Room 408. Announcements go out through Google Classroom (code <strong>{CLASSROOM}</strong>) and <a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a>.</p>
         <div class="tag-row" style="margin-top:1.5rem">
           <span class="tag tag--accent">Combat robotics</span>
-          <span class="tag">Second season</span>
+          <span class="tag">Second year</span>
           <span class="tag">Grades 9&ndash;12</span>
         </div>
       </div>
@@ -35,6 +35,26 @@ BODY = f"""
         <img src="assets/img/soldering-arm.webp" width="1000" height="1250" alt="A student soldering a wire on a printed robot arm at a workbench" loading="lazy">
         <figcaption class="media-tag">After a build session</figcaption>
       </figure>
+    </div>
+    <div style="margin-top:clamp(2rem,4vw,3rem)">
+      <p class="kicker">The dates</p>
+      <ol class="timeline" style="margin-top:1.1rem" aria-label="Club timeline">
+        <li class="timeline-item reveal">
+          <span class="timeline-date">September 2025</span>
+          <h3>The club starts</h3>
+          <p>First meeting on September 22, 2025. No robots yet, just a room, a plan, and students who wanted to build one.</p>
+        </li>
+        <li class="timeline-item reveal" style="--d:80ms">
+          <span class="timeline-date">2026</span>
+          <h3>The first robots</h3>
+          <p>Parts get modeled, printed, wired, and driven. Match footage from the 2026 events is on the <a href="watch.html">watch page</a>.</p>
+        </li>
+        <li class="timeline-item reveal" style="--d:160ms">
+          <span class="timeline-date">2026&ndash;27</span>
+          <h3>Year two</h3>
+          <p>A new robot on the bench, more events, and the first names on the <a href="sponsors.html#donors">donor wall</a>.</p>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
@@ -114,6 +134,10 @@ BODY = f"""
       </div>
     </div>
     <div class="faq">
+      <details>
+        <summary>When did the club start?</summary>
+        <p>The first meeting was September 22, 2025. That first year was mostly meetings and planning; the robots started coming together in 2026, and 2026&ndash;27 is the club's second year.</p>
+      </details>
       <details>
         <summary>What is combat robotics?</summary>
         <p>Combat robotics is a category of robot competition where students build small, remote-controlled machines that compete in matches. The robots have to follow a set of safety and build rules, and the goal is to disable or outlast the other robot.</p>

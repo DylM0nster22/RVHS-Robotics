@@ -1,7 +1,10 @@
 ﻿"""Sponsorship page."""
+import donors
+
 from rvsite import (
     icon,
     page_hero,
+    ASSET_VERSION,
     EMAIL,
     PHONE,
     INSTAGRAM,
@@ -21,9 +24,10 @@ TIERS = [
     {
         "key": "Supporter",
         "price": "$100",
-        "desc": "A straightforward way to help with parts.",
+        "desc": "A straightforward way to help with parts. This is the level that puts a logo on the wall.",
         "features": [
             "Name on the team website",
+            "Logo on the team website",
             "Thank-you on Instagram",
             "Team sticker",
         ],
@@ -34,7 +38,6 @@ TIERS = [
         "desc": "For a local business that wants its name in front of the school.",
         "features": [
             "Everything in Supporter",
-            "Logo on the team website",
             "Logo on team shirts",
             "Invitation to a build night",
         ],
@@ -79,6 +82,60 @@ for idx, tier in enumerate(TIERS):
     """
 
 PACKET_NOTE = 'Levels, benefits, and contact info.<br><a href="assets/RVRobotics-Sponsorship-Packet.pdf" style="color:var(--accent)">Download the PDF &rarr;</a>'
+
+# The donor wall grades every public gift by total giving. "Friend" is the
+# catch-all for gifts under the $100 Supporter level, so a small gift still gets
+# a card. A logo on the wall is the $100 benefit.
+LEVELS = [{"slug": "friend", "label": "Friend", "min": 0, "note": "under $100"}] + [
+    {
+        "slug": tier["key"].lower(),
+        "label": tier["key"],
+        "min": int(tier["price"].replace("$", "").replace(",", "")),
+        "note": f"{tier['price']} and up",
+    }
+    for tier in TIERS
+]
+
+DONOR_API = f"https://hcb.hackclub.com/api/v3/organizations/{HCB_SLUG}/donations?per_page=100"
+
+
+def _level_tag(level):
+    return f'<span class="tag tag--dark">{level["label"]} &middot; {donors.tier_note(level)}</span>'
+
+
+_donations, donor_source = donors.fetch(HCB_SLUG)
+DONOR_LIST = donors.aggregate(_donations, donors.load_config(), LEVELS)
+DONOR_COUNT = len(DONOR_LIST)
+
+if donor_source != "live":
+    _state = "cached snapshot" if donor_source == "cache" else "no donation data"
+    print(f"donor wall: {_state} ({DONOR_COUNT} donors)")
+
+if DONOR_COUNT:
+    donor_meta = (
+        f"{DONOR_COUNT} public donor{'s' if DONOR_COUNT != 1 else ''} &middot; live from "
+        f'<a href="{LEDGER_URL}" target="_blank" rel="noopener">Hack Club Bank</a>'
+    )
+else:
+    donor_meta = f'No public gifts yet. <a href="{LEDGER_URL}" target="_blank" rel="noopener">See the ledger</a>'
+
+donor_grid = donors.render_grid(
+    DONOR_LIST,
+    "No public gifts yet. The first name on the wall could be yours.",
+)
+
+donor_fallback = f"""
+    <div class="donor-wall-fallback" data-donor-fallback{' hidden' if DONOR_COUNT else ''}>
+      <a class="donor-wall-graph" href="{LEDGER_URL}" target="_blank" rel="noopener" aria-label="Donor graph for RVHS Robotics Club — open the public HCB ledger">
+        <span class="donor-wall-label">Live donor graph &middot; graph.hcb.hackclub.com</span>
+        <img src="{GRAPH_URL}" width="1152" height="88" alt="Donor wall for RVHS Robotics Club, live from Hack Club Bank" loading="lazy">
+      </a>
+    </div>"""
+
+donor_levels = "".join(_level_tag(level) for level in sorted(LEVELS, key=lambda item: item["min"]))
+donor_levels_attr = donors.levels_attribute(LEVELS)
+
+EXTRA_BODY = f'<script src="js/donors.js?v={ASSET_VERSION}" defer></script>'
 
 DONATE_POINTS = [
     (
@@ -143,12 +200,22 @@ DONATE_SECTION = f"""
         <p class="kicker">Donor wall</p>
         <h2 id="donors-heading">Who backs<br>the build.</h2>
       </div>
-      <p>Donors who give publicly appear here, and the full ledger is open to anyone. We're a second-year club looking for the first names on the wall.</p>
+      <div>
+        <p>Public gifts show up here with the donor's name and logo, grouped by level. Levels follow total giving, so a monthly gift adds up over the season. Anonymous gifts are listed as Anonymous.</p>
+        <p class="donor-wall-meta" data-donor-meta>{donor_meta}</p>
+      </div>
     </div>
-    <a class="donor-wall-graph" href="{LEDGER_URL}" target="_blank" rel="noopener" aria-label="Donor wall for RVHS Robotics Club — open the public HCB ledger">
-      <span class="donor-wall-label">Live donor graph &middot; graph.hcb.hackclub.com</span>
-      <img src="{GRAPH_URL}" width="1152" height="88" alt="Donor wall for RVHS Robotics Club, live from Hack Club Bank" loading="lazy">
-    </a>
+    <div class="donor-wall" data-donor-wall data-donor-api="{DONOR_API}" data-donor-levels="{donor_levels_attr}" data-donor-ledger="{LEDGER_URL}">
+      <div data-donor-list>
+        {donor_grid}
+      </div>
+    </div>
+    {donor_fallback.strip()}
+    <div class="donor-levels">
+      <span class="donor-levels-label">Levels</span>
+      {donor_levels}
+    </div>
+    <p class="donor-wall-note">Gifts under $100 are listed as Friends. Supporter ($100) and up get a logo on the wall: send us a file and it replaces the initials on the card.</p>
   </div>
 </section>
 """
@@ -173,7 +240,7 @@ BODY = f"""
         <p class="kicker">Why sponsor</p>
         <h2 id="why">A small team<br>with a real budget.</h2>
         <p class="lead" style="margin-top:1.4rem">A combat robot is not free. Motors, speed controllers, batteries, filament, tools, and entry fees add up fast. Your support lets students build a robot, test it, break it, and fix it.</p>
-        <p>We're a second-year club with no sponsor wall yet. Local businesses and families can help us get the parts we need. You don't need to be a robotics company.</p>
+        <p>We're a second-year club, and the first names are already on the <a href="#donors">donor wall</a>. Local businesses and families can help us get the parts we need. You don't need to be a robotics company.</p>
         <div class="tag-row" style="margin-top:1.5rem">
           <span class="tag tag--accent">Local business</span>
           <span class="tag">In-kind welcome</span>
@@ -239,7 +306,7 @@ BODY = f"""
         <tbody>
           <tr><th scope="row">Name on the team website</th><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
           <tr><th scope="row">Thank-you on Instagram</th><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
-          <tr><th scope="row">Logo on the team website</th><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row">Logo on the team website</th><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
           <tr><th scope="row">Logo on team shirts</th><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
           <tr><th scope="row">Logo on the robot</th><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
           <tr><th scope="row">Banner at events</th><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
@@ -342,6 +409,10 @@ BODY = f"""
       <details>
         <summary>What does the money go toward?</summary>
         <p>Parts for the robot, shop supplies, tools that wear out, event entry fees, and travel. If you want your support to go toward something specific, tell us and we'll confirm it in writing.</p>
+      </details>
+      <details>
+        <summary>How does the donor wall work?</summary>
+        <p>The <a href="#donors">donor wall</a> reads our public Hack Club Bank ledger, so a new public gift appears there without anyone editing the site. Your name and level come from the donation. Levels follow total giving: Friend under $100, then Supporter at $100 (that level includes a logo on this page), Partner, Builder, and Champion. Anonymous gifts are listed as Anonymous. Send us a logo and we'll swap it in for your initials.</p>
       </details>
       <details>
         <summary>When is the deadline for logo placement?</summary>

@@ -3,7 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_URL = "https://rvrobotics.ycusd.org"
-ASSET_VERSION = "20261115-1"
+ASSET_VERSION = "20261117-1"
 EMAIL = "rvrobotics@ycusd.org"
 INSTAGRAM = "https://www.instagram.com/rv.robotics/"
 INSTAGRAM_HANDLE = "@rv.robotics"
@@ -185,7 +185,7 @@ def footer():
 </footer>"""
 
 
-def layout(title, description, active, body, filename="index.html", body_class="", og_image="assets/img/og.jpg", extra_head="", robots="index, follow"):
+def layout(title, description, active, body, filename="index.html", body_class="", og_image="assets/img/og.jpg", extra_head="", robots="index, follow", extra_body=""):
     canonical = SITE_URL + "/" + ("" if filename == "index.html" else filename)
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -252,6 +252,7 @@ def layout(title, description, active, body, filename="index.html", body_class="
 </main>
 {footer()}
 <script src="js/site.js?v={ASSET_VERSION}" defer></script>
+{extra_body}
 </body>
 </html>
 """

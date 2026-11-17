@@ -6,3 +6,6 @@ __pycache__/
 tools/node_modules/
 tools/.cache/
 assets/models/.stats/
+
+# Static hosting staging output (python tools/stage.py)
+dist/

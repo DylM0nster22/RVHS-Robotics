@@ -27,7 +27,7 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=20261115-1">
+  <link rel="stylesheet" href="css/site.css?v=20261117-1">
   
   <script type="application/ld+json">
   {
@@ -156,12 +156,68 @@
         <p class="kicker">Donor wall</p>
         <h2 id="donors-heading">Who backs<br>the build.</h2>
       </div>
-      <p>Donors who give publicly appear here, and the full ledger is open to anyone. We're a second-year club looking for the first names on the wall.</p>
+      <div>
+        <p>Public gifts show up here with the donor's name and logo, grouped by level. Levels follow total giving, so a monthly gift adds up over the season. Anonymous gifts are listed as Anonymous.</p>
+        <p class="donor-wall-meta" data-donor-meta>6 public donors &middot; live from <a href="https://hcb.hackclub.com/rvhs-robotics-club" target="_blank" rel="noopener">Hack Club Bank</a></p>
+      </div>
     </div>
-    <a class="donor-wall-graph" href="https://hcb.hackclub.com/rvhs-robotics-club" target="_blank" rel="noopener" aria-label="Donor wall for RVHS Robotics Club — open the public HCB ledger">
-      <span class="donor-wall-label">Live donor graph &middot; graph.hcb.hackclub.com</span>
-      <img src="https://graph.hcb.hackclub.com/rvhs-robotics-club" width="1152" height="88" alt="Donor wall for RVHS Robotics Club, live from Hack Club Bank" loading="lazy">
-    </a>
+    <div class="donor-wall" data-donor-wall data-donor-api="https://hcb.hackclub.com/api/v3/organizations/rvhs-robotics-club/donations?per_page=100" data-donor-levels="[{&quot;slug&quot;:&quot;champion&quot;,&quot;label&quot;:&quot;Champion&quot;,&quot;min&quot;:1000,&quot;note&quot;:&quot;$1,000 and up&quot;},{&quot;slug&quot;:&quot;builder&quot;,&quot;label&quot;:&quot;Builder&quot;,&quot;min&quot;:500,&quot;note&quot;:&quot;$500 and up&quot;},{&quot;slug&quot;:&quot;partner&quot;,&quot;label&quot;:&quot;Partner&quot;,&quot;min&quot;:250,&quot;note&quot;:&quot;$250 and up&quot;},{&quot;slug&quot;:&quot;supporter&quot;,&quot;label&quot;:&quot;Supporter&quot;,&quot;min&quot;:100,&quot;note&quot;:&quot;$100 and up&quot;},{&quot;slug&quot;:&quot;friend&quot;,&quot;label&quot;:&quot;Friend&quot;,&quot;min&quot;:0,&quot;note&quot;:&quot;under $100&quot;}]" data-donor-ledger="https://hcb.hackclub.com/rvhs-robotics-club">
+      <div data-donor-list>
+            <section class="donor-tier" data-tier="supporter" aria-labelledby="donor-tier-supporter">
+      <div class="donor-tier-head">
+        <h3 class="donor-tier-name" id="donor-tier-supporter">Supporter</h3>
+        <span class="donor-tier-note">$100 and up</span>
+        <span class="donor-tier-count">3 donors</span>
+      </div>
+      <ul class="donor-grid">
+        <li class="donor-card" data-tier="supporter">
+          <span class="donor-mark" aria-hidden="true">J</span>
+          <span class="donor-body"><span class="donor-name">Joe</span></span>
+        </li>
+        <li class="donor-card" data-tier="supporter">
+          <span class="donor-mark" aria-hidden="true">JM</span>
+          <span class="donor-body"><span class="donor-name">Joshua Manley</span></span>
+        </li>
+        <li class="donor-card" data-tier="supporter">
+          <span class="donor-mark" aria-hidden="true">J</span>
+          <span class="donor-body"><span class="donor-name">Judy</span></span>
+        </li>
+      </ul>
+    </section>
+    <section class="donor-tier" data-tier="friend" aria-labelledby="donor-tier-friend">
+      <div class="donor-tier-head">
+        <h3 class="donor-tier-name" id="donor-tier-friend">Friend</h3>
+        <span class="donor-tier-note">under $100</span>
+        <span class="donor-tier-count">3 donors</span>
+      </div>
+      <ul class="donor-grid">
+        <li class="donor-card" data-tier="friend">
+          <span class="donor-mark" aria-hidden="true">HP</span>
+          <span class="donor-body"><span class="donor-name">Huy Pham</span></span>
+        </li>
+        <li class="donor-card" data-tier="friend">
+          <span class="donor-mark" aria-hidden="true">AD</span>
+          <span class="donor-body"><span class="donor-name">Andrea Drumm</span></span>
+        </li>
+        <li class="donor-card" data-tier="friend">
+          <span class="donor-mark" aria-hidden="true">NS</span>
+          <span class="donor-body"><span class="donor-name">Nickraj Singh</span></span>
+        </li>
+      </ul>
+    </section>
+      </div>
+    </div>
+    <div class="donor-wall-fallback" data-donor-fallback hidden>
+      <a class="donor-wall-graph" href="https://hcb.hackclub.com/rvhs-robotics-club" target="_blank" rel="noopener" aria-label="Donor graph for RVHS Robotics Club — open the public HCB ledger">
+        <span class="donor-wall-label">Live donor graph &middot; graph.hcb.hackclub.com</span>
+        <img src="https://graph.hcb.hackclub.com/rvhs-robotics-club" width="1152" height="88" alt="Donor wall for RVHS Robotics Club, live from Hack Club Bank" loading="lazy">
+      </a>
+    </div>
+    <div class="donor-levels">
+      <span class="donor-levels-label">Levels</span>
+      <span class="tag tag--dark">Friend &middot; under $100</span><span class="tag tag--dark">Supporter &middot; $100 and up</span><span class="tag tag--dark">Partner &middot; $250 and up</span><span class="tag tag--dark">Builder &middot; $500 and up</span><span class="tag tag--dark">Champion &middot; $1,000 and up</span>
+    </div>
+    <p class="donor-wall-note">Gifts under $100 are listed as Friends. Supporter ($100) and up get a logo on the wall: send us a file and it replaces the initials on the card.</p>
   </div>
 </section>
 
@@ -173,7 +229,7 @@
         <p class="kicker">Why sponsor</p>
         <h2 id="why">A small team<br>with a real budget.</h2>
         <p class="lead" style="margin-top:1.4rem">A combat robot is not free. Motors, speed controllers, batteries, filament, tools, and entry fees add up fast. Your support lets students build a robot, test it, break it, and fix it.</p>
-        <p>We're a second-year club with no sponsor wall yet. Local businesses and families can help us get the parts we need. You don't need to be a robotics company.</p>
+        <p>We're a second-year club, and the first names are already on the <a href="#donors">donor wall</a>. Local businesses and families can help us get the parts we need. You don't need to be a robotics company.</p>
         <div class="tag-row" style="margin-top:1.5rem">
           <span class="tag tag--accent">Local business</span>
           <span class="tag">In-kind welcome</span>
@@ -211,8 +267,8 @@
     <article class="tier reveal" style="--d:0ms">
       <div class="tier-name">Supporter</div>
       <div class="tier-price">$100<small>one-time</small></div>
-      <p>A straightforward way to help with parts.</p>
-      <ul><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Name on the team website</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Thank-you on Instagram</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Team sticker</span></li></ul>
+      <p>A straightforward way to help with parts. This is the level that puts a logo on the wall.</p>
+      <ul><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Name on the team website</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Logo on the team website</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Thank-you on Instagram</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Team sticker</span></li></ul>
       <a class="btn btn--dark btn--block" href="#donate-form" data-donate-amount="100" data-donate-tier="Supporter">Give $100</a>
     </article>
     
@@ -220,7 +276,7 @@
       <div class="tier-name">Partner</div>
       <div class="tier-price">$250<small>one-time</small></div>
       <p>For a local business that wants its name in front of the school.</p>
-      <ul><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Everything in Supporter</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Logo on the team website</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Logo on team shirts</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Invitation to a build night</span></li></ul>
+      <ul><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Everything in Supporter</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Logo on team shirts</span></li><li><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg><span>Invitation to a build night</span></li></ul>
       <a class="btn btn--dark btn--block" href="#donate-form" data-donate-amount="250" data-donate-tier="Partner">Give $250</a>
     </article>
     
@@ -271,7 +327,7 @@
         <tbody>
           <tr><th scope="row">Name on the team website</th><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
           <tr><th scope="row">Thank-you on Instagram</th><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
-          <tr><th scope="row">Logo on the team website</th><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row">Logo on the team website</th><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
           <tr><th scope="row">Logo on team shirts</th><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
           <tr><th scope="row">Logo on the robot</th><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
           <tr><th scope="row">Banner at events</th><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
@@ -376,6 +432,10 @@
         <p>Parts for the robot, shop supplies, tools that wear out, event entry fees, and travel. If you want your support to go toward something specific, tell us and we'll confirm it in writing.</p>
       </details>
       <details>
+        <summary>How does the donor wall work?</summary>
+        <p>The <a href="#donors">donor wall</a> reads our public Hack Club Bank ledger, so a new public gift appears there without anyone editing the site. Your name and level come from the donation. Levels follow total giving: Friend under $100, then Supporter at $100 (that level includes a logo on this page), Partner, Builder, and Champion. Anonymous gifts are listed as Anonymous. Send us a logo and we'll swap it in for your initials.</p>
+      </details>
+      <details>
         <summary>When is the deadline for logo placement?</summary>
         <p>Shirt and robot deadlines are set each season. Sponsor early to guarantee placement on both. Website and social recognition can be added year-round.</p>
       </details>
@@ -460,6 +520,7 @@
     </div>
   </div>
 </footer>
-<script src="js/site.js?v=20261115-1" defer></script>
+<script src="js/site.js?v=20261117-1" defer></script>
+<script src="js/donors.js?v=20261117-1" defer></script>
 </body>
 </html>

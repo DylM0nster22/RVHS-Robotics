@@ -43,7 +43,7 @@ BODY = f"""
         <p class="kicker">What we do</p>
         <h2 id="what">The whole build.</h2>
         <p class="lead" style="margin-top:1.4rem">Students handle the CAD, the 3D printing, the wiring, and the driving. We learn the tools as we need them, then fix what breaks.</p>
-        <p>This is our second year as a club. The robot is small, the shop is one room, and the chassis and armor were designed and printed by students.</p>
+        <p>This is our second year as a club. The first robots came together in 2026, and the chassis and armor on this one were designed and printed by students.</p>
         <a class="text-link" href="about.html">About the club {icon("arrow")}</a>
       </div>
       <figure class="feature-media reveal" style="--d:100ms; margin:0">

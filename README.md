@@ -18,7 +18,7 @@ build step required to host it.
 | `about.html` | Club story, student work, meeting details, FAQ |
 | `robots.html` | Current build, CAD and shop photos, build process, shop rules, next steps |
 | `cad.html` | Interactive 3D CAD viewer for the 3lb vertical spinner and the other public combat robots with STEP files |
-| `sponsors.html` | Donate online through Hack Club Bank, donor wall, why sponsor, parts costs, levels, benefits table, inquiry form, FAQ |
+| `sponsors.html` | Donate online through Hack Club Bank, live donor wall with names, logos, and levels, why sponsor, parts costs, levels, benefits table, inquiry form, FAQ |
 | `gallery.html` | All team photos and flyers from Instagram, with a keyboard-friendly lightbox |
 | `watch.html` | Match video archive: 11 fights from Impact Robotics League #1 2026, plus newer YouTube picks |
 | `join.html` | Student and parent/mentor info, meeting details, interest form, FAQ |
@@ -78,21 +78,128 @@ pre-filled. If the district prefers a hosted form service (Google Forms, Microso
 Forms, Formspree, etc.), replace the form `action`/JavaScript handler and update the
 "this opens your email app" notes.
 
+### Hosting on rvhsrobotics.com
+
+The site is plain static files, so it runs unchanged on Cloudflare Pages, GitHub
+Pages, or Netlify. Cloudflare Pages is the best fit if the goal is a public home
+that does not depend on the district web server:
+
+1. Push this folder to a GitHub repository.
+2. Cloudflare dashboard → Workers & Pages → Create → Pages → connect the repo.
+   Build command: `python3 tools/stage.py`. Build output directory: `dist`.
+   The staging script copies only the public pages and assets; `tools/`,
+   `source/`, and `.git` stay out of the deployment.
+3. Add `rvhsrobotics.com` as a custom domain and point the domain's nameservers at
+   Cloudflare or add the CNAME it gives you. `www.rvhsrobotics.com` can redirect to
+   the apex.
+4. Change `SITE_URL` in `tools/rvsite.py` to `https://rvhsrobotics.com`, then run
+   `python tools/build.py` so canonical links, Open Graph tags, the sitemap, and
+   the packet's URLs all match.
+
+To check the deployable folder locally, run `python tools/stage.py` and serve
+`dist/` with `python -m http.server 8080 --directory dist`.
+
+What Cloudflare does and does not fix:
+
+- **It does** give the site HTTPS, caching, and a public address that the district
+  filter does not control. A district-managed network or device can still block or
+  allow `rvhsrobotics.com` by category, so ask the site administrator to approve
+  and allowlist the domain before a launch.
+- **It does not** unblock Hack Club Bank. The donation iframe and the donor-wall
+  fetch both go to `hcb.hackclub.com`, and K-12 filters often put finance and
+  payment domains in a blocked category. The embedded form has a direct-link
+  fallback and the wall keeps its build-time snapshot when the live fetch fails,
+  so the page still works, but visitors on a school network may not be able to
+  donate. Card payments on a school device may also be against district policy;
+  treat the page as something families open at home.
+- A small Cloudflare Worker on your own domain can proxy
+  `GET /api/donations` to the HCB API and cache it, which keeps the wall current
+  even where the HCB API is blocked. The hosted donation form itself has to stay
+  on `hcb.hackclub.com`; do not try to proxy the card form.
+- Moving the site to a domain the district does not manage means the school's
+  approval rules still apply to student photos, sponsor logos, and the sponsor
+  packet. Get that approval before pointing the domain at it.
+
 ---
 
 ## Donations (Hack Club Bank)
 
 Online donations run through **Hack Club Bank (HCB)**, Hack Club's 501(c)(3) fiscal
-sponsor. `sponsors.html` embeds HCB's hosted donation form and shows the live donor
-graph. Both are served by HCB and update on their own.
+sponsor. `sponsors.html` embeds HCB's hosted donation form and builds the donor wall
+from HCB's public donations API. Both update on their own.
 
 - Donation form: <https://hcb.hackclub.com/donations/start/rvhs-robotics-club>
 - Public ledger: <https://hcb.hackclub.com/rvhs-robotics-club>
-- Donor graph: <https://graph.hcb.hackclub.com/rvhs-robotics-club>
+- Donations API: <https://hcb.hackclub.com/api/v3/organizations/rvhs-robotics-club/donations>
+- Donor graph (fallback image): <https://graph.hcb.hackclub.com/rvhs-robotics-club>
 
 The slug lives in `tools/rvsite.py` as `HCB_SLUG` and is shared by the page modules.
 If the HCB organization slug changes, update that one value, then run
 `python tools/build.py`.
+
+### Donor wall
+
+The wall groups every **public** gift by level and shows the donor's name next
+to their logo (or initials). Levels are based on total giving, so a monthly gift
+adds up over the season:
+
+| Level | Total given | On the wall |
+| --- | --- | --- |
+| Friend | under $100 | Name + initials |
+| Supporter | $100 and up | Name + logo |
+| Partner | $250 and up | Name + logo |
+| Builder | $500 and up | Name + logo |
+| Champion | $1,000 and up | Name + logo |
+
+`Friend` is the catch-all for anyone under $100; it only exists on the wall, not
+in the sponsorship packet. The $100 Supporter level includes the website logo,
+so a $100 donor can send a file for their card.
+
+The levels are generated from `TIERS` in `tools/pages/sponsors.py`, so changing a
+tier price changes the wall thresholds too. The level tags under the wall, the
+section headings, and the JavaScript refresh all read the same level data.
+
+Two renderers keep the wall current:
+
+- `tools/donors.py` fetches the donations API during `python tools/build.py` and
+  writes a snapshot into `sponsors.html`, so the names are in the HTML without
+  JavaScript. The response is cached in `tools/.cache/donors.json` and stands in
+  when the build machine is offline.
+- `js/donors.js` re-fetches the same API in the browser and replaces the snapshot.
+  A new gift appears on the next page load — no rebuild, no redeploy.
+
+If the live request fails (blocked network, CSP, HCB outage), the page keeps the
+build-time snapshot. The HCB donor graph image is shown only when the build had no
+donor data at all. Nothing needs to be updated by hand for a gift to appear.
+
+### Sponsor names and logos
+
+`assets/data/donors.json` maps an HCB donor name to what the site should show:
+
+```json
+{
+  "sponsors": {
+    "Acme Machine": {
+      "display": "Acme Machine Co.",
+      "logo": "assets/img/sponsors/acme-machine.png",
+      "url": "https://acme.example",
+      "tier": "Builder"
+    }
+  }
+}
+```
+
+- Keys match the donor name on the HCB ledger (case does not matter).
+- `display` renames the card; `url` links it; `logo` swaps the initials tile for
+  the sponsor's mark. The donor's name stays on the card in every case.
+- `tier` forces a level, which is useful for in-kind sponsors whose cash gifts do
+  not match the level they were promised.
+- `hide: true` removes a card.
+
+Put logo files in `assets/img/sponsors/` (see the README there). The logo is the
+$100 Supporter benefit, so add one for a Supporter or higher; donors without a
+file show their initials, so a gift never needs a file to appear. Anonymous gifts
+are grouped into a single "Anonymous" card.
 
 The form is an iframe with a fixed height (`930px`, `990px` at 460px wide and below)
 because HCB does not report its content height to the parent page. If HCB changes
@@ -101,10 +208,10 @@ direct link to the hosted donation page for browsers or networks that block
 third-party frames.
 
 If the school's web server sends a Content-Security-Policy, allow
-`frame-src https://hcb.hackclub.com` and `img-src https://graph.hcb.hackclub.com`
-or the form and donor graph will be blocked. The frame also loads Stripe and
-Cloudflare Turnstile for card processing and bot checks; HCB's page already
-permits them.
+`frame-src https://hcb.hackclub.com`, `connect-src https://hcb.hackclub.com`, and
+`img-src https://graph.hcb.hackclub.com` or the form, the live wall, and the graph
+fallback will be blocked. The frame also loads Stripe and Cloudflare Turnstile for
+card processing and bot checks; HCB's page already permits them.
 
 HCB does not support preselecting a donation amount in the URL, so the four sponsor
 level buttons jump to the form and show the amount to enter. Card data is handled by
@@ -126,16 +233,19 @@ before the site goes live.
    `tools/rvsite.py` if that changes.
 3. **Google Classroom.** The join page lists code **`gftqhxdh`** from the team's
    Instagram bio. Update if the class changes.
-4. **Second season / combat robotics.** The copy is based on the November 2026 post
-   ("2nd year of club robotics", `#combatrobotics`). Adjust the story and FAQ if the
-   program changes.
+4. **Second year / combat robotics.** The copy is based on the November 2026 post
+   ("2nd year of club robotics", `#combatrobotics`) plus the team's timeline: the
+   first meeting was September 22, 2025; the first robots were built in 2026. Adjust
+   the story, the About timeline, and the FAQ if the program changes.
 5. **Sponsorship levels and prices.** The four levels ($100 / $250 / $500 / $1,000)
    and benefits are realistic starting points, not confirmed numbers. Adjust them in
    `tools/pages/sponsors.py`, the packet, and the PDF before soliciting sponsors.
 6. **Parts costs.** The "What your money buys" list is a ballpark range for common
    parts and fees. Replace it with the team's actual quotes or budget when available.
-7. **Sponsor logos.** There is no partner wall until sponsors are confirmed. Add one
-   only after commitments are confirmed and the school/district approves the logos.
+7. **Sponsor logos.** The donor wall adds a card for every public gift
+   automatically. Logos are opt-in: put a file in `assets/img/sponsors/` and point to
+   it from `assets/data/donors.json`. Add a logo only after the sponsor confirms it
+   and the school/district approves it.
 8. **Instagram link.** The site links to <https://www.instagram.com/rv.robotics/>.
    Change `INSTAGRAM` in `tools/rvsite.py` if the handle changes.
 9. **Photos.** All photos and flyers are from the team's Instagram, including the
@@ -163,7 +273,7 @@ before the site goes live.
     `HCB_SLUG` in `tools/rvsite.py` and rebuild.
 
 The site intentionally does **not** invent student counts, mentor counts, awards, or
-competition results. The team facts shown (second season, Room 408, grades 9–12,
+competition results. The team facts shown (second year, Room 408, grades 9–12,
 no experience required) come from the team's Instagram. Sponsor prices and parts
 costs are editable planning figures, not confirmed numbers.
 
@@ -198,12 +308,14 @@ using their cache.
 ### Shared pieces
 
 - `tools/rvsite.py` — header, footer, navigation, contact details, icons, layout.
+- `tools/donors.py` — builds the donor wall snapshot from the HCB donations API.
 - `tools/pages/home.py`, `about.py`, `robots.py`, `sponsors.py`, `gallery.py`,
   `watch.py`, `join.py`, `contact.py`, `credits.py`, `accessibility.py`,
   `notfound.py`, `packet.py`.
 - `css/site.css` — all site styles and responsive breakpoints.
 - `js/site.js` — mobile navigation, reveal animations, lightbox, tier prefill,
   and mailto forms.
+- `js/donors.js` — refreshes the donor wall from Hack Club Bank on page load.
 
 ---
 
@@ -386,7 +498,11 @@ the relevant component. The statement page invites visitors to report barriers.
 - **Team name:** River Valley Robotics / RV Robotics.
 - **School:** River Valley High School, 801 El Margarita Rd., Yuba City, CA 95993.
 - **District:** Yuba City Unified School District.
-- **Program:** student combat robotics club (second season as of 2026–27).
+- **Program:** student combat robotics club. First meeting September 22, 2025;
+  first robots built in 2026; second year of the club as of 2026–27.
+- **Donor wall:** built from HCB's public donations API and grouped by level
+  (Friend under $100, then Supporter at $100 with a website logo, Partner,
+  Builder, Champion). Names and logos come from `assets/data/donors.json`.
 - **Meetings:** Thursdays and Fridays, Room 408 (source: team Instagram).
 - **Instagram:** [@rv.robotics](https://www.instagram.com/rv.robotics/).
 - **Google Classroom:** `gftqhxdh` (source: team Instagram bio).
