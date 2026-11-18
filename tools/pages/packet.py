@@ -337,7 +337,7 @@ HTML = """<!DOCTYPE html>
       <div class="big">Ready to sponsor? Let's talk.</div>
       <p>Email <a href="mailto:rvrobotics@ycusd.org">rvrobotics@ycusd.org</a> &nbsp;&middot;&nbsp; RVHS front office: <a href="tel:+15308222500">(530) 822-2500</a><br>
       River Valley High School, Attn: Robotics, 801 El Margarita Rd., Yuba City, CA 95993</p>
-      <p style="margin-top:4px"><a href="https://{{SITE}}/sponsors.html">{{SITE}}/sponsors</a></p>
+      <p style="margin-top:4px"><a href="https://{{SITE}}/sponsors">{{SITE}}/sponsors</a></p>
     </div>
 
     <div class="fine">

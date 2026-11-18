@@ -186,7 +186,7 @@ def footer():
 
 
 def layout(title, description, active, body, filename="index.html", body_class="", og_image="assets/img/og.jpg", extra_head="", robots="index, follow", extra_body=""):
-    canonical = SITE_URL + "/" + ("" if filename == "index.html" else filename)
+    canonical = SITE_URL + "/" + ("" if filename == "index.html" else filename[:-5])
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>

@@ -74,8 +74,11 @@ def build_packet():
 
 
 def build_sitemap():
+    def page_url(page):
+        return f"{SITE_URL}/" if page == "index.html" else f"{SITE_URL}/{page[:-5]}"
+
     urls = "\n".join(
-        f'  <url><loc>{SITE_URL}/{"" if page == "index.html" else page}</loc><priority>{priority}</priority></url>'
+        f'  <url><loc>{page_url(page)}</loc><priority>{priority}</priority></url>'
         for page, priority in SITEMAP_PAGES
     )
     sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
