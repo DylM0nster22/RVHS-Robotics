@@ -80,24 +80,41 @@ Forms, Formspree, etc.), replace the form `action`/JavaScript handler and update
 
 ### Hosting on rvhsrobotics.com
 
-The site is plain static files, so it runs unchanged on Cloudflare Pages, GitHub
-Pages, or Netlify. Cloudflare Pages is the best fit if the goal is a public home
-that does not depend on the district web server:
+The site runs on Cloudflare as a **Worker with static assets** (the Git-connected
+static app the dashboard creates). The deploy settings live in `wrangler.jsonc`
+so they travel with the repository:
 
-1. Push this folder to a GitHub repository.
-2. Cloudflare dashboard → Workers & Pages → Create → Pages → connect the repo.
-   Build command: `python3 tools/stage.py`. Build output directory: `dist`.
-   The staging script copies only the public pages and assets; `tools/`,
-   `source/`, and `.git` stay out of the deployment.
-3. Add `rvhsrobotics.com` as a custom domain and point the domain's nameservers at
-   Cloudflare or add the CNAME it gives you. `www.rvhsrobotics.com` can redirect to
-   the apex.
-4. Change `SITE_URL` in `tools/rvsite.py` to `https://rvhsrobotics.com`, then run
-   `python tools/build.py` so canonical links, Open Graph tags, the sitemap, and
-   the packet's URLs all match.
+| Setting | Value |
+| --- | --- |
+| Worker name | `rvhs-robotics` |
+| Production branch | `main` |
+| Build command | `python3 tools/stage.py` |
+| Deploy command | `npx wrangler deploy` (default) |
+| Assets directory | `./dist` |
+| Not-found page | `dist/404.html` |
+
+`wrangler.jsonc` is what keeps the deploy clean. Without it, Wrangler defaults to
+the repository root and publishes `tools/`, `source/`, `.openchamber/`, and the
+`dist/` copy along with the real pages.
+
+The domain has to be a Cloudflare zone before a Custom Domain can be attached:
+
+1. Cloudflare dashboard → Add a site → `rvhsrobotics.com` → Free plan.
+2. At Porkbun, replace the four `*.ns.porkbun.com` nameservers with the two
+   Cloudflare gives you. Keep the registrar and email settings; DNSSEC stays off.
+3. After the zone is active, delete the Porkbun parking records (apex A records to
+   `207.207.210.*`, `www` CNAME to `uixie.porkbun.com`). Keep MX and TXT.
+4. Worker → Settings → Domains & Routes → Add custom domain → `rvhsrobotics.com`.
+   Add `www.rvhsrobotics.com` too, then redirect www to the apex with a Redirect
+   Rule.
+5. Change `SITE_URL` in `tools/rvsite.py` to `https://rvhsrobotics.com`, run
+   `python tools/build.py`, regenerate the packet PDF, and push.
 
 To check the deployable folder locally, run `python tools/stage.py` and serve
 `dist/` with `python -m http.server 8080 --directory dist`.
+
+Once the custom domain works, set `workers_dev` and `preview_urls` to `false` in
+`wrangler.jsonc` if the `*.workers.dev` address should stop being public.
 
 What Cloudflare does and does not fix:
 

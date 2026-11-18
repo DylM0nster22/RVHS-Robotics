@@ -9,3 +9,10 @@ assets/models/.stats/
 
 # Static hosting staging output (python tools/stage.py)
 dist/
+
+# Wrangler / Cloudflare Workers build files
+.wrangler/
+.dev.vars
+
+# OpenChamber screenshots and session artifacts
+.openchamber/
