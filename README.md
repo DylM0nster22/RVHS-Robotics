@@ -102,8 +102,10 @@ The domain has to be a Cloudflare zone before a Custom Domain can be attached:
 1. Cloudflare dashboard → Add a site → `rvhsrobotics.com` → Free plan.
 2. At Porkbun, replace the four `*.ns.porkbun.com` nameservers with the two
    Cloudflare gives you. Keep the registrar and email settings; DNSSEC stays off.
-3. After the zone is active, delete the Porkbun parking records (apex A records to
-   `207.207.210.*`, `www` CNAME to `uixie.porkbun.com`). Keep MX and TXT.
+3. After the zone is active, delete the parking records: every apex A record to
+   `207.207.210.*` and the `*` CNAME to `uixie.porkbun.com` (some setups have a
+   `www` CNAME instead). Keep the MX records and the SPF TXT. The
+   `_acme-challenge` TXT records are Porkbun SSL leftovers and can go.
 4. Worker → Settings → Domains & Routes → Add custom domain → `rvhsrobotics.com`.
    Add `www.rvhsrobotics.com` too, then redirect www to the apex with a Redirect
    Rule.
