@@ -1,4 +1,4 @@
-﻿"""Printable sponsorship packet (also exported to PDF)."""
+"""Printable sponsorship packet (also exported to PDF)."""
 
 HTML = """<!DOCTYPE html>
 <html lang="en">
@@ -178,7 +178,7 @@ HTML = """<!DOCTYPE html>
 </head>
 <body>
 <div class="toolbar">
-  <a href="index.html">&larr; Back to rvrobotics.ycusd.org</a>
+  <a href="index.html">&larr; Back to {{SITE}}</a>
   <button type="button" onclick="window.print()">Print / Save as PDF</button>
 </div>
 <div class="pages">
@@ -241,7 +241,7 @@ HTML = """<!DOCTYPE html>
 
     <div class="foot">
       <div class="school"><img src="assets/img/rvhs-logo.png" alt=""><span>River Valley High School &middot; Home of the Falcons</span></div>
-      <span>rvrobotics.ycusd.org</span>
+      <span>{{SITE}}</span>
     </div>
   </article>
 
@@ -257,7 +257,7 @@ HTML = """<!DOCTYPE html>
       </div>
       <div class="p-head-right">
         2026&ndash;27<br>
-        rvrobotics.ycusd.org
+        {{SITE}}
       </div>
     </header>
 
@@ -337,7 +337,7 @@ HTML = """<!DOCTYPE html>
       <div class="big">Ready to sponsor? Let's talk.</div>
       <p>Email <a href="mailto:rvrobotics@ycusd.org">rvrobotics@ycusd.org</a> &nbsp;&middot;&nbsp; RVHS front office: <a href="tel:+15308222500">(530) 822-2500</a><br>
       River Valley High School, Attn: Robotics, 801 El Margarita Rd., Yuba City, CA 95993</p>
-      <p style="margin-top:4px"><a href="https://rvrobotics.ycusd.org/sponsors.html">rvrobotics.ycusd.org/sponsors</a></p>
+      <p style="margin-top:4px"><a href="https://{{SITE}}/sponsors.html">{{SITE}}/sponsors</a></p>
     </div>
 
     <div class="fine">

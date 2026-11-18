@@ -3,7 +3,8 @@
 The official website for **River Valley Robotics**, the student combat robotics club at
 River Valley High School in Yuba City, California.
 
-**Target address:** <https://rvrobotics.ycusd.org>
+**Live site:** <https://rvhsrobotics.com> (mirror at `rvrobotics.ycusd.org` if the
+district hosts one)
 
 The site is plain HTML, CSS, and JavaScript. There is no server-side code and no
 build step required to host it.
@@ -55,8 +56,10 @@ You can also open `index.html` directly, but a local server is closer to the rea
 
 ## Deploy
 
-Upload the **contents** of this folder to the web root for `rvrobotics.ycusd.org`,
-keeping the folder structure:
+The public site is `dist/`, produced by `python tools/stage.py`. Cloudflare serves
+that folder at `rvhsrobotics.com`. If the district also wants a copy at
+`rvrobotics.ycusd.org`, upload the same contents there, keeping the folder
+structure:
 
 ```
 *.html

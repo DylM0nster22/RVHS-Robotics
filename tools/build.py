@@ -64,10 +64,10 @@ def build_pages():
 
 def build_packet():
     packet = importlib.import_module("pages.packet")
-    # The packet hard-codes the public address in print copy; keep it on
-    # SITE_URL so a domain change only needs one edit in rvsite.py.
-    html = packet.HTML.replace("https://rvrobotics.ycusd.org", SITE_URL)
-    html = html.replace("rvrobotics.ycusd.org", SITE_URL.replace("https://", ""))
+    # The packet hard-codes the public address in print copy. The {{SITE}}
+    # token keeps it on SITE_URL so a domain change only needs one edit.
+    html = packet.HTML.replace("https://{{SITE}}", SITE_URL)
+    html = html.replace("{{SITE}}", SITE_URL.replace("https://", ""))
     output = ROOT / "sponsor-packet.html"
     output.write_text(html, encoding="utf-8")
     print("built sponsor-packet.html")
@@ -87,7 +87,18 @@ def build_sitemap():
     print("built sitemap.xml")
 
 
+def build_robots():
+    text = f"""User-agent: *
+Allow: /
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    (ROOT / "robots.txt").write_text(text, encoding="utf-8")
+    print("built robots.txt")
+
+
 if __name__ == "__main__":
     build_pages()
     build_packet()
     build_sitemap()
+    build_robots()

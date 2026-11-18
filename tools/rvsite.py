@@ -2,7 +2,7 @@
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_URL = "https://rvrobotics.ycusd.org"
+SITE_URL = "https://rvhsrobotics.com"
 ASSET_VERSION = "20261117-1"
 EMAIL = "rvrobotics@ycusd.org"
 INSTAGRAM = "https://www.instagram.com/rv.robotics/"

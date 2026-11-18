@@ -41,7 +41,7 @@ def _get_json(url, timeout=6):
     request = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "RV-Robotics-site/1.0 (+https://rvrobotics.ycusd.org/)",
+            "User-Agent": "RV-Robotics-site/1.0 (+https://rvhsrobotics.com/)",
             "Accept": "application/json",
         },
     )

@@ -109,7 +109,7 @@ def main():
     draw.text((62, 372), "RIVER VALLEY", font=ImageFont.truetype(font_bold, 54), fill=(255, 255, 255))
     draw.text((62, 420), "ROBOTICS", font=ImageFont.truetype(font_bold, 96), fill=green_light)
     draw.text((64, 536), "COMBAT ROBOTICS  /  YUBA CITY, CA", font=ImageFont.truetype(font_semi, 21), fill=silver)
-    draw.text((64, 566), "rvrobotics.ycusd.org", font=ImageFont.truetype(font_semi, 21), fill=(255, 255, 255))
+    draw.text((64, 566), "rvhsrobotics.com", font=ImageFont.truetype(font_semi, 21), fill=(255, 255, 255))
     og.save(IMG / "og.jpg", "JPEG", quality=88, optimize=True)
     print("wrote assets/img/og.jpg")
 
