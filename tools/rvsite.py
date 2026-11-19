@@ -4,7 +4,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SITE_URL = "https://rvhsrobotics.com"
 ASSET_VERSION = "20261117-1"
-EMAIL = "rvrobotics@ycusd.org"
+
+# Cloudflare Email Routing addresses on rvhsrobotics.com. They all reach the
+# team; use the one that matches the topic so mail lands in the right place.
+EMAIL = "contact@rvhsrobotics.com"
+EMAIL_INFO = "info@rvhsrobotics.com"
+EMAIL_TEAM = "team@rvhsrobotics.com"
+EMAIL_SPONSORS = "sponsors@rvhsrobotics.com"
+EMAIL_PARTNERSHIPS = "partnerships@rvhsrobotics.com"
+EMAIL_OUTREACH = "outreach@rvhsrobotics.com"
+EMAIL_PRESIDENT = "president@rvhsrobotics.com"
 INSTAGRAM = "https://www.instagram.com/rv.robotics/"
 INSTAGRAM_HANDLE = "@rv.robotics"
 YOUTUBE = "https://www.youtube.com/@BadPlants1"

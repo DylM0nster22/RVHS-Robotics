@@ -3,8 +3,7 @@
 The official website for **River Valley Robotics**, the student combat robotics club at
 River Valley High School in Yuba City, California.
 
-**Live site:** <https://rvhsrobotics.com> (mirror at `rvrobotics.ycusd.org` if the
-district hosts one)
+**Live site:** <https://rvhsrobotics.com>
 
 The site is plain HTML, CSS, and JavaScript. There is no server-side code and no
 build step required to host it.
@@ -57,8 +56,8 @@ You can also open `index.html` directly, but a local server is closer to the rea
 ## Deploy
 
 The public site is `dist/`, produced by `python tools/stage.py`. Cloudflare serves
-that folder at `rvhsrobotics.com`. If the district also wants a copy at
-`rvrobotics.ycusd.org`, upload the same contents there, keeping the folder
+that folder at `rvhsrobotics.com`. If the district also wants a copy on a
+school-hosted address, upload the same contents there, keeping the folder
 structure:
 
 ```
@@ -120,6 +119,28 @@ To check the deployable folder locally, run `python tools/stage.py` and serve
 
 Once the custom domain works, set `workers_dev` and `preview_urls` to `false` in
 `wrangler.jsonc` if the `*.workers.dev` address should stop being public.
+
+### Email
+
+Mail for `rvhsrobotics.com` runs through **Cloudflare Email Routing** (dashboard →
+`rvhsrobotics.com` → Email → Email Routing). Every custom address below forwards to
+the team's real inbox; verify the destination mailbox in Cloudflare before relying
+on it. Cloudflare's Email Routing records (MX and SPF) must stay in the zone.
+
+| Address | Used for | Where it appears |
+| --- | --- | --- |
+| `contact@rvhsrobotics.com` | General contact | Footer, contact page, contact form, structured data |
+| `info@rvhsrobotics.com` | General questions about the club | Contact page directory |
+| `team@rvhsrobotics.com` | Students, parents, join form | Join page |
+| `sponsors@rvhsrobotics.com` | Sponsorship, levels, checks and transfers | Sponsors page, sponsor packet |
+| `partnerships@rvhsrobotics.com` | Business and in-kind partnerships | Sponsors page |
+| `outreach@rvhsrobotics.com` | Demos, events, media, photos, volunteering | Contact, join, and credits pages |
+| `president@rvhsrobotics.com` | Club president | Contact page directory |
+
+The addresses are defined once in `tools/rvsite.py` (`EMAIL`, `EMAIL_TEAM`,
+`EMAIL_SPONSORS`, and the rest). Edit them there and rebuild. The printable packet
+hard-codes `sponsors@rvhsrobotics.com` because `tools/pages/packet.py` is a
+standalone document.
 
 What Cloudflare does and does not fix:
 
@@ -247,9 +268,11 @@ still go through the sponsor inquiry form.
 These details came from the team's Instagram or are sensible defaults. Confirm them
 before the site goes live.
 
-1. **Email address.** The site uses `rvrobotics@ycusd.org`. Confirm that address
-   exists (or replace it) in `tools/rvsite.py` and in the sponsor packet. It appears
-   in the footer, contact page, forms, packet, and structured data.
+1. **Email address.** The site uses the `@rvhsrobotics.com` aliases set up in
+   Cloudflare Email Routing and defined in `tools/rvsite.py`. Confirm each address
+   accepts mail and that the forwarding destination is verified. Addresses appear in
+   the footer, contact page, forms, packet, and structured data; the packet has its
+   own copy of `sponsors@rvhsrobotics.com`.
 2. **Meeting details.** The site says **Thursdays and Fridays, Room 408**, based on
    the team's November 2026 Instagram update. Change `MEETINGS` and `ROOM` in
    `tools/rvsite.py` if that changes.

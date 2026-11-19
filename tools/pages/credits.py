@@ -1,5 +1,5 @@
 ﻿"""Credits / licensing page."""
-from rvsite import page_hero, INSTAGRAM, INSTAGRAM_HANDLE, YOUTUBE, YOUTUBE_HANDLE
+from rvsite import page_hero, EMAIL_OUTREACH, INSTAGRAM, INSTAGRAM_HANDLE, YOUTUBE, YOUTUBE_HANDLE
 
 TITLE = "Credits | River Valley Robotics"
 DESCRIPTION = "Photography, CAD model, illustration, font, and software credits for the River Valley Robotics website."
@@ -18,7 +18,7 @@ BODY = f"""
       </div>
       <div class="page-hero-aside">
         <strong>Team archive</strong>
-        <p>Send new photos to <a href="mailto:rvrobotics@ycusd.org" style="color:var(--accent)">rvrobotics@ycusd.org</a> or tag us on Instagram.</p>
+        <p>Send new photos to <a href="mailto:{EMAIL_OUTREACH}" style="color:var(--accent)">{EMAIL_OUTREACH}</a> or tag us on Instagram.</p>
       </div>
     </div>
   </div>
@@ -111,7 +111,7 @@ BODY = f"""
 <section class="section section--white">
   <div class="container">
     <div class="callout callout--light">
-      Have new team photos? Send them to <a href="mailto:rvrobotics@ycusd.org">rvrobotics@ycusd.org</a>. We prefer wide, well-lit shots of students working, the robot in progress, and match day.
+      Have new team photos? Send them to <a href="mailto:{EMAIL_OUTREACH}">{EMAIL_OUTREACH}</a>. We prefer wide, well-lit shots of students working, the robot in progress, and match day.
     </div>
   </div>
 </section>

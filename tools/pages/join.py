@@ -1,5 +1,5 @@
 ﻿"""Join / get involved page."""
-from rvsite import icon, page_hero, EMAIL, ROOM, MEETINGS, CLASSROOM
+from rvsite import icon, page_hero, EMAIL_TEAM, EMAIL_OUTREACH, ROOM, MEETINGS, CLASSROOM
 
 TITLE = "Join the club | River Valley Robotics"
 DESCRIPTION = "Join River Valley Robotics, a student combat robotics club at River Valley High School. Meetings are Thursdays and Fridays in Room 408. No experience required."
@@ -56,14 +56,14 @@ BODY = f"""
         <p class="kicker">Parents &amp; mentors</p>
         <h2 id="mentors-heading">We can use<br>your help.</h2>
         <p class="lead" style="margin-top:1.4rem">Driving students to events, supervising the shop, bringing food, or teaching a skill all help. Technical experience is nice, but reliability matters more.</p>
-        <p>If you're interested, email <a href="mailto:{EMAIL}">{EMAIL}</a> and tell us what you can help with. District volunteer requirements apply for regular volunteers.</p>
+        <p>If you're interested, email <a href="mailto:{EMAIL_OUTREACH}">{EMAIL_OUTREACH}</a> and tell us what you can help with. District volunteer requirements apply for regular volunteers.</p>
       </div>
       <div class="reveal" style="--d:100ms">
         <div class="callout callout--light">
           You don't have to be a robotics expert. You just have to show up and treat students with respect.
         </div>
         <div style="margin-top:1.5rem">
-          <a class="btn btn--outline" href="mailto:{EMAIL}?subject=Volunteering%20with%20River%20Valley%20Robotics">Email about volunteering {icon("mail", "btn-arrow")}</a>
+          <a class="btn btn--outline" href="mailto:{EMAIL_OUTREACH}?subject=Volunteering%20with%20River%20Valley%20Robotics">Email about volunteering {icon("mail", "btn-arrow")}</a>
         </div>
       </div>
     </div>
@@ -80,12 +80,12 @@ BODY = f"""
         <div class="info-list" style="margin-top:1.75rem">
           <div class="info-row"><dt>Meetings</dt><dd>{MEETINGS} in {ROOM}</dd></div>
           <div class="info-row"><dt>Classroom</dt><dd>Google Classroom code <strong>{CLASSROOM}</strong></dd></div>
-          <div class="info-row"><dt>Email</dt><dd><a href="mailto:{EMAIL}">{EMAIL}</a></dd></div>
+          <div class="info-row"><dt>Email</dt><dd><a href="mailto:{EMAIL_TEAM}">{EMAIL_TEAM}</a></dd></div>
           <div class="info-row"><dt>Response</dt><dd>We're students, so please allow a couple of school days.</dd></div>
         </div>
       </div>
       <div class="reveal" style="--d:100ms">
-        <form class="form-card" data-mailto="{EMAIL}" data-subject="Join interest — River Valley Robotics">
+        <form class="form-card" data-mailto="{EMAIL_TEAM}" data-subject="Join interest — River Valley Robotics">
           <div class="form-grid">
             <div class="field field--full">
               <label for="join-name">Your name</label>
@@ -128,7 +128,7 @@ BODY = f"""
             </div>
           </div>
           <div class="form-foot">
-            <p class="form-note">This form opens your email app with the details filled in. Prefer to write directly? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+            <p class="form-note">This form opens your email app with the details filled in. Prefer to write directly? Email <a href="mailto:{EMAIL_TEAM}">{EMAIL_TEAM}</a>.</p>
             <button class="btn btn--dark" type="submit">Send interest {icon("arrow", "btn-arrow")}</button>
           </div>
           <p class="small" data-form-status hidden style="margin-top:1rem;color:var(--green)"></p>

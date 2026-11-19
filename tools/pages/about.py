@@ -1,5 +1,5 @@
 ﻿"""About page."""
-from rvsite import icon, page_hero, cta_band, INSTAGRAM, INSTAGRAM_HANDLE, ROOM, MEETINGS, CLASSROOM
+from rvsite import icon, page_hero, cta_band, EMAIL, INSTAGRAM, INSTAGRAM_HANDLE, ROOM, MEETINGS, CLASSROOM
 
 TITLE = "About the club | River Valley Robotics"
 DESCRIPTION = "River Valley Robotics is a student club at River Valley High School in Yuba City, California. Learn how the club started, what students do, and when we meet."
@@ -130,7 +130,7 @@ BODY = f"""
         <h2 id="faq">Good to know.</h2>
       </div>
       <div class="head-copy">
-        <p class="lead">Still curious? Email <a href="mailto:rvrobotics@ycusd.org">rvrobotics@ycusd.org</a> or come find us in {ROOM}.</p>
+        <p class="lead">Still curious? Email <a href="mailto:{EMAIL}">{EMAIL}</a> or come find us in {ROOM}.</p>
       </div>
     </div>
     <div class="faq">

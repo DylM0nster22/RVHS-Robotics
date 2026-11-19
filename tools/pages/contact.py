@@ -1,5 +1,7 @@
 ﻿"""Contact page."""
-from rvsite import icon, page_hero, EMAIL, PHONE, INSTAGRAM, INSTAGRAM_HANDLE, ADDRESS_1, ADDRESS_2, ROOM, MEETINGS, CLASSROOM
+from rvsite import (icon, page_hero, EMAIL, EMAIL_INFO, EMAIL_TEAM, EMAIL_SPONSORS,
+                    EMAIL_PARTNERSHIPS, EMAIL_OUTREACH, EMAIL_PRESIDENT,
+                    PHONE, INSTAGRAM, INSTAGRAM_HANDLE, ADDRESS_1, ADDRESS_2, ROOM, MEETINGS, CLASSROOM)
 
 TITLE = "Contact | River Valley Robotics"
 DESCRIPTION = "Contact River Valley Robotics at River Valley High School in Yuba City, California. Reach the team about sponsorship, joining, mentoring, or media."
@@ -39,6 +41,23 @@ BODY = f"""
         <p><a class="text-link" href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE} {icon("external")}</a></p>
       </article>
     </div>
+    <div class="heading-row" style="margin-top:clamp(2.75rem, 5vw, 4.5rem)">
+      <div>
+        <p class="kicker">Direct addresses</p>
+        <h2>Who to email.</h2>
+      </div>
+      <p class="mono-label">Every address ends in @rvhsrobotics.com</p>
+    </div>
+    <div class="info-list" style="max-width:54rem">
+      <div class="info-row"><dt>General</dt><dd><a href="mailto:{EMAIL}">{EMAIL}</a> &mdash; anything that does not fit a category below.</dd></div>
+      <div class="info-row"><dt>Information</dt><dd><a href="mailto:{EMAIL_INFO}">{EMAIL_INFO}</a> &mdash; basic questions about the club, our meetings, and what we build.</dd></div>
+      <div class="info-row"><dt>Team &amp; parents</dt><dd><a href="mailto:{EMAIL_TEAM}">{EMAIL_TEAM}</a> &mdash; students who want to join, parents with scheduling questions, and current members.</dd></div>
+      <div class="info-row"><dt>Sponsorship</dt><dd><a href="mailto:{EMAIL_SPONSORS}">{EMAIL_SPONSORS}</a> &mdash; levels, the sponsor packet, check or transfer gifts, and logo files.</dd></div>
+      <div class="info-row"><dt>Partnerships</dt><dd><a href="mailto:{EMAIL_PARTNERSHIPS}">{EMAIL_PARTNERSHIPS}</a> &mdash; businesses, in-kind donations, robot demos, and longer-term partnerships.</dd></div>
+      <div class="info-row"><dt>Outreach &amp; media</dt><dd><a href="mailto:{EMAIL_OUTREACH}">{EMAIL_OUTREACH}</a> &mdash; event invitations, photos, interviews, and press requests.</dd></div>
+      <div class="info-row"><dt>Club president</dt><dd><a href="mailto:{EMAIL_PRESIDENT}">{EMAIL_PRESIDENT}</a> &mdash; student leadership and anything that needs the president directly.</dd></div>
+    </div>
+    <p class="small muted" style="max-width:54rem;margin-top:1.25rem">Not sure which one to use? Send it to <a href="mailto:{EMAIL}">{EMAIL}</a>. It reaches the whole team, so a message never gets lost in the wrong inbox.</p>
   </div>
 </section>
 
@@ -53,7 +72,7 @@ BODY = f"""
           <div class="info-row"><dt>Sponsors</dt><dd><a href="sponsors.html">Levels, benefits, and the packet</a></dd></div>
           <div class="info-row"><dt>Students</dt><dd><a href="join.html#students">How to join the club</a></dd></div>
           <div class="info-row"><dt>Mentors</dt><dd><a href="join.html#mentors">Ways to help</a></dd></div>
-          <div class="info-row"><dt>Media</dt><dd>Photos, logos, and interview requests &mdash; email us</dd></div>
+          <div class="info-row"><dt>Media</dt><dd>Photos, logos, and interview requests &mdash; <a href="mailto:{EMAIL_OUTREACH}">{EMAIL_OUTREACH}</a></dd></div>
         </div>
       </div>
       <div class="reveal" style="--d:100ms">

@@ -5,7 +5,8 @@ from rvsite import (
     icon,
     page_hero,
     ASSET_VERSION,
-    EMAIL,
+    EMAIL_SPONSORS,
+    EMAIL_PARTNERSHIPS,
     PHONE,
     INSTAGRAM,
     INSTAGRAM_HANDLE,
@@ -177,7 +178,7 @@ DONATE_SECTION = f"""
         </div>
         <div class="donate-other">
           <h3>Prefer not to use a card?</h3>
-          <p>Email <a href="mailto:{EMAIL}">{EMAIL}</a> for a check, transfer, or in-kind gift. Businesses can <a href="#tiers">pick a sponsorship level</a> for logo placement.</p>
+          <p>Email <a href="mailto:{EMAIL_SPONSORS}">{EMAIL_SPONSORS}</a> for a check or transfer, or <a href="mailto:{EMAIL_PARTNERSHIPS}">{EMAIL_PARTNERSHIPS}</a> for an in-kind gift or a larger partnership. Either way, <a href="#tiers">pick a sponsorship level</a> for logo placement.</p>
         </div>
       </div>
       <div class="reveal donate-panel" id="donate-form" style="--d:100ms">
@@ -327,7 +328,8 @@ BODY = f"""
         <h2 id="inquiry">Tell us what<br>you'd like to support.</h2>
         <p class="lead" style="margin-top:1.4rem">Send a note and we'll follow up with the packet, a budget, and next steps. If you're not sure about a level, choose &ldquo;Not sure yet.&rdquo;</p>
         <div class="info-list" style="margin-top:1.75rem">
-          <div class="info-row"><dt>Email</dt><dd><a href="mailto:{EMAIL}">{EMAIL}</a></dd></div>
+          <div class="info-row"><dt>Email</dt><dd><a href="mailto:{EMAIL_SPONSORS}">{EMAIL_SPONSORS}</a></dd></div>
+          <div class="info-row"><dt>Partnerships</dt><dd><a href="mailto:{EMAIL_PARTNERSHIPS}">{EMAIL_PARTNERSHIPS}</a></dd></div>
           <div class="info-row"><dt>Phone</dt><dd><a href="tel:+15308222500">{PHONE}</a> &mdash; RVHS front office</dd></div>
           <div class="info-row"><dt>Instagram</dt><dd><a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a></dd></div>
           <div class="info-row"><dt>Mail</dt><dd>River Valley High School<br>Attn: Robotics<br>801 El Margarita Rd.<br>Yuba City, CA 95993</dd></div>
@@ -337,7 +339,7 @@ BODY = f"""
         </div>
       </div>
       <div class="reveal" style="--d:100ms">
-        <form class="form-card" data-mailto="{EMAIL}" data-subject="Sponsorship inquiry — River Valley Robotics">
+        <form class="form-card" data-mailto="{EMAIL_SPONSORS}" data-subject="Sponsorship inquiry — River Valley Robotics">
           <div class="form-grid">
             <div class="field field--full">
               <label for="company">Business or organization</label>
@@ -372,7 +374,7 @@ BODY = f"""
             </div>
           </div>
           <div class="form-foot">
-            <p class="form-note">This form opens your email app with the details filled in. Prefer to write directly? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+            <p class="form-note">This form opens your email app with the details filled in. Prefer to write directly? Email <a href="mailto:{EMAIL_SPONSORS}">{EMAIL_SPONSORS}</a>.</p>
             <button class="btn btn--dark" type="submit">Send inquiry {icon("arrow", "btn-arrow")}</button>
           </div>
           <p class="small" data-form-status hidden style="margin-top:1rem;color:var(--green)"></p>
@@ -432,7 +434,7 @@ BODY = f"""
       </div>
       <div class="sponsor-cta-actions">
         <a class="btn btn--primary" href="assets/RVRobotics-Sponsorship-Packet.pdf">Download the packet {icon("download", "btn-arrow")}</a>
-        <a class="btn btn--ghost" href="mailto:{EMAIL}">Email us</a>
+        <a class="btn btn--ghost" href="mailto:{EMAIL_SPONSORS}">Email us</a>
       </div>
     </div>
   </div>
