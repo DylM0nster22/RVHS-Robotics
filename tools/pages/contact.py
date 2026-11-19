@@ -1,7 +1,7 @@
 ﻿"""Contact page."""
 from rvsite import (icon, page_hero, EMAIL, EMAIL_INFO, EMAIL_TEAM, EMAIL_SPONSORS,
                     EMAIL_PARTNERSHIPS, EMAIL_OUTREACH, EMAIL_PRESIDENT,
-                    PHONE, INSTAGRAM, INSTAGRAM_HANDLE, ADDRESS_1, ADDRESS_2, ROOM, MEETINGS, CLASSROOM)
+                    PHONE, PHONE_TEL, INSTAGRAM, INSTAGRAM_HANDLE, ADDRESS_1, ADDRESS_2, ROOM, MEETINGS, CLASSROOM)
 
 TITLE = "Contact | River Valley Robotics"
 DESCRIPTION = "Contact River Valley Robotics at River Valley High School in Yuba City, California. Reach the team about sponsorship, joining, mentoring, or media."
@@ -14,7 +14,7 @@ BODY = f"""
     "Say hello.",
     "Questions about joining, sponsoring, or visiting the shop? Email is the best way to reach us.",
     "Response time",
-    "We're students, so please allow a couple of school days for a reply. For school questions, call the RVHS front office.",
+    "We're students, so please allow a couple of school days for a reply. For school business, contact the RVHS front office directly.",
     "Contact",
 )}
 
@@ -30,7 +30,7 @@ BODY = f"""
       <article class="card reveal" style="--d:70ms">
         <div class="card-icon">{icon("phone")}</div>
         <h3>Call or visit</h3>
-        <p>River Valley High School front office:<br><a href="tel:+15308222500">{PHONE}</a></p>
+        <p>Call or text the team:<br><a href="{PHONE_TEL}">{PHONE}</a></p>
         <p>{ADDRESS_1}<br>{ADDRESS_2}</p>
         <p class="small muted">We meet {MEETINGS} in {ROOM}.</p>
       </article>

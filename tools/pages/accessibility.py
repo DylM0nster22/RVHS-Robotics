@@ -1,12 +1,12 @@
 ﻿"""Accessibility statement page."""
-from rvsite import icon, page_hero, EMAIL, DONATE_URL
+from rvsite import icon, page_hero, EMAIL, PHONE, DONATE_URL
 
 TITLE = "Accessibility | River Valley Robotics"
 DESCRIPTION = "River Valley Robotics is committed to making this website usable for everyone. Read our accessibility statement and how to request help."
 ACTIVE = ""
 FILENAME = "accessibility.html"
 
-ACCESS_LINK = f'Email <a href="mailto:{EMAIL}" style="color:var(--accent)">{EMAIL}</a> or call the RVHS front office at (530) 822-2500.'
+ACCESS_LINK = f'Email <a href="mailto:{EMAIL}" style="color:var(--accent)">{EMAIL}</a> or call or text the team at {PHONE}.'
 
 BODY = f"""
 {page_hero(

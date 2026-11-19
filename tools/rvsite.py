@@ -18,7 +18,8 @@ INSTAGRAM = "https://www.instagram.com/rv.robotics/"
 INSTAGRAM_HANDLE = "@rv.robotics"
 YOUTUBE = "https://www.youtube.com/@BadPlants1"
 YOUTUBE_HANDLE = "@BadPlants1"
-PHONE = "(530) 822-2500"
+PHONE = "(530) 713-2025"
+PHONE_TEL = "tel:+15307132025"
 ROOM = "Room 408"
 MEETINGS = "Thursdays &amp; Fridays"
 CLASSROOM = "gftqhxdh"
@@ -174,7 +175,7 @@ def footer():
         <address>
           {ADDRESS_1}<br>
           {ADDRESS_2}<br>
-          <a href="tel:+15308222500">{PHONE}</a><br>
+          <a href="{PHONE_TEL}">{PHONE}</a><br>
           <a href="mailto:{EMAIL}">{EMAIL}</a>
         </address>
       </div>

@@ -8,6 +8,7 @@ from rvsite import (
     EMAIL_SPONSORS,
     EMAIL_PARTNERSHIPS,
     PHONE,
+    PHONE_TEL,
     INSTAGRAM,
     INSTAGRAM_HANDLE,
     HCB_SLUG,
@@ -330,7 +331,7 @@ BODY = f"""
         <div class="info-list" style="margin-top:1.75rem">
           <div class="info-row"><dt>Email</dt><dd><a href="mailto:{EMAIL_SPONSORS}">{EMAIL_SPONSORS}</a></dd></div>
           <div class="info-row"><dt>Partnerships</dt><dd><a href="mailto:{EMAIL_PARTNERSHIPS}">{EMAIL_PARTNERSHIPS}</a></dd></div>
-          <div class="info-row"><dt>Phone</dt><dd><a href="tel:+15308222500">{PHONE}</a> &mdash; RVHS front office</dd></div>
+          <div class="info-row"><dt>Phone</dt><dd><a href="{PHONE_TEL}">{PHONE}</a> &mdash; call or text</dd></div>
           <div class="info-row"><dt>Instagram</dt><dd><a href="{INSTAGRAM}" target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a></dd></div>
           <div class="info-row"><dt>Mail</dt><dd>River Valley High School<br>Attn: Robotics<br>801 El Margarita Rd.<br>Yuba City, CA 95993</dd></div>
         </div>
